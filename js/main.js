@@ -1,22 +1,211 @@
-// Portfolio JavaScript - Interactividad completa
+// Portfolio JavaScript - Versión Final Definitiva
+// Solución: Lógica de animación global y recálculo tras carga de datos
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicialización de todas las funcionalidades
+    // Inicialización de funcionalidades
     initNavigation();
     initProjectFilter();
-    initScrollReveal();
     initContactForm();
     initTypingEffect();
     initSmoothScroll();
     initMobileMenu();
+    initScrollIndicator();
+    initFloatingButtons();
+    
+    // Configurar animaciones y cargar contenido
+    setupScrollReveal(); // Configura el listener del scroll
+    loadAboutContent();  // Carga el JSON
 });
 
-// Navegación y menú móvil
+// Control de botones flotantes (Corregido)
+function initFloatingButtons() {
+    const floatingButtons = document.querySelector('.floating-buttons');
+    // Buscamos específicamente la sección 'Sobre mí' para no taparla
+    const aboutSection = document.getElementById('about'); 
+    
+    // Si no existen los elementos, no hacemos nada para evitar errores
+    if (!floatingButtons || !aboutSection) return;
+
+    function updateFloatingButtons() {
+        // Calculamos dónde termina visualmente la sección 'Sobre mí'
+        const aboutSectionBottom = aboutSection.offsetTop + aboutSection.offsetHeight;
+        
+        // Solo mostramos los botones SI hemos bajado más allá de la sección 'Sobre mí'
+        // (Le damos un margen de -100px para que aparezcan suavemente justo al final)
+        if (window.scrollY > (aboutSectionBottom - 100)) {
+            floatingButtons.classList.add('visible');
+            document.body.classList.add('floating-buttons-visible');
+        } else {
+            floatingButtons.classList.remove('visible');
+            document.body.classList.remove('floating-buttons-visible');
+        }
+    }
+
+    // Actualizar al hacer scroll
+    window.addEventListener('scroll', updateFloatingButtons, { passive: true });
+    
+    // Comprobación inicial
+    updateFloatingButtons();
+}
+
+// --- LÓGICA DE ANIMACIÓN (GLOBAL) ---
+
+// Esta función ahora es independiente para poder llamarla cuando queramos
+function checkScrollAnimation() {
+    // Seleccionamos todo lo que tenga clase 'reveal'
+    const revealElements = document.querySelectorAll('.reveal');
+    const windowHeight = window.innerHeight;
+    const elementVisible = 50; // Umbral bajo para que aparezcan fácil
+
+    revealElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        
+        // Si el elemento entra en pantalla, le ponemos la clase active
+        if (elementTop < windowHeight - elementVisible) {
+            element.classList.add('active');
+            element.style.opacity = '1';       // Fuerza visual
+            element.style.transform = 'translateY(0)'; // Fuerza posición
+        }
+    });
+}
+
+function setupScrollReveal() {
+    // Agregar clase reveal a los elementos que queremos animar al inicio
+    const elementsToReveal = document.querySelectorAll(
+        '.about-content, .project-card, .skill-category, .contact-content'
+    );
+    
+    elementsToReveal.forEach(el => el.classList.add('reveal'));
+
+    // Escuchar el scroll para animar
+    window.addEventListener('scroll', checkScrollAnimation);
+    
+    // Ejecutar una vez al inicio
+    checkScrollAnimation();
+}
+
+
+// --- CARGA DE CONTENIDO ---
+
+async function loadAboutContent() {
+    const aboutText = document.querySelector('.about-text');
+    if (!aboutText) return;
+    
+    try {
+        const timestamp = new Date().getTime();
+        const response = await fetch(`content/about.json?v=${timestamp}`);
+        
+        if (!response.ok) throw new Error('Error de conexión');
+        
+        const aboutData = await response.json();
+        renderAboutContent(aboutData);
+
+    } catch (error) {
+        console.error('Error:', error);
+        aboutText.innerHTML = `<p>Error cargando contenido. Recarga la página.</p>`;
+        aboutText.style.opacity = '1';
+    }
+}
+
+function renderAboutContent(data) {
+    const aboutText = document.querySelector('.about-text');
+    if (!aboutText || !data) return;
+
+    // 1. Generar HTML
+    let htmlContent = `
+        <h3>Especialista en Automatización y Desarrollo</h3>
+        <p>${data.shortVersion || ''}</p>
+    `;
+
+    if (data.professionalVersion && Array.isArray(data.professionalVersion)) {
+        htmlContent += `
+            <button id="showFullAbout" class="btn btn-secondary" style="margin: 1rem 0;">
+                Leer más sobre mí
+            </button>
+            <div id="fullAboutContent" style="display: none; margin-top: 1.5rem;">
+                ${renderProfessionalVersion(data.professionalVersion)}
+            </div>
+        `;
+    }
+
+    // 2. Inyectar HTML
+    aboutText.innerHTML = htmlContent;
+
+    // 3. CORRECCIÓN CRÍTICA DE VISIBILIDAD
+    // Desbloqueamos el contenedor padre inmediato
+    const parentContainer = aboutText.closest('.about-content');
+    if (parentContainer) {
+        parentContainer.classList.add('active');
+        parentContainer.style.opacity = '1';
+        parentContainer.style.transform = 'none';
+    }
+    aboutText.style.opacity = '1';
+
+    // 4. Lógica del botón "Leer más"
+    const btnLeerMas = document.getElementById('showFullAbout');
+    if (btnLeerMas) {
+        btnLeerMas.addEventListener('click', function() {
+            const fullContent = document.getElementById('fullAboutContent');
+            const isHidden = fullContent.style.display === 'none';
+            
+            fullContent.style.display = isHidden ? 'block' : 'none';
+            this.textContent = isHidden ? 'Mostrar menos' : 'Leer más sobre mí';
+            
+            if (isHidden) {
+                fullContent.style.opacity = 0;
+                setTimeout(() => {
+                    fullContent.style.transition = 'opacity 0.5s';
+                    fullContent.style.opacity = 1;
+                    // Al abrir el texto, recalculamos animaciones de nuevo
+                    checkScrollAnimation();
+                }, 50);
+            }
+        });
+    }
+
+    // 5. SOLUCIÓN FINAL A TU PROBLEMA
+    // Forzamos la comprobación de animaciones tras inyectar el HTML nuevo.
+    // Esto hace que el código se de cuenta de dónde están ahora los Proyectos.
+    setTimeout(() => {
+        checkScrollAnimation(); 
+    }, 100);
+}
+
+function renderProfessionalVersion(professionalVersion) {
+    if (!Array.isArray(professionalVersion)) return '';
+    return professionalVersion.map(section => {
+        if (typeof section === 'string') return `<p>${section}</p>`;
+        if (section && typeof section === 'object' && Array.isArray(section.items)) {
+            return `<ul style="margin: 0.5rem 0 1rem 1.5rem; list-style-type: disc;">
+                ${section.items.map(item => `<li>${item}</li>`).join('')}
+            </ul>`;
+        }
+        return '';
+    }).join('');
+}
+
+
+// --- RESTO DE FUNCIONALIDADES ---
+
+function initScrollIndicator() {
+    const scrollIndicator = document.querySelector('.hero-scroll');
+    if (!scrollIndicator) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            scrollIndicator.style.opacity = '0';
+            scrollIndicator.style.pointerEvents = 'none';
+        } else {
+            scrollIndicator.style.opacity = '1';
+            scrollIndicator.style.pointerEvents = 'auto';
+        }
+    });
+}
+
 function initNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
     const header = document.querySelector('.header');
     
-    // Manejar clicks en navegación
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -24,23 +213,16 @@ function initNavigation() {
             const targetSection = document.getElementById(targetId);
             
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 70; // Ajustar por header fijo
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+                const offsetTop = targetSection.offsetTop - 70;
+                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
             }
             
-            // Actualizar link activo
             navLinks.forEach(l => l.classList.remove('active'));
             this.classList.add('active');
-            
-            // Cerrar menú móvil si está abierto
             closeMobileMenu();
         });
     });
     
-    // Cambiar estilo del header al hacer scroll
     window.addEventListener('scroll', function() {
         if (window.scrollY > 100) {
             header.style.background = 'rgba(10, 10, 15, 0.95)';
@@ -49,36 +231,10 @@ function initNavigation() {
             header.style.background = 'rgba(10, 10, 15, 0.8)';
             header.style.backdropFilter = 'blur(10px)';
         }
-        
-        // Actualizar sección activa en navegación
         updateActiveSection();
     });
 }
 
-// Menú móvil
-function initMobileMenu() {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-    }
-}
-
-function closeMobileMenu() {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (navToggle && navMenu) {
-        navToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-    }
-}
-
-// Actualizar sección activa en navegación
 function updateActiveSection() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -92,15 +248,12 @@ function updateActiveSection() {
         if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
+                if (link.getAttribute('href') === `#${sectionId}`) link.classList.add('active');
             });
         }
     });
 }
 
-// Filtrado de proyectos
 function initProjectFilter() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
@@ -109,11 +262,9 @@ function initProjectFilter() {
         button.addEventListener('click', function() {
             const filter = this.getAttribute('data-filter');
             
-            // Actualizar botón activo
             filterButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
             
-            // Filtrar proyectos con animación
             projectCards.forEach(card => {
                 const category = card.getAttribute('data-category');
                 
@@ -122,46 +273,39 @@ function initProjectFilter() {
                     setTimeout(() => {
                         card.style.opacity = '1';
                         card.style.transform = 'translateY(0)';
-                    }, 100);
+                    }, 50);
                 } else {
                     card.style.opacity = '0';
                     card.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
+                    setTimeout(() => card.style.display = 'none', 300);
                 }
             });
+            // Recalcular posiciones tras filtrar
+            setTimeout(checkScrollAnimation, 350);
         });
     });
 }
 
-// Scroll Reveal Animation
-function initScrollReveal() {
-    const revealElements = document.querySelectorAll('.reveal');
-    
-    function reveal() {
-        revealElements.forEach(element => {
-            const windowHeight = window.innerHeight;
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
-            
-            if (elementTop < windowHeight - elementVisible) {
-                element.classList.add('active');
-            }
+function initMobileMenu() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
         });
     }
-    
-    // Agregar clase reveal a elementos que deben animarse
-    const elementsToReveal = document.querySelectorAll(
-        '.about-content, .project-card, .skill-category, .contact-content'
-    );
-    elementsToReveal.forEach(el => el.classList.add('reveal'));
-    
-    window.addEventListener('scroll', reveal);
-    reveal(); // Llamar una vez al cargar
 }
 
-// Efecto de escritura para el subtítulo del hero
+function closeMobileMenu() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    if (navToggle && navMenu) {
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
+}
+
 function initTypingEffect() {
     const typingText = document.querySelector('.typing-text');
     if (!typingText) return;
@@ -171,238 +315,66 @@ function initTypingEffect() {
     typingText.style.borderRight = '2px solid #8b5cf6';
     
     let index = 0;
-    const typingSpeed = 100;
-    
     function type() {
         if (index < text.length) {
             typingText.textContent += text.charAt(index);
             index++;
-            setTimeout(type, typingSpeed);
+            setTimeout(type, 100);
         } else {
-            // Eliminar cursor al finalizar
-            setTimeout(() => {
-                typingText.style.borderRight = 'none';
-            }, 1000);
+            setTimeout(() => typingText.style.borderRight = 'none', 1000);
         }
     }
-    
-    // Iniciar después de un breve retraso
     setTimeout(type, 500);
 }
 
-// Smooth scroll para enlaces internos
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
-            
             if (targetElement) {
                 const offsetTop = targetElement.offsetTop - 70;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
             }
         });
     });
 }
 
-// Formulario de contacto
 function initContactForm() {
     const form = document.querySelector('.form');
     if (!form) return;
     
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        // Obtener datos del formulario
-        const formData = new FormData(form);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
-        
-        // Validación básica
-        if (!name || !email || !message) {
-            showNotification('Por favor completa todos los campos', 'error');
-            return;
-        }
-        
-        if (!isValidEmail(email)) {
-            showNotification('Por favor ingresa un email válido', 'error');
-            return;
-        }
-        
-        // Simular envío (en producción, aquí iría la llamada a la API)
-        const submitButton = form.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
-        
-        submitButton.textContent = 'Enviando...';
-        submitButton.disabled = true;
-        
+        // Simulación básica
+        const btn = form.querySelector('button');
+        const oldText = btn.textContent;
+        btn.textContent = 'Enviando...';
+        btn.disabled = true;
         setTimeout(() => {
-            showNotification('¡Mensaje enviado con éxito! Te responderé pronto.', 'success');
+            alert('Mensaje enviado (Simulación)');
             form.reset();
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-        }, 2000);
+            btn.textContent = oldText;
+            btn.disabled = false;
+        }, 1500);
     });
 }
 
-// Validación de email
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-// Sistema de notificaciones
-function showNotification(message, type = 'info') {
-    // Crear elemento de notificación
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.textContent = message;
-    
-    // Estilos para la notificación
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 16px 24px;
-        border-radius: 8px;
-        color: white;
-        font-weight: 500;
-        z-index: 10000;
-        transform: translateX(400px);
-        transition: transform 0.3s ease;
-        max-width: 350px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    `;
-    
-    // Colores según tipo
-    const colors = {
-        success: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-        error: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)',
-        info: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)'
-    };
-    
-    notification.style.background = colors[type] || colors.info;
-    
-    // Agregar al DOM
-    document.body.appendChild(notification);
-    
-    // Animar entrada
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Remover después de 4 segundos
-    setTimeout(() => {
-        notification.style.transform = 'translateX(400px)';
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.parentNode.removeChild(notification);
-            }
-        }, 300);
-    }, 4000);
-}
-
-// Animación de números para estadísticas
-function animateNumbers() {
-    const statNumbers = document.querySelectorAll('.stat-number');
-    
-    statNumbers.forEach(stat => {
-        const finalNumber = stat.textContent;
-        const hasPlus = finalNumber.includes('+');
-        const hasPercent = finalNumber.includes('%');
-        const cleanNumber = parseInt(finalNumber.replace(/\D/g, ''));
-        
-        if (isNaN(cleanNumber)) return;
-        
-        let currentNumber = 0;
-        const increment = cleanNumber / 50;
-        const timer = setInterval(() => {
-            currentNumber += increment;
-            if (currentNumber >= cleanNumber) {
-                currentNumber = cleanNumber;
-                clearInterval(timer);
-            }
-            
-            let displayNumber = Math.floor(currentNumber);
-            if (hasPlus) displayNumber += '+';
-            if (hasPercent) displayNumber += '%';
-            
-            stat.textContent = displayNumber;
-        }, 30);
-    });
-}
-
-// Iniciar animación de números cuando la sección sea visible
-const aboutObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateNumbers();
-            aboutObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-const aboutSection = document.querySelector('.about-stats');
-if (aboutSection) {
-    aboutObserver.observe(aboutSection);
-}
-
-// Parallax effect para hero section
-function initParallax() {
+// Preloader y Parallax
+window.addEventListener('scroll', () => {
     const hero = document.querySelector('.hero');
-    if (!hero) return;
-    
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallax = hero.style.transform;
-        
-        if (scrolled < window.innerHeight) {
-            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
-    });
-}
+    if (hero && window.scrollY < window.innerHeight) {
+        hero.style.transform = `translateY(${window.scrollY * 0.5}px)`;
+    }
+});
 
-// Inicializar parallax
-initParallax();
-
-// Optimización de rendimiento - Debounce
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Aplicar debounce a eventos de scroll
-window.addEventListener('scroll', debounce(() => {
-    // Operaciones pesadas que se ejecutan al hacer scroll
-}, 100));
-
-// Preloader (opcional)
-function hidePreloader() {
+window.addEventListener('load', () => {
     const preloader = document.querySelector('.preloader');
     if (preloader) {
         preloader.style.opacity = '0';
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 500);
+        setTimeout(() => preloader.style.display = 'none', 500);
     }
-}
+});
 
-// Ocultar preloader cuando la página esté completamente cargada
-window.addEventListener('load', hidePreloader);
-
-// Console message personalizado
-console.log('%c🚀 Portfolio de Gonzalo A.M.', 'color: #8b5cf6; font-size: 20px; font-weight: bold;');
-console.log('%cBienvenido a mi portfolio personal', 'color: #3b82f6; font-size: 14px;');
-console.log('%cDesarrollado con ❤️ usando HTML, CSS y JavaScript puro', 'color: #06b6d4; font-size: 12px;');
+console.log('%c🚀 Portfolio de Gonzalo A.M.', 'color: #8b5cf6; font-size: 16px;');

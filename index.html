@@ -62,48 +62,33 @@
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="about">
-            <div class="container">
-                <h2 class="section-title">Sobre mí</h2>
-                <div class="about-content">
-                    <div class="about-image">
-                        <div class="image-placeholder">
-                            <img src="assets/img/profile-placeholder.jpg" alt="Gonzalo A.M." class="profile-img">
-                            <div class="image-glow"></div>
-                        </div>
-                    </div>
-                    <div class="about-text">
-                        <h3>Especialista en Automatización y Desarrollo</h3>
-                        <p>
-                            Profesional apasionado por la automatización de procesos, la inteligencia artificial generativa 
-                            y el desarrollo de soluciones tecnológicas innovadoras. Con experiencia en la creación de 
-                            sistemas eficientes que combinan mantenimiento técnico, desarrollo web y las últimas tecnologías 
-                            de IA.
-                        </p>
-                        <p>
-                            Mi enfoque se centra en resolver problemas complejos mediante automatizaciones inteligentes, 
-                            optimizar flujos de trabajo y crear experiencias digitales excepcionales. Además, mantengo 
-                            un especial interés en la tecnología retro y el restauración de hardware clásico.
-                        </p>
-                        <div class="about-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">50+</span>
-                                <span class="stat-label">Proyectos Completados</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">5+</span>
-                                <span class="stat-label">Años de Experiencia</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">100%</span>
-                                <span class="stat-label">Dedicación</span>
-                            </div>
-                        </div>
-                    </div>
+<!-- About Section -->
+<section id="about" class="about">
+    <div class="container">
+        <h2 class="section-title">Sobre mí</h2>
+        
+        <div class="about-content">
+            <div class="about-image">
+                <div class="image-placeholder">
+                    <img src="assets/img/foto-perfil.png" alt="Gonzalo A.M." class="profile-img">
+                    <div class="image-glow"></div>
                 </div>
             </div>
-        </section>
+
+            <div class="about-text">
+                <!-- Spinner (mantenido por si usas carga dinámica) -->
+                <div class="loading-spinner" style="text-align: center; padding: 2rem;">
+                    <svg width="40" height="40" viewBox="0 0 50 50" style="animation: rotate 2s linear infinite;">
+                        <circle cx="25" cy="25" r="20" fill="none" stroke="#4a6cf7" stroke-width="4" stroke-dasharray="31.415, 31.415" stroke-linecap="round">
+                            <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="1.5s" repeatCount="indefinite"/>
+                        </circle>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
         <!-- Projects Section -->
         <section id="projects" class="projects">
@@ -398,6 +383,12 @@
             <p>&copy; 2025 Gonzalo A.M. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- Botones flotantes -->
+    <div class="floating-buttons">
+        <a href="#projects" class="btn btn-primary">Ver Proyectos</a>
+        <a href="#contact" class="btn btn-secondary">Contactar</a>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
