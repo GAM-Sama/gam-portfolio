@@ -1,0 +1,30 @@
+{
+  "shortVersion": "Desarrollador de automatizaciones e IA generativa, especializado en crear soluciones prácticas que reducen tiempo, esfuerzo y errores. Trabajo con n8n, OpenAI, flujos LLM, desarrollo web y proyectos reales como YugiDex, una app multiplataforma creada de principio a fin con IA. Me apasiona convertir problemas complejos en procesos simples, rápidos y escalables.",
+  "professionalVersion": [
+    "Soy un profesional del sector tecnológico especializado en IA generativa, automatización de procesos, integración de sistemas y desarrollo web/móvil. Mi enfoque se basa en resolver problemas reales a través de soluciones técnicas claras, eficientes y escalables.",
+    "Durante mi formación en el Máster de IA Generativa he desarrollado proyectos completos utilizando herramientas como n8n, Make, modelos LLM, OpenAI, Supabase, SQL, desarrollo web, y metodologías de prompting avanzado.",
+    "Mi proyecto principal, YugiDex, es un MVP funcional creado desde cero:",
+    {
+      "items": [
+        "App móvil y versión web",
+        "Flujos complejos en n8n para detección, análisis y almacenamiento de cartas",
+        "Automatizaciones para usuarios, estadísticas, thumbnails, verificación y más",
+        "Pipeline completo optimizado paso a paso"
+      ]
+    },
+    "Es un ejemplo real de cómo combinar IA + automatización + desarrollo para construir una solución completa.",
+    "También diseño automatizaciones para empresas, como:",
+    {
+      "items": [
+        "Extracción inteligente de datos desde PDFs",
+        "Archivado automático de correos",
+        "Sistemas que detectan errores, generan logs y reparan procesos",
+        "Pipelines de integración con APIs externas",
+        "Gestores de flujos internos para mantenimiento de datos"
+      ]
+    },
+    "Busco siempre un impacto directo: ahorrar horas de trabajo, reducir errores y simplificar tareas repetitivas.",
+    "Fuera del software, también me dedico al mantenimiento y reparación de hardware retro, como consolas, mandos, cartuchos y placas. Esta experiencia me aporta precisión, orden, metodología y visión técnica desde otro ángulo.",
+    "Mi objetivo profesional es seguir creciendo como especialista en automatización e IA, creando herramientas que resuelvan problemas diarios y aporten valor real a personas, empresas y desarrolladores."
+  ]
+}
