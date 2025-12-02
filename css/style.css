@@ -191,12 +191,48 @@
     51%, 100% { border-color: transparent; }
 }
 
+/* Botones en la sección hero */
 .hero-buttons {
     display: flex;
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 2;
 }
+
+/* Botones flotantes */
+.floating-buttons {
+    display: none; /* Oculto por defecto, se mostrará con JavaScript */
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px); /* Inicialmente fuera de pantalla */
+    z-index: 100; /* Menor que el header pero mayor que el contenido */
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    gap: 1rem;
+    background: rgba(18, 18, 18, 0.9);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Mostrar botones flotantes cuando sea necesario */
+.floating-buttons.visible {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Añadir margen inferior a las secciones cuando los botones están visibles */
+body.floating-buttons-visible section {
+    padding-bottom: 80px;
+}
+
 
 .hero-scroll {
     position: absolute;
