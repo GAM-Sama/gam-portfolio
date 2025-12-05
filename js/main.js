@@ -10,43 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
     initMobileMenu();
     initScrollIndicator();
-    initFloatingButtons();
     
     // Configurar animaciones y cargar contenido
     setupScrollReveal(); // Configura el listener del scroll
     loadAboutContent();  // Carga el JSON
 });
-
-// Control de botones flotantes (Corregido)
-function initFloatingButtons() {
-    const floatingButtons = document.querySelector('.floating-buttons');
-    // Buscamos específicamente la sección 'Sobre mí' para no taparla
-    const aboutSection = document.getElementById('about'); 
-    
-    // Si no existen los elementos, no hacemos nada para evitar errores
-    if (!floatingButtons || !aboutSection) return;
-
-    function updateFloatingButtons() {
-        // Calculamos dónde termina visualmente la sección 'Sobre mí'
-        const aboutSectionBottom = aboutSection.offsetTop + aboutSection.offsetHeight;
-        
-        // Solo mostramos los botones SI hemos bajado más allá de la sección 'Sobre mí'
-        // (Le damos un margen de -100px para que aparezcan suavemente justo al final)
-        if (window.scrollY > (aboutSectionBottom - 100)) {
-            floatingButtons.classList.add('visible');
-            document.body.classList.add('floating-buttons-visible');
-        } else {
-            floatingButtons.classList.remove('visible');
-            document.body.classList.remove('floating-buttons-visible');
-        }
-    }
-
-    // Actualizar al hacer scroll
-    window.addEventListener('scroll', updateFloatingButtons, { passive: true });
-    
-    // Comprobación inicial
-    updateFloatingButtons();
-}
 
 // --- LÓGICA DE ANIMACIÓN (GLOBAL) ---
 
@@ -182,6 +150,14 @@ function renderProfessionalVersion(professionalVersion) {
         }
         return '';
     }).join('');
+}
+
+
+// --- MANEJO DEL FORMULARIO DE CONTACTO ---
+function initContactForm() {
+    // Esta función ahora está vacía porque el manejo del formulario
+    // se hace directamente en el HTML para evitar duplicados
+    return;
 }
 
 
@@ -338,26 +314,6 @@ function initSmoothScroll() {
                 window.scrollTo({ top: offsetTop, behavior: 'smooth' });
             }
         });
-    });
-}
-
-function initContactForm() {
-    const form = document.querySelector('.form');
-    if (!form) return;
-    
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        // Simulación básica
-        const btn = form.querySelector('button');
-        const oldText = btn.textContent;
-        btn.textContent = 'Enviando...';
-        btn.disabled = true;
-        setTimeout(() => {
-            alert('Mensaje enviado (Simulación)');
-            form.reset();
-            btn.textContent = oldText;
-            btn.disabled = false;
-        }, 1500);
     });
 }
 
