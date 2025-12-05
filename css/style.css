@@ -202,37 +202,6 @@
     z-index: 2;
 }
 
-/* Botones flotantes */
-.floating-buttons {
-    display: none; /* Oculto por defecto, se mostrará con JavaScript */
-    position: fixed;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%) translateY(100px); /* Inicialmente fuera de pantalla */
-    z-index: 100; /* Menor que el header pero mayor que el contenido */
-    opacity: 0;
-    transition: all 0.3s ease;
-    pointer-events: none;
-    gap: 1rem;
-    background: rgba(18, 18, 18, 0.9);
-    padding: 0.75rem 1.5rem;
-    border-radius: 50px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Mostrar botones flotantes cuando sea necesario */
-.floating-buttons.visible {
-    display: flex;
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
-}
-
-/* Añadir margen inferior a las secciones cuando los botones están visibles */
-body.floating-buttons-visible section {
-    padding-bottom: 80px;
-}
-
 
 .hero-scroll {
     position: absolute;
@@ -514,17 +483,19 @@ body.floating-buttons-visible section {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
 .skill-category {
     background: var(--bg-card);
-    padding: 2rem;
+    padding: 2rem 2.2rem;
     border-radius: 16px;
-    text-align: center;
+    text-align: left;
     border: 1px solid var(--border-color);
     transition: var(--transition-normal);
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .skill-category:hover {
@@ -553,12 +524,15 @@ body.floating-buttons-visible section {
 
 .skill-list {
     list-style: none;
+    padding-left: 0;
+    margin: 0;
 }
 
 .skill-list li {
     color: var(--text-secondary);
-    padding: 0.25rem 0;
-    font-size: 0.9rem;
+    padding: 0.4rem 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 .skill-list li::before {
@@ -617,7 +591,6 @@ body.floating-buttons-visible section {
     color: var(--primary-color);
 }
 
-/* Contact Form */
 .contact-form {
     background: var(--bg-card);
     padding: 2rem;
@@ -627,6 +600,29 @@ body.floating-buttons-visible section {
 
 .form-group {
     margin-bottom: 1.5rem;
+}
+
+.form-message {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+    display: none;
+}
+
+.form-message.visible {
+    display: block;
+}
+
+.form-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
 }
 
 .form-group input,
