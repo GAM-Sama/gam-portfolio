@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Pedidos – Proyecto</title>
+
+    <!-- Fuentes e iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Estilos generales del portfolio -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/project.css">
+    
+    <style>
+        /* Efecto de revelación suave */
+        .project-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+        
+        .project-section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .project-hero {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+        
+        .project-section:nth-child(2) { transition-delay: 0.1s; }
+        .project-section:nth-child(3) { transition-delay: 0.2s; }
+        .project-section:nth-child(4) { transition-delay: 0.3s; }
+        .project-section:nth-child(5) { transition-delay: 0.4s; }
+        
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .tech-list span {
+            background: rgba(74, 108, 247, 0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #4a6cf7;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tech-list i {
+            font-size: 1rem;
+        }
+        
+        .flow-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .flow-card h3 {
+            color: #2d3748;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .flow-card h3 i {
+            color: #4a6cf7;
+        }
+        
+        .flow-steps {
+            margin: 15px 0 0 20px;
+        }
+        
+        .flow-steps li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .flow-steps li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #4a6cf7;
+            font-weight: bold;
+        }
+        
+        .api-card {
+            background: #f8f9fa;
+            border-left: 4px solid #4a6cf7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .api-card h4 {
+            margin-top: 0;
+            color: #2d3748;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-background"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="../index.html" class="logo-text">GAM</a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="../index.html#about">Sobre mí</a></li>
+                    <li><a href="../index.html#projects">Proyectos</a></li>
+                    <li><a href="../index.html#skills">Habilidades</a></li>
+                    <li><a href="../index.html#contact">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero del proyecto -->
+    <section class="project-hero">
+        <div class="project-container">
+            <h1 class="project-title">Gestor de Pedidos con Make</h1>
+            <p class="project-subtitle">Automatización · Procesamiento de datos · Integración de sistemas</p>
+            <div class="project-hero-image">
+                <img src="../assets/img/projects/make-gestor-pedidos.jpg" alt="Gestor de Pedidos con Make">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido del proyecto -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Resumen del Proyecto</h2>
+            <p>
+                Sistema de automatización integral para la gestión de pedidos que conecta múltiples fuentes de datos, 
+                enriquece la información con IA y genera informes detallados. La solución optimiza el flujo de trabajo 
+                desde la recepción del pedido hasta el seguimiento post-venta.
+            </p>
+            <p>
+                Este proyecto demuestra la potencia de la automatización para transformar procesos empresariales, 
+                reduciendo el tiempo de procesamiento en un 70% y mejorando la precisión en la gestión de datos.
+            </p>
+        </div>
+    </section>
+
+    <!-- Flujos de Automatización -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Flujos de Automatización</h2>
+
+            <div class="flow-card">
+                <h3><i class="fas fa-shopping-cart"></i> Flujo 1: Gestión de Pedidos Individuales</h3>
+                <p>Automatización del proceso completo de gestión de pedidos, desde la recepción hasta la confirmación.</p>
+                
+                <ul class="flow-steps">
+                    <li>Recepción de nuevos pedidos desde múltiples canales</li>
+                    <li>Validación y normalización de datos</li>
+                    <li>Enriquecimiento con información de la empresa (Apollo.io)</li>
+                    <li>Generación de emails personalizados con IA</li>
+                    <li>Actualización de sistemas internos</li>
+                </ul>
+            </div>
+
+            <div class="flow-card">
+                <h3><i class="fas fa-chart-line"></i> Flujo 2: Informe Semanal de Ventas</h3>
+                <p>Generación automática de informes con análisis de rendimiento y tendencias.</p>
+                
+                <ul class="flow-steps">
+                    <li>Recopilación de datos de ventas</li>
+                    <li>Procesamiento y análisis de información</li>
+                    <li>Generación de gráficos con QuickChart.io</li>
+                    <li>Creación de informe ejecutivo con IA</li>
+                    <li>Envío programado a los responsables</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- APIs Externas -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">APIs Externas</h2>
+            
+            <div class="api-card">
+                <h4><i class="fas fa-database"></i> Apollo.io</h4>
+                <p>Enriquecimiento de datos de empresas y contactos para personalizar las interacciones.</p>
+            </div>
+            
+            <div class="api-card">
+                <h4><i class="fas fa-chart-pie"></i> QuickChart.io</h4>
+                <p>Generación de gráficos personalizados para informes de análisis de datos.</p>
+            </div>
+            
+            <div class="api-card">
+                <h4><i class="fas fa-robot"></i> OpenAI</h4>
+                <p>Procesamiento de lenguaje natural para la generación de contenido personalizado.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tecnologías -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Tecnologías Utilizadas</h2>
+
+            <div class="tech-list">
+                <span><i class="fab fa-make-group"></i> Make (Integromat)</span>
+                <span><i class="fas fa-robot"></i> OpenAI</span>
+                <span><i class="fas fa-database"></i> Apollo.io</span>
+                <span><i class="fas fa-chart-bar"></i> QuickChart.io</span>
+                <span><i class="fas fa-envelope"></i> Email Marketing</span>
+                <span><i class="fas fa-table"></i> Hojas de Cálculo</span>
+                <span><i class="fas fa-plug"></i> APIs REST</span>
+                <span><i class="fas fa-exchange-alt"></i> Webhooks</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enlaces -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Enlaces</h2>
+
+            <div class="project-links">
+                <a href="../index.html#projects" class="btn btn-primary">
+                    <i class="fas fa-th-large"></i> Ver todos los proyectos
+                </a>
+                <a href="../index.html#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Contactar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="project-container">
+            <p>&copy; 2025 Gonzalo A.M. · Automatización con Make</p>
+        </div>
+    </footer>
+
+    <script>
+        // Función para verificar si un elemento está en el viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight * 0.8) &&
+                rect.bottom >= (window.innerHeight * 0.2)
+            );
+        }
+
+        // Función para manejar el scroll
+        function handleScroll() {
+            const sections = document.querySelectorAll('.project-section');
+            
+            sections.forEach(section => {
+                if (isInViewport(section)) {
+                    section.classList.add('active');
+                }
+            });
+        }
+
+        // Inicializar la visibilidad de las secciones al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Activar la primera sección de inmediato
+            const firstSection = document.querySelector('.project-section');
+            if (firstSection) firstSection.classList.add('active');
+            
+            // Configurar el evento de scroll
+            window.addEventListener('scroll', handleScroll);
+            
+            // Forzar una verificación inicial
+            handleScroll();
+            
+            // También verificar después de que se carguen todas las imágenes
+            window.addEventListener('load', handleScroll);
+        });
+    </script>
+</body>
+</html>

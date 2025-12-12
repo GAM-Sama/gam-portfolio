@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YugiDex – Proyecto</title>
+
+    <!-- Fuentes e iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Estilos generales del portfolio -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Estilos específicos de proyectos -->
+    <link rel="stylesheet" href="../css/project.css">
+    <style>
+        /* Mobile Menu Styles */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--bg-primary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: right 0.3s ease-in-out;
+                z-index: 1000;
+                padding: 80px 0;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .nav-link {
+                font-size: 1.2rem;
+                padding: 10px 20px;
+                text-decoration: none;
+                position: relative;
+                transition: color 0.3s ease;
+            }
+            
+            .nav-link:hover {
+                color: var(--primary-color);
+            }
+            
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: 0;
+                left: 50%;
+                background: var(--primary-color);
+                transition: all 0.3s ease;
+                transform: translateX(-50%);
+            }
+            
+            .nav-link:hover::after {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-background"></div>
+
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="../index.html" class="logo-text">GAM</a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#home" class="nav-link" style="text-decoration: none;">Home</a></li>
+                    <li><a href="../index.html#about" class="nav-link" style="text-decoration: none;">Sobre mí</a></li>
+                    <li><a href="../index.html#projects" class="nav-link" style="text-decoration: none;">Proyectos</a></li>
+                    <li><a href="../index.html#skills" class="nav-link" style="text-decoration: none;">Habilidades</a></li>
+                    <li><a href="../index.html#contact" class="nav-link" style="text-decoration: none;">Contacto</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero del proyecto -->
+    <section class="project-hero">
+        <div class="project-container">
+            <h1 class="project-title">YugiDex</h1>
+            <p class="project-subtitle">Escáner inteligente de cartas Yu-Gi-Oh! · IA · Automatización · Web App</p>
+            <div class="project-hero-image">
+                <img src="../assets/img/projects/yugidex/yugidex-portada.png" alt="YugiDex">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido del proyecto -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Resumen del Proyecto</h2>
+            <p>
+                YugiDex es una plataforma completa para identificar, gestionar y consultar cartas de Yu-Gi-Oh!.
+                Su funcionamiento combina una app móvil desarrollada en Flutter —encargada de capturar y procesar el código de la carta mediante OCR de Google ML Kit— con un sistema de automatización en n8n que consulta la API de Yugipedia y almacena la información en Supabase (PostgreSQL).
+            </p>
+
+            <p>
+                El ecosistema incluye también una aplicación web creada con Next.js y React, que actúa como CRM para visualizar, filtrar y gestionar la colección desde cualquier dispositivo.
+                La arquitectura se despliega de forma modular: n8n en Google Cloud y la aplicación web alojada en Vercel, con GitHub como control de versiones.
+            </p>
+            
+            <p>
+                Aunque ya es un MVP funcional tanto en móvil como en web, sigo desarrollando y optimizando activamente el proyecto, mejorando procesos, ampliando funciones y perfeccionando la experiencia de usuario para convertirlo en una herramienta cada vez más completa y eficiente.
+            </p>
+        </div>
+    </section>
+
+    <!-- Video -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Demo en Video</h2>
+
+            <div class="project-video">
+                <video controls preload="auto" autoplay muted playsinline style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <source src="../assets/videos/projects/yugidex/Ygdex-Demo-01.mp4" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Características -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Características Principales</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>OCR Avanzado</h3>
+                    <p>Extrae el código de la carta desde el móvil usando Google ML Kit con reconocimiento preciso.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Validación Inteligente</h3>
+                    <p>Sistema propio de reconocimiento y validación antes de enviar datos al backend.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Automatizaciones n8n</h3>
+                    <p>Flujos optimizados para máxima velocidad y mínimo coste operativo.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Base de Datos</h3>
+                    <p>Estructura robusta en Supabase + PostgreSQL con API y almacenamiento integrado.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Web App</h3>
+                    <p>Desarrollada con Next.js y React para gestión avanzada de cartas y colecciones.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>App Móvil</h3>
+                    <p>Desarrollada en Flutter, permite escanear cartas en tiempo real desde cualquier lugar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Galería</h2>
+            
+            <div class="gallery-container">
+                <!-- Versión Escritorio -->
+                <div class="gallery-column">
+                    <h3 class="gallery-title">Versión Escritorio</h3>
+                    <div class="carousel-container desktop-carousel">
+                        <div class="carousel-slide">
+                            <img src="../assets/img/projects/yugidex/00-ydex-crm-login.PNG" alt="Inicio de sesión">
+                            <img src="../assets/img/projects/yugidex/01-ydex-crm-dashboard.PNG" alt="Dashboard principal">
+                            <img src="../assets/img/projects/yugidex/02-ydex-crm-cartas.PNG" alt="Gestión de cartas">
+                            <img src="../assets/img/projects/yugidex/03-ydex-crm-decks-01.PNG" alt="Gestión de mazos 1">
+                            <img src="../assets/img/projects/yugidex/04-ydex-crm-decks-02.PNG" alt="Gestión de mazos 2">
+                            <img src="../assets/img/projects/yugidex/05-ydex-crm-statistics.PNG" alt="Estadísticas">
+                        </div>
+                        <button class="carousel-button prev">❮</button>
+                        <button class="carousel-button next">❯</button>
+                        <div class="carousel-dots"></div>
+                    </div>
+                </div>
+
+                <!-- Versión Móvil -->
+                <div class="gallery-column">
+                    <h3 class="gallery-title">Versión Móvil</h3>
+                    <div class="carousel-container mobile-carousel">
+                        <div class="carousel-slide">
+                            <img src="../assets/img/projects/yugidex/00-ydex-main-app.jpeg" alt="Pantalla principal">
+                            <img src="../assets/img/projects/yugidex/01-ydex-cards-app.jpeg" alt="Lista de cartas">
+                            <img src="../assets/img/projects/yugidex/02-ydex-decks-01-app.jpeg" alt="Mazos 1">
+                            <img src="../assets/img/projects/yugidex/03-ydex-decks-02-app.jpeg" alt="Mazos 2">
+                            <img src="../assets/img/projects/yugidex/04-ydex-decks-03-app.jpeg" alt="Mazos 3">
+                        </div>
+                        <button class="carousel-button prev">❮</button>
+                        <button class="carousel-button next">❯</button>
+                        <div class="carousel-dots"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: #0a0a0a;
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: #4f46e5;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .feature-card p {
+            color: #a1a1aa;
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .gallery-column {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .gallery-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .mobile-carousel {
+            border: 1px solid #e0e0e0;
+        }
+        
+        .mobile-placeholder {
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9f9f9;
+            color: #666;
+            font-style: italic;
+            padding: 40px 20px;
+        }
+        
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .carousel-slide img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        
+        .carousel-button:hover {
+            background: rgba(0,0,0,0.8);
+        }
+        
+        .prev {
+            left: 10px;
+        }
+        
+        .next {
+            right: 10px;
+        }
+        
+        .carousel-dots {
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .dot.active {
+            background-color: #333;
+        }
+        
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 80vh;
+            margin-top: 5vh;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+        
+        .close-lightbox {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .close-lightbox:hover {
+            color: #bbb;
+            text-decoration: none;
+        }
+        
+        #caption {
+            color: #fff;
+            padding: 10px 0;
+            font-size: 1.1em;
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        /* Efecto de revelación suave */
+        .project-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+        
+        .project-section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Asegurarse de que el hero sea visible de inmediato */
+        .project-hero {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+        
+        /* Añadir un pequeño retraso a las secciones para un efecto escalonado */
+        .project-section:nth-child(2) { transition-delay: 0.1s; }
+        .project-section:nth-child(3) { transition-delay: 0.2s; }
+        .project-section:nth-child(4) { transition-delay: 0.3s; }
+        .project-section:nth-child(5) { transition-delay: 0.4s; }
+        .project-section:nth-child(6) { transition-delay: 0.5s; }
+    </style>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar ambos carruseles
+            initCarousel('.desktop-carousel');
+            initCarousel('.mobile-carousel');
+            
+            function initCarousel(containerSelector) {
+                const container = document.querySelector(containerSelector);
+                const slide = container.querySelector('.carousel-slide');
+                const images = slide.querySelectorAll('img');
+                const prevBtn = container.querySelector('.prev');
+                const nextBtn = container.querySelector('.next');
+                const dotsContainer = container.querySelector('.carousel-dots');
+                let currentIndex = 0;
+                const dots = [];
+                
+                // Create dots if there are images
+                if (images.length > 0) {
+                    for (let i = 0; i < images.length; i++) {
+                        const dot = document.createElement('span');
+                        dot.classList.add('dot');
+                        if (i === 0) dot.classList.add('active');
+                        dot.addEventListener('click', () => goToSlide(i));
+                        dotsContainer.appendChild(dot);
+                        dots.push(dot);
+                    }
+                } else {
+                    // For empty carousels (like the mobile one for now)
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot', 'active');
+                    dotsContainer.appendChild(dot);
+                    dots.push(dot);
+                }
+                
+                function updateSlide() {
+                    if (images.length > 0) {
+                        slide.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    }
+                    
+                    // Update dots
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === currentIndex);
+                    });
+                }
+            
+                function nextSlide() {
+                    if (images.length > 0) {
+                        currentIndex = (currentIndex + 1) % images.length;
+                        updateSlide();
+                    }
+                }
+                
+                function prevSlide() {
+                    if (images.length > 0) {
+                        currentIndex = (currentIndex - 1 + images.length) % images.length;
+                        updateSlide();
+                    }
+                }
+            
+            function goToSlide(index) {
+                currentIndex = index;
+                updateSlide();
+            }
+            
+                // Event listeners
+                if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+                if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+                
+                let slideInterval;
+                
+                // Auto-advance slides every 5 seconds if there are images
+                if (images.length > 1) {
+                    slideInterval = setInterval(nextSlide, 5000);
+                    
+                    // Pause on hover
+                    container.addEventListener('mouseenter', () => {
+                        clearInterval(slideInterval);
+                    });
+                    
+                    container.addEventListener('mouseleave', () => {
+                        clearInterval(slideInterval);
+                        slideInterval = setInterval(nextSlide, 5000);
+                    });
+                }
+                
+                // Touch support for mobile
+                let touchStartX = 0;
+                let touchEndX = 0;
+                
+                container.addEventListener('touchstart', e => {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, false);
+                
+                container.addEventListener('touchend', e => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                }, false);
+                
+                function handleSwipe() {
+                    if (touchEndX < touchStartX) {
+                        nextSlide();
+                    }
+                    if (touchEndX > touchStartX) {
+                        prevSlide();
+                    }
+                }
+            }
+        });
+    </script>
+    
+    <!-- Lightbox HTML -->
+    <div id="imageLightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightboxImage">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('imageLightbox');
+        const lightboxImg = document.getElementById('lightboxImage');
+        const captionText = document.getElementById('caption');
+        const closeBtn = document.querySelector('.close-lightbox');
+
+        // Add click event to all gallery images
+        document.querySelectorAll('.carousel-slide img').forEach(img => {
+            img.addEventListener('click', function() {
+                lightbox.style.display = 'block';
+                lightboxImg.src = this.src;
+                captionText.innerHTML = this.alt;
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
+            });
+        });
+
+        // Close lightbox when clicking the close button
+        closeBtn.addEventListener('click', function() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lightbox.style.display === 'block') {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+
+    <!-- Tecnologías -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Tecnologías Utilizadas</h2>
+
+            <div class="tech-list">
+                <span><i class="fas fa-star"></i> Google ML Kit OCR</span>
+                <span><i class="fas fa-star"></i> Sistema propio de reconocimiento</span>
+                <span><i class="fas fa-server"></i> n8n</span>
+                <span><i class="fas fa-database"></i> API Yugipedia</span>
+                <span><i class="fas fa-database"></i> Supabase</span>
+                <span><i class="fas fa-database"></i> PostgreSQL</span>
+                <span><i class="fab fa-react"></i> Next.js</span>
+                <span><i class="fab fa-react"></i> React</span>
+                <span><i class="fas fa-mobile-alt"></i> Flutter</span>
+                <span><i class="fab fa-google"></i> Google Cloud + Vercel</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enlaces -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Enlaces</h2>
+
+            <div class="project-links">
+                <a href="https://github.com/GAM-Sama/Yugidex_Flutter" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-github"></i> Repositorio Móvil
+                </a>
+                <a href="https://github.com/GAM-Sama/Yugidex-CRM" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-github"></i> Repositorio Web
+                </a>
+                <a href="../index.html#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Contactar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="project-container">
+            <p>&copy; 2025 Gonzalo A.M. · Proyecto YugiDex · Desarrollado con pasión por el mundo Yu-Gi-Oh! 🃏</p>
+        </div>
+    </footer>
+
+    <script>
+        // Función para verificar si un elemento está en el viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight * 0.8) &&
+                rect.bottom >= (window.innerHeight * 0.2)
+            );
+        }
+
+        // Función para manejar el scroll
+        function handleScroll() {
+            const sections = document.querySelectorAll('.project-section');
+            
+            sections.forEach(section => {
+                if (isInViewport(section)) {
+                    section.classList.add('active');
+                }
+            });
+        }
+
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+        }
+        
+        // Close mobile menu when clicking a nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+
+        // Inicializar la visibilidad de las secciones al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Activar la primera sección de inmediato
+            const firstSection = document.querySelector('.project-section');
+            if (firstSection) firstSection.classList.add('active');
+            
+            // Configurar el evento de scroll
+            window.addEventListener('scroll', handleScroll);
+            
+            // Forzar una verificación inicial
+            handleScroll();
+            
+            // También verificar después de que se carguen todas las imágenes
+            window.addEventListener('load', handleScroll);
+        });
+    </script>
+</body>
+</html>

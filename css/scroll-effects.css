@@ -1,0 +1,38 @@
+/* Efectos de scroll para páginas de proyecto */
+
+/* Configuración base para las secciones */
+.project-section {
+    padding: 3rem 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out, padding 0.3s ease;
+    will-change: opacity, transform;
+    margin-bottom: 2rem;
+}
+
+/* Estado activo para las secciones visibles */
+.project-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Reducir el espaciado en pantallas pequeñas */
+@media (max-width: 768px) {
+    .project-section {
+        padding: 2rem 0;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Retrasos escalonados para las transiciones */
+.project-section:nth-child(2) { transition-delay: 0.1s; }
+.project-section:nth-child(3) { transition-delay: 0.2s; }
+.project-section:nth-child(4) { transition-delay: 0.3s; }
+.project-section:nth-child(5) { transition-delay: 0.4s; }
+.project-section:nth-child(6) { transition-delay: 0.5s; }
+
+/* Asegurar que las secciones sean visibles si JS está deshabilitado */
+.no-js .project-section {
+    opacity: 1;
+    transform: none !important;
+}

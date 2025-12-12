@@ -98,6 +98,15 @@
     list-style: none;
 }
 
+.nav-link,
+.nav-menu a,
+.nav-menu a:link,
+.nav-menu a:visited,
+.nav-menu a:hover,
+.nav-menu a:active {
+    text-decoration: none !important;
+}
+
 .nav-link {
     color: var(--text-secondary);
     font-weight: 500;
@@ -821,4 +830,11 @@
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--secondary-color);
+}
+
+/* Fondo global para TODA la web */
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
 }

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Rey del Jamón – Proyecto</title>
+
+    <!-- Fuentes e iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Estilos generales del portfolio -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/project.css">
+    
+    <style>
+        /* Efecto de revelación suave */
+        .project-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+        
+        .project-section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .project-hero {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+        
+        .project-section:nth-child(2) { transition-delay: 0.1s; }
+        .project-section:nth-child(3) { transition-delay: 0.2s; }
+        .project-section:nth-child(4) { transition-delay: 0.3s; }
+        .project-section:nth-child(5) { transition-delay: 0.4s; }
+        
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .tech-list span {
+            background: rgba(74, 108, 247, 0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #4a6cf7;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tech-list i {
+            font-size: 1rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+        
+        .feature-card {
+            background: #0a0a0a;
+            border-radius: 8px;
+            padding: 18px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            height: auto;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            border-color: rgba(79, 70, 229, 0.3);
+        }
+        
+        .feature-card i {
+            font-size: 1.5rem;
+            color: #4f46e5;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+        
+        .feature-icon {
+            font-size: 1.5rem;
+            color: #4f46e5;
+            margin-bottom: 12px;
+        }
+        
+        .feature-card h3 {
+            color: #ffffff;
+            margin: 0 0 8px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            color: #a1a1aa;
+            margin: 0;
+            line-height: 1.5;
+            font-size: 0.9rem;
+            flex-grow: 1;
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .gallery-caption {
+            background: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-background"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="../index.html" class="logo-text">GAM</a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="../index.html#about" class="nav-link">Sobre mí</a></li>
+                    <li><a href="../index.html#projects" class="nav-link">Proyectos</a></li>
+                    <li><a href="../index.html#skills" class="nav-link">Habilidades</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contacto</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero del proyecto -->
+    <section class="project-hero">
+        <div class="project-container">
+            <h1 class="project-title">El Rey del Jamón</h1>
+            <p class="project-subtitle">E-commerce · PrestaShop · Experiencia de Usuario</p>
+            <div class="project-hero-image">
+                <img src="../assets/img/projects/elreydeljamon/00_portada.PNG" alt="El Rey del Jamón - Tienda Online">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido del proyecto -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Resumen del Proyecto</h2>
+            <p>
+                El Rey del Jamón es un ecommerce completo desarrollado sobre Prestashop, especializado en la venta de productos gourmet del sector cárnico y embutidos.
+                El proyecto incluye la personalización de la plantilla, la organización del catálogo, la configuración de módulos esenciales y la puesta a punto general del entorno para garantizar un proceso de compra estable, rápido y seguro.
+            </p>
+            <p>
+                Durante el desarrollo se trabajó la estructura del catálogo, la optimización del rendimiento, la mejora de la experiencia de usuario y la integración de diferentes sistemas clave del comercio electrónico (pagos, envíos, promociones, SEO, etc.).
+                También se realizaron ajustes visuales, configuración avanzada del back-office y mantenimiento técnico continuo.
+            </p>
+            <p>
+                El resultado es una tienda online funcional, clara y preparada para escalar, con una gestión sencilla para los administradores y un flujo de compra fluido para los clientes.
+            </p>
+        </div>
+    </section>
+
+    <!-- Características -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Características Principales</h2>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3>Catálogo Organizado</h3>
+                    <p>Gestión completa de categorías, productos, atributos y variantes configuradas (formatos, pesos, tipos de corte). Fichas de producto optimizadas para SEO y conversión.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Diseño y Experiencia</h3>
+                    <p>Personalización de la plantilla, diseño coherente con la marca, mejora de la navegación y adaptación responsive para móvil/tablet.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Sistema de Pagos</h3>
+                    <p>Integración de pasarelas de pago seguras, configuración de TPV, PayPal, transferencias y otras opciones avanzadas de pago.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Gestión de Envíos</h3>
+                    <p>Sistema completo con reglas por zonas y pesos, integración de transportistas y automatización de precios según productos.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Configuración Técnica</h3>
+                    <p>Instalación, mantenimiento y ajuste de módulos esenciales, optimización de rendimiento (caché, imágenes, estructura) y configuración de seguridad.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Optimización Comercial</h3>
+                    <p>SEO técnico avanzado, configuración de cupones y promociones, y mejora del proceso de checkout para maximizar las conversiones.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SEO Avanzado</h3>
+                    <p>Optimización para motores de búsqueda con URLs limpias y estructura semántica.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3>Panel de Administración</h3>
+                    <p>Gestión intuitiva de productos, pedidos y clientes desde un panel de control centralizado.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Alto Rendimiento</h3>
+                    <p>Tiempos de carga optimizados mediante caché, compresión de imágenes y minificación de recursos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Galería</h2>
+            
+            <div class="gallery-container">
+                <div class="carousel-container">
+                    <div class="carousel-slide">
+                        <div class="video-container">
+                            <video controls class="gallery-video">
+                                <source src="../assets/videos/projects/elreydeljamon/01_main_page.mp4" type="video/mp4">
+                                Tu navegador no soporta el elemento de video.
+                            </video>
+                            <div class="gallery-caption">Página principal - Navegación completa</div>
+                        </div>
+                        <div class="video-container">
+                            <video controls class="gallery-video">
+                                <source src="../assets/videos/projects/elreydeljamon/02_product_page.mp4" type="video/mp4">
+                                Tu navegador no soporta el elemento de video.
+                            </video>
+                            <div class="gallery-caption">Páginas de producto con variantes</div>
+                        </div>
+                        <div class="video-container">
+                            <video controls class="gallery-video">
+                                <source src="../assets/videos/projects/elreydeljamon/03_evento_1.mp4" type="video/mp4">
+                                Tu navegador no soporta el elemento de video.
+                            </video>
+                            <div class="gallery-caption">Sección de eventos y promociones</div>
+                        </div>
+                        <div class="video-container">
+                            <video controls class="gallery-video">
+                                <source src="../assets/videos/projects/elreydeljamon/04_evento_2.mp4" type="video/mp4">
+                                Tu navegador no soporta el elemento de video.
+                            </video>
+                            <div class="gallery-caption">Más eventos y ofertas especiales</div>
+                        </div>
+                        <div class="video-container">
+                            <video controls class="gallery-video">
+                                <source src="../assets/videos/projects/elreydeljamon/05_history.mp4" type="video/mp4">
+                                Tu navegador no soporta el elemento de video.
+                            </video>
+                            <div class="gallery-caption">Nuestra historia y tradición</div>
+                        </div>
+                        <div class="video-container">
+                            <video controls class="gallery-video">
+                                <source src="../assets/videos/projects/elreydeljamon/06_location.mp4" type="video/mp4">
+                                Tu navegador no soporta el elemento de video.
+                            </video>
+                            <div class="gallery-caption">Ubicación y contacto</div>
+                        </div>
+                        <div class="video-container">
+                            <video controls class="gallery-video">
+                                <source src="../assets/videos/projects/elreydeljamon/07_credit_page.mp4" type="video/mp4">
+                                Tu navegador no soporta el elemento de video.
+                            </video>
+                            <div class="gallery-caption">Página de créditos y reconocimientos</div>
+                        </div>
+                    </div>
+                    <button class="carousel-button prev">❮</button>
+                    <button class="carousel-button next">❯</button>
+                    <div class="carousel-dots"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        .gallery-container {
+            margin: 2rem auto 3rem;
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: auto;
+            aspect-ratio: 16/9;
+        }
+        
+        .video-container {
+            min-width: 100%;
+            position: relative;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+        
+        .gallery-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: #000;
+            border-radius: 6px;
+            display: block;
+        }
+        
+        .gallery-caption {
+            text-align: center;
+            padding: 10px 0;
+            color: #a1a1aa;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+        
+        .carousel-button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .carousel-button.prev {
+            left: 15px;
+        }
+        
+        .carousel-button.next {
+            right: 15px;
+        }
+        
+        .carousel-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            z-index: 10;
+        }
+        
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .carousel-dot.active {
+            background: #4f46e5;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-container {
+                max-width: 100%;
+                padding: 0 15px;
+            }
+            
+            .carousel-container {
+                max-width: 100%;
+            }
+            
+            .carousel-slide {
+                aspect-ratio: 9/16;
+            }
+            
+            .carousel-button {
+                width: 30px;
+                height: 30px;
+                padding: 10px;
+                font-size: 14px;
+                opacity: 0.8;
+            }
+        }
+    </style>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.carousel-container');
+            const slide = document.querySelector('.carousel-slide');
+            const videos = document.querySelectorAll('.gallery-video');
+            const prevBtn = document.querySelector('.carousel-button.prev');
+            const nextBtn = document.querySelector('.carousel-button.next');
+            const dotsContainer = document.querySelector('.carousel-dots');
+            
+            let currentIndex = 0;
+            const totalVideos = videos.length;
+            
+            // Crear dots de navegación
+            videos.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.classList.add('carousel-dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+            
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            // Configurar evento para botones de navegación
+            prevBtn.addEventListener('click', () => moveSlide(-1));
+            nextBtn.addEventListener('click', () => moveSlide(1));
+            
+            // Navegación con teclado
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    moveSlide(-1);
+                } else if (e.key === 'ArrowRight') {
+                    moveSlide(1);
+                }
+            });
+            
+            function moveSlide(direction) {
+                // Pausar el video actual antes de cambiar de slide
+                videos[currentIndex].pause();
+                
+                currentIndex = (currentIndex + direction + totalVideos) % totalVideos;
+                updateSlide();
+            }
+            
+            function goToSlide(index) {
+                // Pausar el video actual antes de cambiar de slide
+                videos[currentIndex].pause();
+                
+                currentIndex = index;
+                updateSlide();
+            }
+            
+            function updateSlide() {
+                // Actualizar la posición del slide
+                slide.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Actualizar los dots
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+                
+                // Reproducir automáticamente el video que se muestra
+                videos[currentIndex].play().catch(e => {
+                    console.log("La reproducción automática no está permitida");
+                });
+            }
+            
+            // Iniciar el primer video
+            if (videos.length > 0) {
+                videos[0].play().catch(e => {
+                    console.log("La reproducción automática no está permitida");
+                });
+            }
+        });
+    </script>
+
+    <!-- Tecnologías -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Tecnologías Utilizadas</h2>
+            <p class="section-subtitle">Versión real y profesional del stack tecnológico implementado</p>
+
+            <div class="tech-list">
+                <span><i class="fab fa-prestashop"></i> Prestashop</span>
+                <span><i class="fas fa-puzzle-piece"></i> Plantillas y módulos premium</span>
+                <span><i class="fas fa-search"></i> SEO manual</span>
+                <span><i class="fas fa-server"></i> Dondominio</span>
+                <span><i class="fas fa-envelope"></i> Klaviyo</span>
+                <span><i class="fas fa-credit-card"></i> Pasarela Santander</span>
+                <span><i class="fas fa-truck"></i> SEUR</span>
+                <span><i class="fas fa-shipping-fast"></i> MRW</span>
+            </div>
+            
+            <div class="tech-description" style="margin-top: 30px; color: #a1a1aa; line-height: 1.6;">
+                <p>Implementación profesional con soluciones específicas para cada necesidad del e-commerce, desde el alojamiento en Dondominio hasta las integraciones logísticas con SEUR y MRW, pasando por la automatización de marketing con Klaviyo y la gestión de pagos seguros con la pasarela del Santander.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enlaces -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Enlaces</h2>
+
+            <div class="project-links">
+                <a href="https://www.elreydeljamon.eu" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-external-link-alt"></i> Visitar Sitio Web
+                </a>
+                <a href="../index.html#projects" class="btn btn-secondary">
+                    <i class="fas fa-th-large"></i> Ver todos los proyectos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="project-container">
+            <p>&copy; 2025 Gonzalo A.M. · El Rey del Jamón · Desarrollado con pasión por el comercio electrónico</p>
+        </div>
+    </footer>
+
+    <script>
+        // Función para verificar si un elemento está en el viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight * 0.8) &&
+                rect.bottom >= (window.innerHeight * 0.2)
+            );
+        }
+
+        // Función para manejar el scroll
+        function handleScroll() {
+            const sections = document.querySelectorAll('.project-section');
+            
+            sections.forEach(section => {
+                if (isInViewport(section)) {
+                    section.classList.add('active');
+                }
+            });
+        }
+
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+        }
+        
+        // Close mobile menu when clicking a nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+
+        // Inicializar la visibilidad de las secciones al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Activar la primera sección de inmediato
+            const firstSection = document.querySelector('.project-section');
+            if (firstSection) firstSection.classList.add('active');
+            
+            // Configurar el evento de scroll
+            window.addEventListener('scroll', handleScroll);
+            
+            // Forzar una verificación inicial
+            handleScroll();
+            
+            // También verificar después de que se carguen todas las imágenes
+            window.addEventListener('load', handleScroll);
+        });
+    </script>
+</body>
+</html>
