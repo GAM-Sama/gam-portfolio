@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Automatizaciones n8n – Colección de flujos</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/project.css" />
+
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+        }
+
+        /* --------------------------------------------------------- */
+        /* HERO                                                      */
+        /* --------------------------------------------------------- */
+        .project-hero {
+            margin: 2rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .project-hero img {
+            max-width: 80%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* --------------------------------------------------------- */
+        /* REVEAL ANIMATION                                          */
+        /* --------------------------------------------------------- */
+        .project-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            margin-bottom: 3rem;
+        }
+        .project-section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --------------------------------------------------------- */
+        /* FEATURES GRID                                             */
+        /* --------------------------------------------------------- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .feature-card {
+            background: #0a0a0a;
+            border-radius: 10px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-color);
+        }
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* --------------------------------------------------------- */
+        /* TECH GRID                                                 */
+        /* --------------------------------------------------------- */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        .tech-card {
+            background: #0a0a0a;
+            border-radius: 10px;
+            padding: 1.8rem 1.2rem;
+            text-align: center;
+            transition: 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .tech-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-color);
+        }
+        .tech-icon {
+            font-size: 2.3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* --------------------------------------------------------- */
+        /* CAROUSEL FIX – ONE WORKING VERSION                        */
+        /* --------------------------------------------------------- */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            height: 500px; /* Altura fija para el contenedor */
+        }
+
+        .carousel-track {
+            display: flex;
+            height: 100%;
+            position: relative;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .carousel-slide img {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .carousel-caption {
+            margin-top: 1rem;
+            color: #e2e8f0;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s ease;
+            z-index: 10;
+        }
+
+        .carousel-button:hover {
+            background: rgba(0, 0, 0, 0.85);
+        }
+
+        .carousel-button.prev { left: 10px; }
+        .carousel-button.next { right: 10px; }
+
+        .carousel-dots {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin: 12px 0;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .dot.active {
+            background: #fff;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-background"></div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="../index.html" class="logo-text">GAM</a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="../index.html#about" class="nav-link">Sobre mí</a></li>
+                    <li><a href="../index.html#projects" class="nav-link">Proyectos</a></li>
+                    <li><a href="../index.html#skills" class="nav-link">Habilidades</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="project-hero">
+        <div class="project-container">
+            <h1 class="project-title">Automatizaciones con n8n</h1>
+            <p class="project-subtitle">Flujos de trabajo · Procesos automatizados · Eficiencia operativa</p>
+            <img src="../assets/img/projects/n8n_projects/01-backup-workflows.png" alt="Automatizaciones con n8n" />
+        </div>
+    </section>
+
+    <!-- RESUMEN -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Resumen del Proyecto</h2>
+            <p>Esta colección reúne automatizaciones desarrolladas en n8n para mejorar procesos reales, reducir errores y ahorrar tiempo. Cada flujo está diseñado de forma modular, limpia y escalable.</p>
+            <p>Sigo ampliando y manteniendo esta colección, creando nuevas herramientas internas cuando detecto oportunidades de automatización.</p>
+        </div>
+    </section>
+
+    <!-- CARACTERÍSTICAS -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Características principales</h2>
+
+            <div class="features-grid">
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-redo"></i></div><h3>Automatizaciones prácticas</h3><p>Flujos ligeros pero críticos para tareas cotidianas.</p></div>
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-puzzle-piece"></i></div><h3>Diseño modular</h3><p>Fáciles de mantener y actualizar.</p></div>
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-code"></i></div><h3>Nodos Code</h3><p>Personalización avanzada según necesidad.</p></div>
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-plug"></i></div><h3>Integraciones</h3><p>Múltiples APIs y servicios externos.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MINI-PROYECTOS -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Mini-proyectos incluidos</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>1. Sistema de copias de seguridad</h3>
+                    <p>Exporta diariamente todos los workflows de n8n a Google Drive en formato JSON, manteniendo versiones históricas para recuperación.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>2. Restauración de entorno</h3>
+                    <p>Borra e importa workflows desde Google Drive. Ideal para migraciones, recuperación de desastres y pruebas.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>3. Formulario de contacto</h3>
+                    <p>Valida datos, guarda en Google Sheets y envía confirmación por Gmail. En producción en tu portfolio.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3>4. Log de errores</h3>
+                    <p>Captura fallos, genera logs estructurados y registra en Google Sheets para diagnóstico.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>5. Chatbot de Telegram</h3>
+                    <p>Asistente con IA, mensajes de voz/texto, integración con Google Calendar, Airtable y Gmail.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>6. Sistema RAG para gestoría</h3>
+                    <p>Agente avanzado con Qdrant, procesamiento de lenguaje natural y registro en Supabase.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA / CARRUSEL -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Galería</h2>
+
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide"><img src="../assets/img/projects/n8n_projects/01-backup-workflows.png" /><p class="carousel-caption">Sistema de copias de seguridad</p></div>
+                    <div class="carousel-slide"><img src="../assets/img/projects/n8n_projects/02-borrar-importar-flujos.png" /><p class="carousel-caption">Restauración de flujos</p></div>
+                    <div class="carousel-slide"><img src="../assets/img/projects/n8n_projects/00-formulario_contacto.png" /><p class="carousel-caption">Formulario de contacto</p></div>
+                    <div class="carousel-slide"><img src="../assets/img/projects/n8n_projects/03-agente-interactivo_IA.png" /><p class="carousel-caption">Agente interactivo con IA</p></div>
+                    <div class="carousel-slide"><img src="../assets/img/projects/n8n_projects/04-RAG-gestoria.png" /><p class="carousel-caption">Sistema RAG para gestoría</p></div>
+                </div>
+
+                <button class="carousel-button prev">❮</button>
+                <button class="carousel-button next">❯</button>
+                <div class="carousel-dots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECNOLOGÍAS -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Tecnologías utilizadas</h2>
+
+            <div class="tech-grid">
+                <div class="tech-card"><div class="tech-icon"><i class="fas fa-project-diagram"></i></div><h3>n8n</h3><p>Motor principal de automatización</p></div>
+                <div class="tech-card"><div class="tech-icon"><i class="fab fa-google-drive"></i></div><h3>Google Drive</h3><p>Backups automáticos</p></div>
+                <div class="tech-card"><div class="tech-icon"><i class="fas fa-table"></i></div><h3>Google Sheets</h3><p>Logging y almacenamiento ligero</p></div>
+                <div class="tech-card"><div class="tech-icon"><i class="fab fa-google"></i></div><h3>Gmail API</h3><p>Notificaciones y correos</p></div>
+                <div class="tech-card"><div class="tech-icon"><i class="fab fa-telegram"></i></div><h3>Telegram Bot</h3><p>Interfaz de chat</p></div>
+                <div class="tech-card"><div class="tech-icon"><i class="fas fa-robot"></i></div><h3>OpenAI</h3><p>Procesamiento inteligente</p></div>
+                <div class="tech-card"><div class="tech-icon"><i class="far fa-calendar"></i></div><h3>Google Calendar MCP</h3><p>Automatización de agenda</p></div>
+                <div class="tech-card"><div class="tech-icon"><i class="fas fa-database"></i></div><h3>Airtable</h3><p>Base de datos</p></div>
+                <div class="tech-card"><div class="tech-icon"><i class="fab fa-js"></i></div><h3>JavaScript</h3><p>Lógica personalizada</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enlaces -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Enlaces</h2>
+
+            <div class="project-links">
+                <a href="../index.html" class="btn btn-primary">
+                    <i class="fas fa-home"></i> Volver al Inicio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="project-container">
+            <p>&copy; 2025 Gonzalo A.M.</p>
+        </div>
+    </footer>
+
+    <script src="../js/scroll-animation.js"></script>
+    <script>
+        /* ------------------- CAROUSEL ------------------- */
+        const container = document.querySelector(".carousel-container");
+        if (!container) return;
+
+        const track = container.querySelector(".carousel-track");
+        const slides = Array.from(container.querySelectorAll(".carousel-slide"));
+        const prev = container.querySelector(".prev");
+        const next = container.querySelector(".next");
+        const dotsContainer = container.querySelector(".carousel-dots");
+        let index = 0;
+
+        // Initialize dots
+        if (dotsContainer) {
+            slides.forEach((_, i) => {
+                const dot = document.createElement("button");
+                dot.className = "dot";
+                if (i === 0) dot.classList.add("active");
+                dot.onclick = () => moveTo(i);
+                dotsContainer.appendChild(dot);
+            });
+
+            const dots = dotsContainer.querySelectorAll(".dot");
+
+            const updateCarousel = () => {
+                // Actualizar la clase active en los slides
+                slides.forEach((slide, i) => {
+                    if (i === index) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+                
+                // Actualizar los puntos de navegación
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+            };
+
+            const moveTo = (i) => {
+                index = i;
+                updateCarousel();
+            };
+
+            // Asegurarse de que los botones existan antes de agregar event listeners
+            if (next) next.onclick = () => moveTo((index + 1) % slides.length);
+            if (prev) prev.onclick = () => moveTo((index - 1 + slides.length) % slides.length);
+
+            // Inicializar el carrusel
+            updateCarousel();
+        }
+    </script>
+</body>
+</html>

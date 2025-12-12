@@ -1,0 +1,176 @@
+/* ===========================
+   ESTILOS DE PÁGINAS DE PROYECTO
+   =========================== */
+
+/* Fondo coherente con el portfolio */
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+}
+
+/* Contenedor global */
+.project-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* Hero */
+.project-hero {
+    padding: 10rem 0 4rem;
+    text-align: center;
+}
+
+.project-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.project-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+/* Hero image */
+.project-hero-image img {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 20px;
+    margin-top: 2rem;
+    box-shadow: var(--shadow-glow);
+    border: 1px solid var(--border-color);
+}
+
+/* Secciones */
+.project-section {
+    padding: 4rem 0;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Texto del proyecto */
+.project-section p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+/* Bloque tipo tarjeta */
+.project-card-block {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Video */
+.project-video {
+    display: flex;
+    justify-content: center;
+}
+
+.project-video video {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Lista de características */
+.project-features {
+    list-style: none;
+    padding-left: 0;
+}
+
+.project-features li {
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.project-features li::before {
+    content: "✔ ";
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Galería */
+.project-gallery {
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.project-gallery img {
+    width: 100%;
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s ease;
+}
+
+.project-gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* Tech list */
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tech-list span {
+    padding: .5rem 1rem;
+    background: var(--bg-card);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    font-size: .9rem;
+    color: var(--text-secondary);
+}
+
+/* Botones */
+.project-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.project-links .btn {
+    min-width: 150px;
+}
+
+/* NAV corrections → evita enlaces azules */
+.nav-menu a {
+    color: var(--text-secondary) !important;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color) !important;
+}
+/* 🔥 Container universal para páginas internas */
+.project-container {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}

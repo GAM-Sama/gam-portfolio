@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YugiDex n8n – Proyecto</title>
+
+    <!-- Fuentes e iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Estilos generales del portfolio -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/project.css">
+    
+    <style>
+        /* Efecto de revelación suave */
+        .project-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+            margin-bottom: 3rem;
+        }
+        
+        .project-section:last-child {
+            margin-bottom: 2rem;
+        }
+        
+        .project-section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .project-hero {
+            opacity: 1 !important;
+            transform: none !important;
+            margin: 2rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        .project-hero img {
+            max-width: 80%;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .project-section:nth-child(2) { transition-delay: 0.1s; }
+        .project-section:nth-child(3) { transition-delay: 0.2s; }
+        .project-section:nth-child(4) { transition-delay: 0.3s; }
+        .project-section:nth-child(5) { transition-delay: 0.4s; }
+
+        /* Estilos para la galería */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 1rem 0;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gallery-column {
+            width: 100%;
+        }
+
+        .gallery-title {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+            height: 400px; /* Altura fija para el contenedor del carrusel */
+        }
+
+        .gallery-image-link {
+            display: block;
+            min-width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-right: 1rem;
+        }
+        
+        .gallery-image-link:last-child {
+            margin-right: 0;
+        }
+        
+        .gallery-image-link img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-image-link:hover img {
+            transform: scale(1.02);
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10;
+            transition: all 0.3s ease;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-button:hover {
+            background: var(--primary-color);
+        }
+
+        .carousel-button.prev {
+            left: 1rem;
+        }
+
+        .carousel-button.next {
+            right: 1rem;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 1rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+        
+        /* Estilos para las tarjetas de características */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: #0a0a0a;
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            color: #fff;
+            margin: 0 0 0.8rem 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            color: #a1a1aa;
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Estilos para las tarjetas de tecnologías */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .tech-card {
+            background: #0a0a0a;
+            border-radius: 10px;
+            padding: 1.8rem 1.2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        .tech-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .tech-card h3 {
+            color: #fff;
+            margin: 0 0 0.8rem 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .tech-card p {
+            color: #a1a1aa;
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-background"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="../index.html" class="logo-text">GAM</a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="../index.html#about" class="nav-link">Sobre mí</a></li>
+                    <li><a href="../index.html#projects" class="nav-link">Proyectos</a></li>
+                    <li><a href="../index.html#skills" class="nav-link">Habilidades</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero del proyecto -->
+    <section class="project-hero">
+        <div class="project-container">
+            <h1 class="project-title">YugiDex - Automatización con n8n</h1>
+            <p class="project-subtitle">Flujos de trabajo · Integración de APIs · Procesamiento de datos</p>
+            <div class="project-hero">
+                <img src="../assets/img/projects/yugidex_n8n/00_yugidex_n8n-portada.PNG" alt="YugiDex N8N - Automatización de gestión de cartas" class="project-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido del proyecto -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Resumen del Proyecto</h2>
+            <p>
+El sistema de automatización de YugiDex es el núcleo que conecta la app móvil, la aplicación web y la base de datos.
+En él se gestionan todos los procesos relacionados con el escaneo y registro de cartas.
+
+La primera versión del flujo funcionaba correctamente, pero era extensa y poco eficiente.
+Decidí rediseñarla desde cero, aplicando principios de modularización, reutilización de tareas y optimización de API Calls.
+El resultado es una versión más clara, rápida y escalable, que sigo mejorando activamente para que crezca al ritmo del proyecto.
+            </p>
+            
+            <div style="margin: 2rem 0;">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">Comparativa de Flujos</h3>
+                <div style="display: flex; gap: 2rem; margin: 2rem 0; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px; text-align: center;">
+                        <h4>Flujo Antiguo</h4>
+                        <a href="../assets/img/projects/yugidex_n8n/02_yugidex_n8n-flujo-viejo.png" target="_blank" style="display: block; margin-bottom: 1rem;">
+                            <img src="../assets/img/projects/yugidex_n8n/02_yugidex_n8n-flujo-viejo.png" alt="Flujo antiguo de automatización" style="width: 100%; max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        </a>
+                        <p style="color: #a1a1aa; margin-top: 0.5rem;">Versión inicial del flujo de trabajo</p>
+                    </div>
+                    <div style="flex: 1; min-width: 300px; text-align: center;">
+                        <h4>Flujo Nuevo</h4>
+                        <a href="../assets/img/projects/yugidex_n8n/01_yugidex_n8n-flujo-nuevo.png" target="_blank" style="display: block; margin-bottom: 1rem;">
+                            <img src="../assets/img/projects/yugidex_n8n/01_yugidex_n8n-flujo-nuevo.png" alt="Flujo nuevo optimizado" style="width: 100%; max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        </a>
+                        <p style="color: #a1a1aa; margin-top: 0.5rem;">Flujo optimizado y mejorado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Características -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Características Principales</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-inbox"></i>
+                    </div>
+                    <h3>Recepción de Datos</h3>
+                    <p>Desde la app móvil (Flutter) mediante Webhooks.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-barcode"></i>
+                    </div>
+                    <h3>Validación OCR</h3>
+                    <p>Lectura del código de carta (OCR local en la app) y validación del payload.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>API Yugipedia</h3>
+                    <p>Consulta de datos oficiales de las cartas.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Integración Supabase</h3>
+                    <p>Inserción automática en base de datos PostgreSQL.</p>
+                </div>
+                
+<div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>Estructura Modular</h3>
+                    <p>Sub-flujos independientes reutilizables.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Manejo de Errores</h3>
+                    <p>Manejo avanzado de errores y notificaciones automáticas.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <h3>Limpieza de Datos</h3>
+                    <p>Limpieza de datos e imágenes antes de guardar.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Seguridad</h3>
+                    <p>Control de seguridad mediante secret keys.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Optimización</h3>
+                    <p>Reducción de nodos y de coste de ejecución.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparativa de Flujos -->
+
+    <!-- Galería -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Galería</h2>
+            <div class="carousel-container" style="max-width: 800px; margin: 0 auto;">
+                <div class="carousel-slide">
+                    <a href="../assets/img/projects/yugidex_n8n/01_yugidex_n8n-flujo-nuevo.png" target="_blank" class="gallery-image-link">
+                        <img src="../assets/img/projects/yugidex_n8n/01_yugidex_n8n-flujo-nuevo.png" alt="Flujo nuevo optimizado">
+                    </a>
+                    <a href="../assets/img/projects/yugidex_n8n/03_yugidex_n8n-api.png" target="_blank" class="gallery-image-link">
+                        <img src="../assets/img/projects/yugidex_n8n/03_yugidex_n8n-api.png" alt="Integración con API">
+                    </a>
+                    <a href="../assets/img/projects/yugidex_n8n/04_yugidex_n8n-code.png" target="_blank" class="gallery-image-link">
+                        <img src="../assets/img/projects/yugidex_n8n/04_yugidex_n8n-code.png" alt="Código personalizado">
+                    </a>
+                    <a href="../assets/img/projects/yugidex_n8n/05_yugidex_n8n-postgresql.png" target="_blank" class="gallery-image-link">
+                        <img src="../assets/img/projects/yugidex_n8n/05_yugidex_n8n-postgresql.png" alt="Conexión a PostgreSQL">
+                    </a>
+                    <a href="../assets/img/projects/yugidex_n8n/06_yugidex_n8n-supabase.png" target="_blank" class="gallery-image-link">
+                        <img src="../assets/img/projects/yugidex_n8n/06_yugidex_n8n-supabase.png" alt="Integración con Supabase">
+                    </a>
+                </div>
+                <button class="carousel-button prev">❮</button>
+                <button class="carousel-button next">❯</button>
+                <div class="carousel-dots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tecnologías -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Tecnologías Utilizadas</h2>
+            
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>n8n</h3>
+                    <p>Flujos principales, sub-flujos, manejo de webhooks.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Supabase / PostgreSQL</h3>
+                    <p>Almacenamiento estructurado de datos.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-atlas"></i>
+                    </div>
+                    <h3>API Yugipedia</h3>
+                    <p>Consulta de datos oficiales de las cartas.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fab fa-android"></i>
+                    </div>
+                    <h3>Flutter</h3>
+                    <p>App móvil que envía el código OCR.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <h3>Next.js + React</h3>
+                    <p>CRM / panel web de administración.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Google Cloud VM</h3>
+                    <p>Servidor donde se ejecuta n8n.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Vercel</h3>
+                    <p>Hosting de la aplicación web.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub</h3>
+                    <p>Control de versiones del código.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enlaces -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2 class="section-title">Enlaces</h2>
+
+            <div class="project-links">
+                <a href="../index.html" class="btn btn-primary">
+                    <i class="fas fa-home"></i> Volver al Inicio
+                </a>
+                <a href="../index.html#projects" class="btn btn-secondary">
+                    <i class="fas fa-th-large"></i> Ver todos los proyectos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="project-container">
+            <p>&copy; 2025 Gonzalo A.M. · Automatización con n8n · Proyecto YugiDex</p>
+        </div>
+    </footer>
+
+    <script>
+        // Función para verificar si un elemento está en el viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight * 0.8) &&
+                rect.bottom >= (window.innerHeight * 0.2)
+            );
+        }
+
+        // Función para manejar el scroll
+        function handleScroll() {
+            const sections = document.querySelectorAll('.project-section');
+            
+            sections.forEach(section => {
+                if (isInViewport(section)) {
+                    section.classList.add('active');
+                }
+            });
+        }
+
+        // Inicializar la visibilidad de las secciones al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Activar la primera sección de inmediato
+            const firstSection = document.querySelector('.project-section');
+            if (firstSection) firstSection.classList.add('active');
+            
+            // Configurar el evento de scroll
+            window.addEventListener('scroll', handleScroll);
+            
+            // Forzar una verificación inicial
+            handleScroll();
+            
+            // También verificar después de que se carguen todas las imágenes
+            window.addEventListener('load', handleScroll);
+            
+            // Inicializar el carrusel si existe
+            initCarousel();
+        });
+        
+        // Función para inicializar el carrusel
+        function initCarousel() {
+            const container = document.querySelector('.carousel-container');
+            if (!container) return;
+            
+            const slide = container.querySelector('.carousel-slide');
+            const slides = Array.from(slide.children); // Obtener todos los elementos hijos (ahora son <a>)
+            const prevBtn = container.querySelector('.prev');
+            const nextBtn = container.querySelector('.next');
+            const dotsContainer = container.querySelector('.carousel-dots');
+            let currentIndex = 0;
+            const dots = [];
+            
+            // Asegurarse de que cada slide ocupe el 100% del ancho
+            slides.forEach(slide => {
+                slide.style.minWidth = '100%';
+                slide.style.flexShrink = '0';
+            });
+            
+            // Crear puntos de navegación
+            if (slides.length > 0) {
+                for (let i = 0; i < slides.length; i++) {
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot');
+                    if (i === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => goToSlide(i));
+                    dotsContainer.appendChild(dot);
+                    dots.push(dot);
+                }
+                
+                // Actualizar la visualización
+                updateSlide();
+                
+                // Configurar botones de navegación
+                if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+                if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+                
+                // Auto-avance cada 5 segundos
+                let slideInterval = setInterval(nextSlide, 5000);
+                
+                // Pausar al pasar el ratón
+                container.addEventListener('mouseenter', () => {
+                    clearInterval(slideInterval);
+                });
+                
+                container.addEventListener('mouseleave', () => {
+                    clearInterval(slideInterval);
+                    slideInterval = setInterval(nextSlide, 5000);
+                });
+            }
+            
+            function updateSlide() {
+                slide.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Actualizar puntos de navegación
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlide();
+            }
+            
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateSlide();
+            }
+            
+            function goToSlide(index) {
+                currentIndex = index;
+                updateSlide();
+            }
+        }
+    </script>
+</body>
+</html>
