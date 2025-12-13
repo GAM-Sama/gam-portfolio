@@ -1,0 +1,98 @@
+/* Common styles for project pages */
+
+/* Typing animation for project subtitles */
+.project-subtitle {
+    display: inline-block;
+    position: relative;
+    margin: 1rem 0 2rem;
+    color: #9ca3af;
+    font-size: 1.25rem;
+    font-weight: 400;
+    min-height: 1.5em; /* Ensure space is reserved even when empty */
+}
+
+/* Blinking cursor effect */
+.project-subtitle.typing::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+    color: #8b5cf6;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Scroll reveal animations */
+.project-section,
+.project-feature,
+.tech-grid,
+.gallery-item,
+.project-gallery {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+    margin-bottom: 2rem;
+}
+
+.project-section:last-child,
+.project-feature:last-child,
+.tech-grid:last-child {
+    margin-bottom: 0;
+}
+
+.project-section.active,
+.project-feature.active,
+.tech-grid.active,
+.gallery-item.active,
+.project-gallery.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation delays */
+.project-section:nth-child(2) { transition-delay: 0.1s; }
+.project-section:nth-child(3) { transition-delay: 0.2s; }
+.project-section:nth-child(4) { transition-delay: 0.3s; }
+.project-section:nth-child(5) { transition-delay: 0.4s; }
+.project-section:nth-child(6) { transition-delay: 0.5s; }
+
+/* Feature cards */
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #8b5cf6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-section,
+    .project-feature,
+    .tech-grid,
+    .gallery-item,
+    .project-gallery {
+        margin-bottom: 1.5rem;
+    }
+    
+    .project-subtitle {
+        font-size: 1.1rem;
+        margin: 0.5rem 0 1.5rem;
+    }
+}

@@ -12,6 +12,7 @@
     <!-- Estilos generales del portfolio -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/project.css">
+    <link rel="stylesheet" href="../css/projects-common.css">
     
     <style>
         /* Efecto de revelación suave */
@@ -295,7 +296,7 @@
     <section class="project-hero">
         <div class="project-container">
             <h1 class="project-title">YugiDex - Automatización con n8n</h1>
-            <p class="project-subtitle">Flujos de trabajo · Integración de APIs · Procesamiento de datos</p>
+            <p class="project-subtitle">Automatización · n8n · 2024</p>
             <div class="project-hero">
                 <img src="../assets/img/projects/yugidex_n8n/00_yugidex_n8n-portada.PNG" alt="YugiDex N8N - Automatización de gestión de cartas" class="project-cover">
             </div>
@@ -303,7 +304,7 @@
     </section>
 
     <!-- Contenido del proyecto -->
-    <section class="project-section">
+    <section class="project-section reveal">
         <div class="project-container">
             <h2 class="section-title">Resumen del Proyecto</h2>
             <p>
@@ -338,12 +339,12 @@ El resultado es una versión más clara, rápida y escalable, que sigo mejorando
     </section>
     
     <!-- Características -->
-    <section class="project-section">
+    <section class="project-section reveal">
         <div class="project-container">
             <h2 class="section-title">Características Principales</h2>
             
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">
                         <i class="fas fa-inbox"></i>
                     </div>
@@ -351,7 +352,7 @@ El resultado es una versión más clara, rápida y escalable, que sigo mejorando
                     <p>Desde la app móvil (Flutter) mediante Webhooks.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">
                         <i class="fas fa-barcode"></i>
                     </div>
@@ -359,7 +360,7 @@ El resultado es una versión más clara, rápida y escalable, que sigo mejorando
                     <p>Lectura del código de carta (OCR local en la app) y validación del payload.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">
                         <i class="fas fa-globe"></i>
                     </div>
@@ -367,7 +368,7 @@ El resultado es una versión más clara, rápida y escalable, que sigo mejorando
                     <p>Consulta de datos oficiales de las cartas.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">
                         <i class="fas fa-database"></i>
                     </div>
@@ -375,7 +376,7 @@ El resultado es una versión más clara, rápida y escalable, que sigo mejorando
                     <p>Inserción automática en base de datos PostgreSQL.</p>
                 </div>
                 
-<div class="feature-card">
+<div class="feature-card reveal">
                     <div class="feature-icon">
                         <i class="fas fa-puzzle-piece"></i>
                     </div>
@@ -383,7 +384,7 @@ El resultado es una versión más clara, rápida y escalable, que sigo mejorando
                     <p>Sub-flujos independientes reutilizables.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">
                         <i class="fas fa-exclamation-triangle"></i>
                     </div>
@@ -391,7 +392,7 @@ El resultado es una versión más clara, rápida y escalable, que sigo mejorando
                     <p>Manejo avanzado de errores y notificaciones automáticas.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">
                         <i class="fas fa-broom"></i>
                     </div>
@@ -399,7 +400,7 @@ El resultado es una versión más clara, rápida y escalable, que sigo mejorando
                     <p>Limpieza de datos e imágenes antes de guardar.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
@@ -407,7 +408,7 @@ El resultado es una versión más clara, rápida y escalable, que sigo mejorando
                     <p>Control de seguridad mediante secret keys.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
@@ -421,27 +422,41 @@ El resultado es una versión más clara, rápida y escalable, que sigo mejorando
     <!-- Comparativa de Flujos -->
 
     <!-- Galería -->
-    <section class="project-section">
+    <section class="project-section reveal">
         <div class="project-container">
             <h2 class="section-title">Galería</h2>
             <div class="carousel-container" style="max-width: 800px; margin: 0 auto;">
-                <div class="carousel-slide">
+                <div class="carousel-slide active">
                     <a href="../assets/img/projects/yugidex_n8n/01_yugidex_n8n-flujo-nuevo.png" target="_blank" class="gallery-image-link">
                         <img src="../assets/img/projects/yugidex_n8n/01_yugidex_n8n-flujo-nuevo.png" alt="Flujo nuevo optimizado">
                     </a>
+                    <p class="carousel-caption">1. Flujo optimizado en n8n</p>
+                </div>
+                <div class="carousel-slide">
                     <a href="../assets/img/projects/yugidex_n8n/03_yugidex_n8n-api.png" target="_blank" class="gallery-image-link">
                         <img src="../assets/img/projects/yugidex_n8n/03_yugidex_n8n-api.png" alt="Integración con API">
                     </a>
+                    <p class="carousel-caption">2. Integración con API de cartas</p>
+                </div>
+                <div class="carousel-slide">
                     <a href="../assets/img/projects/yugidex_n8n/04_yugidex_n8n-code.png" target="_blank" class="gallery-image-link">
                         <img src="../assets/img/projects/yugidex_n8n/04_yugidex_n8n-code.png" alt="Código personalizado">
                     </a>
+                    <p class="carousel-caption">3. Código personalizado en nodos Function</p>
+                </div>
+                <div class="carousel-slide">
                     <a href="../assets/img/projects/yugidex_n8n/05_yugidex_n8n-postgresql.png" target="_blank" class="gallery-image-link">
                         <img src="../assets/img/projects/yugidex_n8n/05_yugidex_n8n-postgresql.png" alt="Conexión a PostgreSQL">
                     </a>
+                    <p class="carousel-caption">4. Conexión a base de datos PostgreSQL</p>
+                </div>
+                <div class="carousel-slide">
                     <a href="../assets/img/projects/yugidex_n8n/06_yugidex_n8n-supabase.png" target="_blank" class="gallery-image-link">
                         <img src="../assets/img/projects/yugidex_n8n/06_yugidex_n8n-supabase.png" alt="Integración con Supabase">
                     </a>
+                    <p class="carousel-caption">5. Integración con Supabase</p>
                 </div>
+
                 <button class="carousel-button prev">❮</button>
                 <button class="carousel-button next">❯</button>
                 <div class="carousel-dots"></div>
@@ -450,11 +465,11 @@ El resultado es una versión más clara, rápida y escalable, que sigo mejorando
     </section>
 
     <!-- Tecnologías -->
-    <section class="project-section">
+    <section class="project-section reveal">
         <div class="project-container">
             <h2 class="section-title">Tecnologías Utilizadas</h2>
             
-            <div class="tech-grid">
+            <div class="tech-grid reveal">
                 <div class="tech-card">
                     <div class="tech-icon">
                         <i class="fas fa-project-diagram"></i>
@@ -523,7 +538,7 @@ El resultado es una versión más clara, rápida y escalable, que sigo mejorando
     </section>
 
     <!-- Enlaces -->
-    <section class="project-section">
+    <section class="project-section reveal">
         <div class="project-container">
             <h2 class="section-title">Enlaces</h2>
 
@@ -545,6 +560,7 @@ El resultado es una versión más clara, rápida y escalable, que sigo mejorando
         </div>
     </footer>
 
+    <script src="../js/project-animations.js"></script>
     <script>
         // Función para verificar si un elemento está en el viewport
         function isInViewport(element) {
@@ -589,75 +605,57 @@ El resultado es una versión más clara, rápida y escalable, que sigo mejorando
         function initCarousel() {
             const container = document.querySelector('.carousel-container');
             if (!container) return;
-            
-            const slide = container.querySelector('.carousel-slide');
-            const slides = Array.from(slide.children); // Obtener todos los elementos hijos (ahora son <a>)
-            const prevBtn = container.querySelector('.prev');
-            const nextBtn = container.querySelector('.next');
+
+            const slides = Array.from(container.querySelectorAll('.carousel-slide'));
+            const prev = container.querySelector('.prev');
+            const next = container.querySelector('.next');
             const dotsContainer = container.querySelector('.carousel-dots');
-            let currentIndex = 0;
-            const dots = [];
-            
-            // Asegurarse de que cada slide ocupe el 100% del ancho
-            slides.forEach(slide => {
-                slide.style.minWidth = '100%';
-                slide.style.flexShrink = '0';
-            });
-            
-            // Crear puntos de navegación
-            if (slides.length > 0) {
-                for (let i = 0; i < slides.length; i++) {
-                    const dot = document.createElement('span');
-                    dot.classList.add('dot');
+            let index = 0;
+
+            // Asegurarse de que al menos un slide esté activo
+            if (slides.length > 0 && !slides.some(slide => slide.classList.contains('active'))) {
+                slides[0].classList.add('active');
+            }
+
+            // Inicializar puntos de navegación
+            if (dotsContainer) {
+                // Limpiar puntos existentes
+                dotsContainer.innerHTML = '';
+                
+                // Crear nuevos puntos
+                slides.forEach((_, i) => {
+                    const dot = document.createElement('button');
+                    dot.className = 'dot';
                     if (i === 0) dot.classList.add('active');
-                    dot.addEventListener('click', () => goToSlide(i));
+                    dot.onclick = () => moveTo(i);
                     dotsContainer.appendChild(dot);
-                    dots.push(dot);
-                }
-                
-                // Actualizar la visualización
-                updateSlide();
-                
-                // Configurar botones de navegación
-                if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-                if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-                
-                // Auto-avance cada 5 segundos
-                let slideInterval = setInterval(nextSlide, 5000);
-                
-                // Pausar al pasar el ratón
-                container.addEventListener('mouseenter', () => {
-                    clearInterval(slideInterval);
                 });
-                
-                container.addEventListener('mouseleave', () => {
-                    clearInterval(slideInterval);
-                    slideInterval = setInterval(nextSlide, 5000);
-                });
-            }
-            
-            function updateSlide() {
-                slide.style.transform = `translateX(-${currentIndex * 100}%)`;
-                
-                // Actualizar puntos de navegación
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === currentIndex);
-                });
-            }
-            
-            function nextSlide() {
-                currentIndex = (currentIndex + 1) % slides.length;
-                updateSlide();
-            }
-            
-            function prevSlide() {
-                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-                updateSlide();
-            }
-            
-            function goToSlide(index) {
-                currentIndex = index;
-                updateSlide();
+
+                const dots = dotsContainer.querySelectorAll('.dot');
+
+                const updateCarousel = () => {
+                    // Actualizar la clase active en los slides
+                    slides.forEach((slide, i) => {
+                        slide.classList.toggle('active', i === index);
+                    });
+                    
+                    // Actualizar los puntos de navegación
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                };
+
+                const moveTo = (i) => {
+                    index = (i + slides.length) % slides.length; // Asegurar que el índice esté dentro de los límites
+                    updateCarousel();
+                };
+
+                // Event listeners para los botones
+                if (next) next.onclick = () => moveTo(index + 1);
+                if (prev) prev.onclick = () => moveTo(index - 1);
+
+                // Inicializar el carrusel
+                updateCarousel();
             }
         }
     </script>

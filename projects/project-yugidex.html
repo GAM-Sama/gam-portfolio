@@ -14,6 +14,7 @@
 
     <!-- Estilos específicos de proyectos -->
     <link rel="stylesheet" href="../css/project.css">
+    <link rel="stylesheet" href="../css/projects-common.css">
     <style>
         /* Mobile Menu Styles */
         .nav-toggle {
@@ -148,7 +149,7 @@
     </section>
 
     <!-- Contenido del proyecto -->
-    <section class="project-section">
+    <section class="project-section reveal">
         <div class="project-container">
             <h2 class="section-title">Resumen del Proyecto</h2>
             <p>
@@ -168,7 +169,7 @@
     </section>
 
     <!-- Video -->
-    <section class="project-section">
+    <section class="project-section reveal">
         <div class="project-container">
             <h2 class="section-title">Demo en Video</h2>
 
@@ -182,12 +183,12 @@
     </section>
 
     <!-- Características -->
-    <section class="project-section">
+    <section class="project-section reveal">
         <div class="project-container">
             <h2 class="section-title">Características Principales</h2>
             
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">
                         <i class="fas fa-camera"></i>
                     </div>
@@ -195,7 +196,7 @@
                     <p>Extrae el código de la carta desde el móvil usando Google ML Kit con reconocimiento preciso.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">
                         <i class="fas fa-check-circle"></i>
                     </div>
@@ -203,7 +204,7 @@
                     <p>Sistema propio de reconocimiento y validación antes de enviar datos al backend.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">
                         <i class="fas fa-robot"></i>
                     </div>
@@ -211,7 +212,7 @@
                     <p>Flujos optimizados para máxima velocidad y mínimo coste operativo.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">
                         <i class="fas fa-database"></i>
                     </div>
@@ -219,7 +220,7 @@
                     <p>Estructura robusta en Supabase + PostgreSQL con API y almacenamiento integrado.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">
                         <i class="fas fa-laptop"></i>
                     </div>
@@ -227,7 +228,7 @@
                     <p>Desarrollada con Next.js y React para gestión avanzada de cartas y colecciones.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
@@ -239,7 +240,7 @@
     </section>
 
     <!-- Galería -->
-    <section class="project-section">
+    <section class="project-section reveal">
         <div class="project-container">
             <h2 class="section-title">Galería</h2>
             
@@ -249,13 +250,25 @@
                     <h3 class="gallery-title">Versión Escritorio</h3>
                     <div class="carousel-container desktop-carousel">
                         <div class="carousel-slide">
+                        <a href="#" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/00-ydex-crm-login.PNG" alt="Inicio de sesión">
+                        </a>
+                        <a href="#" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/01-ydex-crm-dashboard.PNG" alt="Dashboard principal">
+                        </a>
+                        <a href="#" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/02-ydex-crm-cartas.PNG" alt="Gestión de cartas">
+                        </a>
+                        <a href="#" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/03-ydex-crm-decks-01.PNG" alt="Gestión de mazos 1">
+                        </a>
+                        <a href="#" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/04-ydex-crm-decks-02.PNG" alt="Gestión de mazos 2">
+                        </a>
+                        <a href="#" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/05-ydex-crm-statistics.PNG" alt="Estadísticas">
-                        </div>
+                        </a>
+                    </div>
                         <button class="carousel-button prev">❮</button>
                         <button class="carousel-button next">❯</button>
                         <div class="carousel-dots"></div>
@@ -267,12 +280,22 @@
                     <h3 class="gallery-title">Versión Móvil</h3>
                     <div class="carousel-container mobile-carousel">
                         <div class="carousel-slide">
+                        <a href="#" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/00-ydex-main-app.jpeg" alt="Pantalla principal">
+                        </a>
+                        <a href="#" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/01-ydex-cards-app.jpeg" alt="Lista de cartas">
+                        </a>
+                        <a href="#" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/02-ydex-decks-01-app.jpeg" alt="Mazos 1">
+                        </a>
+                        <a href="#" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/03-ydex-decks-02-app.jpeg" alt="Mazos 2">
+                        </a>
+                        <a href="#" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/04-ydex-decks-03-app.jpeg" alt="Mazos 3">
-                        </div>
+                        </a>
+                    </div>
                         <button class="carousel-button prev">❮</button>
                         <button class="carousel-button next">❯</button>
                         <div class="carousel-dots"></div>
@@ -342,100 +365,153 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
         
+        .gallery-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 1rem 0;
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 1200px) {
+            .gallery-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+        }
+
+        .gallery-column {
+            width: 100%;
+        }
+
+        .gallery-title {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
         .carousel-container {
             position: relative;
+            width: 100%;
             max-width: 100%;
+            margin: 0 auto;
             overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            height: auto;
+            min-height: 300px;
+            aspect-ratio: 16/9;
         }
-        
-        .mobile-carousel {
-            border: 1px solid #e0e0e0;
-        }
-        
-        .mobile-placeholder {
-            min-height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f9f9f9;
-            color: #666;
-            font-style: italic;
-            padding: 40px 20px;
-        }
-        
+
         .carousel-slide {
             display: flex;
             transition: transform 0.5s ease-in-out;
+            width: 100%;
+            height: 100%;
+        }
+
+        .gallery-image-link {
+            display: flex;
+            min-width: 100%;
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-right: 1rem;
+            align-items: center;
+            justify-content: center;
+            background: #0a0a0a;
         }
         
-        .carousel-slide img {
-            width: 100%;
+        .gallery-image-link:last-child {
+            margin-right: 0;
+        }
+        
+        .gallery-image-link img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
             height: auto;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 8px;
             transition: transform 0.3s ease;
-            cursor: pointer;
+            display: block;
         }
         
-        .carousel-slide img:hover {
+        .gallery-image-link:hover img {
             transform: scale(1.02);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
-        
+
         .carousel-button {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.6);
             color: white;
             border: none;
-            padding: 15px;
+            padding: 1rem;
             cursor: pointer;
-            font-size: 20px;
+            font-size: 1.5rem;
+            z-index: 10;
+            transition: all 0.3s ease;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.7;
+            transition: all 0.3s ease;
         }
-        
+
         .carousel-button:hover {
-            background: rgba(0,0,0,0.8);
+            background: var(--primary-color);
+            opacity: 1;
         }
-        
-        .prev {
-            left: 10px;
+
+        .carousel-button.prev {
+            left: 1rem;
         }
-        
-        .next {
-            right: 10px;
+
+        .carousel-button.next {
+            right: 1rem;
         }
-        
+
         .carousel-dots {
-            text-align: center;
-            padding: 10px 0;
+            position: absolute;
+            bottom: 1rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            z-index: 10;
         }
-        
+
         .dot {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            margin: 0 5px;
-            background-color: #bbb;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
         }
-        
+
         .dot.active {
-            background-color: #333;
+            background: var(--primary-color);
+            transform: scale(1.2);
         }
-        
+
         /* Lightbox styles */
         .lightbox {
             display: none;
@@ -510,6 +586,7 @@
         .project-section:nth-child(6) { transition-delay: 0.5s; }
     </style>
     
+    <script src="../js/project-animations.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Inicializar ambos carruseles
@@ -627,48 +704,8 @@
         <div id="caption"></div>
     </div>
 
-    <script>
-        // Lightbox functionality
-        const lightbox = document.getElementById('imageLightbox');
-        const lightboxImg = document.getElementById('lightboxImage');
-        const captionText = document.getElementById('caption');
-        const closeBtn = document.querySelector('.close-lightbox');
-
-        // Add click event to all gallery images
-        document.querySelectorAll('.carousel-slide img').forEach(img => {
-            img.addEventListener('click', function() {
-                lightbox.style.display = 'block';
-                lightboxImg.src = this.src;
-                captionText.innerHTML = this.alt;
-                document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
-            });
-        });
-
-        // Close lightbox when clicking the close button
-        closeBtn.addEventListener('click', function() {
-            lightbox.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-
-        // Close lightbox when clicking outside the image
-        lightbox.addEventListener('click', function(e) {
-            if (e.target === lightbox) {
-                lightbox.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // Close with ESC key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && lightbox.style.display === 'block') {
-                lightbox.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-    </script>
-
     <!-- Tecnologías -->
-    <section class="project-section">
+    <section class="project-section reveal">
         <div class="project-container">
             <h2 class="section-title">Tecnologías Utilizadas</h2>
 
@@ -688,7 +725,7 @@
     </section>
 
     <!-- Enlaces -->
-    <section class="project-section">
+    <section class="project-section reveal">
         <div class="project-container">
             <h2 class="section-title">Enlaces</h2>
 

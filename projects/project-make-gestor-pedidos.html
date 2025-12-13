@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestor de Pedidos – Proyecto</title>
+    <title>Make it Happen: Gestión Inteligente de Pedidos</title>
 
     <!-- Fuentes e iconos -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,109 +12,248 @@
     <!-- Estilos generales del portfolio -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/project.css">
+    <link rel="stylesheet" href="../css/projects-common.css">
     
-    <style>
-        /* Efecto de revelación suave */
+  <style>
+        :root {
+            --primary-color: #6c5ce7;
+        }
+
+        /* --------------------------------------------------------- */
+        /* HERO                                                      */
+        /* --------------------------------------------------------- */
+        .project-hero {
+            margin: 2rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .project-hero img {
+            max-width: 80%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* --------------------------------------------------------- */
+        /* REVEAL ANIMATION                                          */
+        /* --------------------------------------------------------- */
         .project-section {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            will-change: opacity, transform;
+            margin-bottom: 3rem;
         }
-        
         .project-section.active {
             opacity: 1;
             transform: translateY(0);
         }
-        
-        .project-hero {
-            opacity: 1 !important;
-            transform: none !important;
+
+        /* --------------------------------------------------------- */
+        /* FEATURES GRID                                             */
+        /* --------------------------------------------------------- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .feature-card {
+            background: #0a0a0a;
+            border-radius: 10px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-color);
+        }
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* --------------------------------------------------------- */
+        /* TECH GRID                                                 */
+        /* --------------------------------------------------------- */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        .tech-card {
+            background: #0a0a0a;
+            border-radius: 10px;
+            padding: 1.8rem 1.2rem;
+            text-align: center;
+            transition: 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .tech-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-color);
+        }
+        .tech-icon {
+            font-size: 2.3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* --------------------------------------------------------- */
+        /* CAROUSEL FIX – ONE WORKING VERSION                        */
+        /* --------------------------------------------------------- */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            height: 500px; /* Altura fija para el contenedor */
+        }
+
+        .carousel-track {
+            display: flex;
+            height: 100%;
+            position: relative;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .carousel-slide img {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-bottom: 15px;
         }
         
-        .project-section:nth-child(2) { transition-delay: 0.1s; }
-        .project-section:nth-child(3) { transition-delay: 0.2s; }
-        .project-section:nth-child(4) { transition-delay: 0.3s; }
-        .project-section:nth-child(5) { transition-delay: 0.4s; }
-        
-        .tech-list {
+        /* Video Demo Styles */
+        .video-demo-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
-            margin: 20px 0;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
         }
         
-        .tech-list span {
-            background: rgba(74, 108, 247, 0.1);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #4a6cf7;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .tech-list i {
-            font-size: 1rem;
-        }
-        
-        .flow-card {
-            background: #fff;
+        .video-wrapper {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+            background: #0a0a0a;
             border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .flow-card h3 {
-            color: #2d3748;
-            margin-top: 0;
+        .video-wrapper h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .video-wrapper video {
+            width: 100%;
+            border-radius: 8px;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .video-demo-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .video-wrapper {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        .carousel-caption {
+            margin-top: 1rem;
+            color: #e2e8f0;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s ease;
+            z-index: 10;
         }
-        
-        .flow-card h3 i {
-            color: #4a6cf7;
+
+        .carousel-button:hover {
+            background: rgba(0, 0, 0, 0.85);
         }
-        
-        .flow-steps {
-            margin: 15px 0 0 20px;
+
+        .carousel-button.prev { left: 10px; }
+        .carousel-button.next { right: 10px; }
+
+        .carousel-dots {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin: 12px 0;
         }
-        
-        .flow-steps li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 25px;
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: 0.3s ease;
         }
-        
-        .flow-steps li:before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: #4a6cf7;
-            font-weight: bold;
-        }
-        
-        .api-card {
-            background: #f8f9fa;
-            border-left: 4px solid #4a6cf7;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 0 5px 5px 0;
-        }
-        
-        .api-card h4 {
-            margin-top: 0;
-            color: #2d3748;
+        .dot.active {
+            background: #fff;
+            transform: scale(1.2);
         }
     </style>
 </head>
+
 <body>
     <div class="grid-background"></div>
 
-    <!-- Header -->
+    <!-- HEADER -->
     <header class="header">
         <nav class="nav">
             <div class="nav-container">
@@ -122,174 +261,280 @@
                     <a href="../index.html" class="logo-text">GAM</a>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="../index.html#home">Home</a></li>
-                    <li><a href="../index.html#about">Sobre mí</a></li>
-                    <li><a href="../index.html#projects">Proyectos</a></li>
-                    <li><a href="../index.html#skills">Habilidades</a></li>
-                    <li><a href="../index.html#contact">Contacto</a></li>
+                    <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="../index.html#about" class="nav-link">Sobre mí</a></li>
+                    <li><a href="../index.html#projects" class="nav-link">Proyectos</a></li>
+                    <li><a href="../index.html#skills" class="nav-link">Habilidades</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contacto</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- Hero del proyecto -->
+    <!-- HERO -->
     <section class="project-hero">
         <div class="project-container">
-            <h1 class="project-title">Gestor de Pedidos con Make</h1>
-            <p class="project-subtitle">Automatización · Procesamiento de datos · Integración de sistemas</p>
-            <div class="project-hero-image">
-                <img src="../assets/img/projects/make-gestor-pedidos.jpg" alt="Gestor de Pedidos con Make">
-            </div>
+            <h1 class="project-title">Make: <span class="gradient-text">Gestión Inteligente de Pedidos</span></h1>
+            <p class="project-subtitle">Automatización · Análisis de ventas · Comunicación con clientes</p>
+            <img src="../assets/img/projects/make/01-flujo 1-pedido-individual.PNG" alt="Vista detallada del flujo de gestión de pedidos" />
         </div>
     </section>
 
-    <!-- Contenido del proyecto -->
-    <section class="project-section">
+    <!-- RESUMEN -->
+    <section class="project-section reveal">
         <div class="project-container">
             <h2 class="section-title">Resumen del Proyecto</h2>
-            <p>
-                Sistema de automatización integral para la gestión de pedidos que conecta múltiples fuentes de datos, 
-                enriquece la información con IA y genera informes detallados. La solución optimiza el flujo de trabajo 
-                desde la recepción del pedido hasta el seguimiento post-venta.
-            </p>
-            <p>
-                Este proyecto demuestra la potencia de la automatización para transformar procesos empresariales, 
-                reduciendo el tiempo de procesamiento en un 70% y mejorando la precisión en la gestión de datos.
-            </p>
+            <p>Gestión Inteligente de Pedidos y Análisis de Ventas con Make.com</p>
+            <p>Este proyecto implementa un sistema completo de automatización para una tienda online real (Jamones San Pancracio – elreydeljamon.eu). Incluye un flujo avanzado para gestionar pedidos individuales y enviar emails personalizados, así como un informe semanal de ventas con KPIs y gráficos generados automáticamente.</p>
+            <p>El sistema conecta PrestaShop con una base de datos en Google Sheets, APIs externas, Gmail y servicios de análisis, permitiendo centralizar información, reducir trabajo manual y mejorar la comunicación con clientes. Además, se incorporan módulos de IA para redactar emails y generar informes de forma contextual y profesional.</p>
+            <p>El proyecto está diseñado con un enfoque modular, optimizado y totalmente escalable. He seguido iterando sobre él más allá de la presentación del Máster para reforzar estabilidad y robustez.</p>
         </div>
     </section>
 
-    <!-- Flujos de Automatización -->
-    <section class="project-section">
+    <!-- CARACTERÍSTICAS -->
+    <section class="project-section reveal">
         <div class="project-container">
-            <h2 class="section-title">Flujos de Automatización</h2>
+            <h2 class="section-title">Características principales</h2>
 
-            <div class="flow-card">
-                <h3><i class="fas fa-shopping-cart"></i> Flujo 1: Gestión de Pedidos Individuales</h3>
-                <p>Automatización del proceso completo de gestión de pedidos, desde la recepción hasta la confirmación.</p>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <h3>1. Gestión de pedidos</h3>
+                    <p>Procesamiento en tiempo real, estructuración de datos y almacenamiento automático en Google Sheets con separación en rutas paralelas.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>2. Emails con IA</h3>
+                    <p>Diferenciación B2C/B2B, enriquecimiento de datos con Apollo.io y redacción automática personalizada con OpenAI.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>3. Informe semanal</h3>
+                    <p>Ejecución automática los lunes con KPIs clave, generación de gráficos dinámicos y redacción completa con IA.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-project-diagram"></i></div>
+                    <h3>4. Arquitectura robusta</h3>
+                    <p>Diseño modular, manejo de errores, validaciones y estructura optimizada para escalabilidad futura.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MINI-PROYECTOS -->
+    <section class="project-section reveal">
+        <div class="project-container">
+            <h2 class="section-title">Módulos principales</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>1. Gestión de pedidos</h3>
+                    <p>Procesamiento en tiempo real, estructuración de datos y almacenamiento automático en Google Sheets con separación en rutas paralelas.</p>
+                </div>
                 
-                <ul class="flow-steps">
-                    <li>Recepción de nuevos pedidos desde múltiples canales</li>
-                    <li>Validación y normalización de datos</li>
-                    <li>Enriquecimiento con información de la empresa (Apollo.io)</li>
-                    <li>Generación de emails personalizados con IA</li>
-                    <li>Actualización de sistemas internos</li>
-                </ul>
-            </div>
-
-            <div class="flow-card">
-                <h3><i class="fas fa-chart-line"></i> Flujo 2: Informe Semanal de Ventas</h3>
-                <p>Generación automática de informes con análisis de rendimiento y tendencias.</p>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>2. Comunicación con clientes</h3>
+                    <p>Diferencia entre B2C y B2B, enriquecimiento de datos con Apollo.io y redacción automática de emails con IA.</p>
+                </div>
                 
-                <ul class="flow-steps">
-                    <li>Recopilación de datos de ventas</li>
-                    <li>Procesamiento y análisis de información</li>
-                    <li>Generación de gráficos con QuickChart.io</li>
-                    <li>Creación de informe ejecutivo con IA</li>
-                    <li>Envío programado a los responsables</li>
-                </ul>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>3. Análisis de ventas</h3>
+                    <p>Informe semanal con KPIs clave, generación de gráficos dinámicos y redacción automática con IA.</p>
+                </div>
+                
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>4. Subflujo de gráficos</h3>
+                    <p>Módulo independiente para generación de gráficos reutilizable en otros flujos del sistema.</p>
+                </div>
+                
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>5. Manejo de errores</h3>
+                    <p>Sistema robusto de captura y registro de errores con rutas alternativas para garantizar la continuidad del servicio.</p>
+                </div>
+                
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </div>
+                    <h3>6. Escalabilidad</h3>
+                    <p>Arquitectura modular que permite añadir fácilmente nuevos informes, KPIs o canales de comunicación.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- APIs Externas -->
-    <section class="project-section">
+    <!-- DEMO VIDEOS -->
+    <section class="project-section reveal">
         <div class="project-container">
-            <h2 class="section-title">APIs Externas</h2>
-            
-            <div class="api-card">
-                <h4><i class="fas fa-database"></i> Apollo.io</h4>
-                <p>Enriquecimiento de datos de empresas y contactos para personalizar las interacciones.</p>
-            </div>
-            
-            <div class="api-card">
-                <h4><i class="fas fa-chart-pie"></i> QuickChart.io</h4>
-                <p>Generación de gráficos personalizados para informes de análisis de datos.</p>
-            </div>
-            
-            <div class="api-card">
-                <h4><i class="fas fa-robot"></i> OpenAI</h4>
-                <p>Procesamiento de lenguaje natural para la generación de contenido personalizado.</p>
+            <h2 class="section-title">Demo en Video</h2>
+            <div class="video-demo-container">
+                <div class="video-wrapper">
+                    <h3>Flujo de Gestión de Pedidos</h3>
+                    <video controls>
+                        <source src="../assets/videos/projects/make/00-explicación-flujo-pedido.mp4" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                </div>
+                <div class="video-wrapper">
+                    <h3>Flujo de Informe Semanal</h3>
+                    <video controls>
+                        <source src="../assets/videos/projects/make/01-explicación-flujo-informe.mp4" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Tecnologías -->
-    <section class="project-section">
+    <!-- GALERÍA / CARRUSEL -->
+    <section class="project-section reveal">
         <div class="project-container">
-            <h2 class="section-title">Tecnologías Utilizadas</h2>
+            <h2 class="section-title">Galería</h2>
 
-            <div class="tech-list">
-                <span><i class="fab fa-make-group"></i> Make (Integromat)</span>
-                <span><i class="fas fa-robot"></i> OpenAI</span>
-                <span><i class="fas fa-database"></i> Apollo.io</span>
-                <span><i class="fas fa-chart-bar"></i> QuickChart.io</span>
-                <span><i class="fas fa-envelope"></i> Email Marketing</span>
-                <span><i class="fas fa-table"></i> Hojas de Cálculo</span>
-                <span><i class="fas fa-plug"></i> APIs REST</span>
-                <span><i class="fas fa-exchange-alt"></i> Webhooks</span>
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <img src="../assets/img/projects/make/00-flujo 1-pedido-individual-esquema.PNG" alt="Esquema general del flujo de pedidos" />
+                    <p class="carousel-caption">1. Esquema general del flujo de pedidos</p>
+                </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/img/projects/make/01-flujo 1-pedido-individual.PNG" alt="Vista detallada del flujo de pedidos" />
+                        <p class="carousel-caption">2. Vista detallada del flujo de pedidos</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/img/projects/make/02-flujo 2-informe-semanal-grafico-esquema.PNG" alt="Esquema inicial del informe semanal" />
+                        <p class="carousel-caption">3. Esquema inicial del informe semanal</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/img/projects/make/03-flujo 2-informe-semanal-grafico.PNG" alt="Implementación del informe semanal" />
+                        <p class="carousel-caption">4. Implementación del informe semanal</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/img/projects/make/04-flujo 2-informe-semanal-grafico-esquema.PNG" alt="Estructura detallada del informe" />
+                        <p class="carousel-caption">5. Estructura detallada del informe</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/img/projects/make/05-flujo 2-informe-semanal-grafico.PNG" alt="Vista previa del informe generado" />
+                        <p class="carousel-caption">6. Vista previa del informe generado</p>
+                    </div>
+                
+                <button class="carousel-button prev">❮</button>
+                <button class="carousel-button next">❯</button>
+                <div class="carousel-dots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECNOLOGÍAS -->
+    <section class="project-section reveal">
+        <div class="project-container">
+            <h2 class="section-title">Tecnologías utilizadas</h2>
+
+            <div class="tech-grid reveal">
+                <div class="tech-card"><div class="tech-icon"><i class="fas fa-project-diagram"></i></div><h3>Make.com</h3><p>Motor de automatización principal</p></div>
+                <div class="tech-card"><div class="tech-icon"><i class="fas fa-shopping-cart"></i></div><h3>PrestaShop API</h3><p>Origen de datos de pedidos</p></div>
+                <div class="tech-card"><div class="tech-icon"><i class="fas fa-table"></i></div><h3>Google Sheets</h3><p>Base de datos y análisis</p></div>
+                <div class="tech-card"><div class="tech-icon"><i class="fab fa-google"></i></div><h3>Gmail API</h3><p>Envío de emails personalizados</p></div>
+                <div class="tech-card"><div class="tech-icon"><i class="fas fa-building"></i></div><h3>Apollo.io</h3><p>Datos de empresas B2B</p></div>
+                <div class="tech-card"><div class="tech-icon"><i class="fas fa-chart-bar"></i></div><h3>QuickChart.io</h3><p>Generación de gráficos</p></div>
+                <div class="tech-card"><div class="tech-icon"><i class="fas fa-robot"></i></div><h3>OpenAI</h3><p>Redacción de emails e informes</p></div>
+                <div class="tech-card"><div class="tech-icon"><i class="fab fa-google-drive"></i></div><h3>Google Drive</h3><p>Almacenamiento de informes</p></div>
+                <div class="tech-card"><div class="tech-icon"><i class="fas fa-code"></i></div><h3>JavaScript</h3><p>Lógica personalizada</p></div>
             </div>
         </div>
     </section>
 
     <!-- Enlaces -->
-    <section class="project-section">
+    <section class="project-section reveal">
         <div class="project-container">
             <h2 class="section-title">Enlaces</h2>
 
             <div class="project-links">
-                <a href="../index.html#projects" class="btn btn-primary">
-                    <i class="fas fa-th-large"></i> Ver todos los proyectos
+                <a href="../index.html" class="btn btn-primary">
+                    <i class="fas fa-home"></i> Volver al Inicio
                 </a>
-                <a href="../index.html#contact" class="btn btn-secondary">
-                    <i class="fas fa-envelope"></i> Contactar
+                <a href="../index.html#projects" class="btn btn-secondary">
+                    <i class="fas fa-th-large"></i> Ver todos los proyectos
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="project-container">
-            <p>&copy; 2025 Gonzalo A.M. · Automatización con Make</p>
+            <p>&copy; 2025 Gonzalo A.M.</p>
         </div>
     </footer>
 
+    <script src="../js/scroll-animation.js"></script>
+    <script src="../js/project-animations.js"></script>
     <script>
-        // Función para verificar si un elemento está en el viewport
-        function isInViewport(element) {
-            const rect = element.getBoundingClientRect();
-            return (
-                rect.top <= (window.innerHeight * 0.8) &&
-                rect.bottom >= (window.innerHeight * 0.2)
-            );
-        }
+        /* ------------------- CAROUSEL ------------------- */
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.querySelector(".carousel-container");
+            if (!container) return;
 
-        // Función para manejar el scroll
-        function handleScroll() {
-            const sections = document.querySelectorAll('.project-section');
-            
-            sections.forEach(section => {
-                if (isInViewport(section)) {
-                    section.classList.add('active');
-                }
-            });
-        }
+            const slides = Array.from(container.querySelectorAll(".carousel-slide"));
+            const prev = container.querySelector(".prev");
+            const next = container.querySelector(".next");
+            const dotsContainer = container.querySelector(".carousel-dots");
+            let index = 0;
 
-        // Inicializar la visibilidad de las secciones al cargar la página
-        document.addEventListener('DOMContentLoaded', function() {
-            // Activar la primera sección de inmediato
-            const firstSection = document.querySelector('.project-section');
-            if (firstSection) firstSection.classList.add('active');
-            
-            // Configurar el evento de scroll
-            window.addEventListener('scroll', handleScroll);
-            
-            // Forzar una verificación inicial
-            handleScroll();
-            
-            // También verificar después de que se carguen todas las imágenes
-            window.addEventListener('load', handleScroll);
+            // Asegurarse de que al menos un slide esté activo
+            if (slides.length > 0 && !slides.some(slide => slide.classList.contains('active'))) {
+                slides[0].classList.add('active');
+            }
+
+            // Inicializar puntos de navegación
+            if (dotsContainer) {
+                slides.forEach((_, i) => {
+                    const dot = document.createElement("button");
+                    dot.className = "dot";
+                    if (i === 0) dot.classList.add("active");
+                    dot.onclick = () => moveTo(i);
+                    dotsContainer.appendChild(dot);
+                });
+
+                const dots = dotsContainer.querySelectorAll(".dot");
+
+                const updateCarousel = () => {
+                    // Actualizar la clase active en los slides
+                    slides.forEach((slide, i) => {
+                        slide.classList.toggle('active', i === index);
+                    });
+                    
+                    // Actualizar los puntos de navegación
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                };
+
+                const moveTo = (i) => {
+                    index = (i + slides.length) % slides.length; // Asegurar que el índice esté dentro de los límites
+                    updateCarousel();
+                };
+
+                // Event listeners para los botones
+                if (next) next.onclick = () => moveTo(index + 1);
+                if (prev) prev.onclick = () => moveTo(index - 1);
+
+                // Inicializar el carrusel
+                updateCarousel();
+            }
         });
     </script>
 </body>
