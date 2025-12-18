@@ -603,14 +603,31 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="project-container">
-            <p>&copy; 2025 Gonzalo A.M. · El Rey del Jamón · Desarrollado con pasión por el comercio electrónico</p>
+    <footer class="footer" style="background-color: #0a0a0a; padding: 4rem 0 2rem; margin-top: 4rem;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="footer-content" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <div class="footer-links" style="margin-bottom: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;">
+                    <a href="../index.html#home" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Inicio</a>
+                    <a href="../index.html#about" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Sobre Mí</a>
+                    <a href="../index.html#projects" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Proyectos</a>
+                    <a href="../index.html#skills" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Habilidades</a>
+                    <a href="../index.html#contact" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Contacto</a>
+                </div>
+                <div class="footer-social" style="margin-bottom: 2rem; display: flex; gap: 1.5rem;">
+                    <a href="https://www.linkedin.com/in/gonzalo-arribas-montenegro-a963378a/" class="social-icon" aria-label="LinkedIn" style="color: #a0a0a0; font-size: 1.5rem; transition: color 0.3s ease;" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/GAM-Sama" class="social-icon" aria-label="GitHub" style="color: #a0a0a0; font-size: 1.5rem; transition: color 0.3s ease;" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                    <a href="https://x.com/GAM_Ai_Sama" class="social-icon" aria-label="Twitter" style="color: #a0a0a0; font-size: 1.5rem; transition: color 0.3s ease;" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom" style="padding-top: 2rem; border-top: 1px solid #1f1f1f; text-align: center;">
+                <p style="color: #666; margin: 0; font-size: 0.9rem;">&copy; 2025 GAM. Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
 
+    <script src="../js/scroll-animation.js"></script>
+    <script src="../js/project-animations.js"></script>
     <script>
-        // Función para verificar si un elemento está en el viewport
         function isInViewport(element) {
             const rect = element.getBoundingClientRect();
             return (

@@ -11,17 +11,9 @@
     min-height: 1.5em; /* Ensure space is reserved even when empty */
 }
 
-/* Blinking cursor effect */
+/* Removed blinking cursor effect */
 .project-subtitle.typing::after {
-    content: '|';
-    animation: blink 1s step-end infinite;
-    color: #8b5cf6;
-    margin-left: 2px;
-}
-
-@keyframes blink {
-    from, to { opacity: 1; }
-    50% { opacity: 0; }
+    display: none;
 }
 
 /* Scroll reveal animations */
@@ -43,11 +35,8 @@
     margin-bottom: 0;
 }
 
-.project-section.active,
-.project-feature.active,
-.tech-grid.active,
-.gallery-item.active,
-.project-gallery.active {
+.project-section.active .gallery-item,
+.project-section.active .project-gallery {
     opacity: 1;
     transform: translateY(0);
 }
