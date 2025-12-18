@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reparaciones y Modificaciones - Portfolio</title>
+
+    <!-- Fuentes e iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Estilos generales del portfolio -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/project.css">
+    <link rel="stylesheet" href="../css/projects-common.css">
+    
+    <style>
+.grid-background {
+    z-index: -1;
+}
+        .typing-text {
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* Efecto de revelación suave */
+        .project-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+            margin-bottom: 3rem;
+        }
+        
+        .project-section:last-child {
+            margin-bottom: 2rem;
+        }
+        
+        .project-section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .project-hero {
+            opacity: 1 !important;
+            transform: none !important;
+            margin: 2rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        .project-hero img {
+            max-width: 80%;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .project-section:nth-child(2) { transition-delay: 0.1s; }
+        .project-section:nth-child(3) { transition-delay: 0.2s; }
+        .project-section:nth-child(4) { transition-delay: 0.3s; }
+        .project-section:nth-child(5) { transition-delay: 0.4s; }
+
+        /* Estilos para la galería */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #1e1e2d;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-caption {
+            padding: 1.2rem;
+            color: #e0e0e0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .gallery-wide {
+            grid-column: 1 / -1;
+        }
+        
+        .gallery-wide img {
+            height: 400px;
+        }
+        
+        /* Estilos para las tarjetas de características */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            align-items: start;
+        }
+        
+        .feature-card {
+            background: #1e1e2d;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        .feature-card p {
+            color: #e0e0e0;
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        /* Estilos para los títulos de sección */
+        .section-title {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            clear: both;
+            position: relative;
+        }
+        
+        /* Estilos para los pasos del proceso */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .process-step {
+            background: #1e1e2d;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .process-step h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        .process-step p {
+            color: #e0e0e0;
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-wide img {
+                height: 250px;
+            }
+            
+            .features-grid,
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-background"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="../index.html" class="logo-link">
+                        <span class="logo-text">GAM</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="../index.html#home" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="../index.html#about" class="nav-link">Sobre Mí</a></li>
+                    <li class="nav-item"><a href="../index.html#projects" class="nav-link">Proyectos</a></li>
+                    <li class="nav-item"><a href="../index.html#skills" class="nav-link">Habilidades</a></li>
+                    <li class="nav-item"><a href="../index.html#contact" class="nav-link">Contacto</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="project-page">
+        <!-- Hero Section -->
+        <section class="project-hero">
+            <div class="container">
+                <div class="project-header">
+                    <h1 class="project-title">
+                        <span class="title-line">Restauración y</span>
+                        <span class="title-line">Modificación de Hardware Retro</span>
+                    </h1>
+                    <p class="project-subtitle" id="animated-subtitle">
+                        <span class="typing-text">Diagnóstico, reparación y mejora funcional y estética de consolas y periféricos</span>
+                    </p>
+                    <div class="project-hero-image" style="margin-top: 2rem;">
+                        <img src="../assets/img/projects/repair/06-desmontaje-completo-n-switch-post-reparación.png" alt="Nintendo Switch completamente restaurada" style="width: 100%; max-width: 800px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); margin: 0 auto; display: block;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Content -->
+        <section class="project-section active">
+            <div class="project-container">
+
+    <!-- ================= RESUMEN ================= -->
+    <p class="project-summary">
+  Proyecto centrado en la restauración, mantenimiento y modificación de hardware retro,
+  aplicando procesos técnicos precisos para devolver funcionalidad, mejorar la experiencia
+  de uso y actualizar la estética sin comprometer la integridad del dispositivo original.
+  Este trabajo nace de la combinación entre electrónica, documentación técnica y respeto
+  por el diseño original del hardware.
+</p>
+
+    <!-- ================= ENFOQUE ================= -->
+    <h2 class="section-title">Enfoque del Proyecto</h2>
+    <p>
+      Cada dispositivo se trata como una pieza única. Antes de intervenir se realiza una
+      evaluación completa del estado funcional, estructural y estético, priorizando siempre
+      la conservación del hardware original y la reversibilidad de las modificaciones.
+    </p>
+
+    <!-- ================= PROCESO ================= -->
+    <h2 class="section-title">Proceso de Trabajo</h2>
+
+    <div class="process-steps">
+      <div class="process-step">
+        <h4>1. Evaluación y diagnóstico</h4>
+        <p>
+          Comprobación del estado eléctrico, mecánico y visual del dispositivo, identificando
+          fallos, desgaste y posibles mejoras.
+        </p>
+      </div>
+
+      <div class="process-step">
+        <h4>2. Desmontaje controlado</h4>
+        <p>
+          Separación de componentes por módulos, organización de piezas y protección de
+          elementos sensibles.
+        </p>
+      </div>
+
+      <div class="process-step">
+        <h4>3. Limpieza técnica</h4>
+        <p>
+          Limpieza profunda de contactos, placas, botones y carcasas utilizando técnicas
+          adecuadas para electrónica.
+        </p>
+      </div>
+
+      <div class="process-step">
+        <h4>4. Intervención y modificación</h4>
+        <p>
+          Reparaciones funcionales, sustitución de componentes, transplantes de placa,
+          mejoras estéticas y mods específicos.
+        </p>
+      </div>
+
+      <div class="process-step">
+        <h4>5. Montaje y testing</h4>
+        <p>
+          Ensamblaje final y pruebas funcionales para verificar estabilidad, respuesta y
+          correcto funcionamiento.
+        </p>
+      </div>
+    </div>
+
+    <!-- ================= PROYECTOS DE REPARACIÓN ================= -->
+    <h2 class="section-title">Proyectos de Reparación</h2>
+
+    <!-- Proyecto 00: Cambio de pila GBA -->
+    <h3 class="section-subtitle" style="margin-top: 3rem;">Cambio de Pila en Game Boy Advance</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/00-cambio-pila-gba.jpg" alt="Game Boy Advance con pila cambiada">
+        <p class="gallery-caption">
+          Game Boy Advance con la pila interna reemplazada para mantener las partidas guardadas.
+        </p>
+      </div>
+    </div>
+
+    <!-- Proyecto 01: Cambio de pegatina de cartucho -->
+    <h3 class="section-subtitle" style="margin-top: 3rem;">Restauración de Cartuchos Game Boy</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/01-cambio-pegatina-cartucho-antes.png" alt="Cartucho antes del cambio de pegatina">
+        <p class="gallery-caption">
+          Estado del cartucho antes de la restauración, mostrando la pegatina desgastada.
+        </p>
+      </div>
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/01-cambio-pegatina-cartucho-despues.png" alt="Cartucho después del cambio de pegatina">
+        <p class="gallery-caption">
+          Resultado final con la nueva pegatina, devolviendo al cartucho su aspecto original.
+        </p>
+      </div>
+    </div>
+
+    <!-- Proyecto 02: Modding GBA -->
+    <h3 class="section-subtitle" style="margin-top: 3rem;">Modding de Game Boy Advance</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/02-modding-gba-antes.png" alt="GBA antes del modding">
+        <p class="gallery-caption">
+          Game Boy Advance en su estado original antes de las modificaciones.
+        </p>
+      </div>
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/02-modding-gba-despues.png" alt="GBA después del modding">
+        <p class="gallery-caption">
+          Resultado final tras el modding, con nueva carcasa y pantalla mejorada.
+        </p>
+      </div>
+    </div>
+
+    <!-- Proyecto 03: Transplante de placa -->
+    <h3 class="section-subtitle" style="margin-top: 3rem;">Transplante de Placa Base</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/03-transplante-placa-no-chips.png" alt="Placa base sin chips">
+        <p class="gallery-caption">
+          Placa base preparada para el transplante, mostrando los puntos de soldadura.
+        </p>
+      </div>
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/03-transplante-placa-ram-cpu.png" alt="Placa con RAM y CPU instaladas">
+        <p class="gallery-caption">
+          Detalle de la RAM y CPU instaladas en la nueva placa base.
+        </p>
+      </div>
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/03-transplante-placa-micro-soldadura.png" alt="Proceso de microsoldadura">
+        <p class="gallery-caption">
+          Proceso de microsoldadura para el transplante de componentes.
+        </p>
+      </div>
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/03-transplante-placa-funcionando.png" alt="Placa funcionando correctamente">
+        <p class="gallery-caption">
+          Placa funcionando correctamente después del transplante de componentes.
+        </p>
+      </div>
+    </div>
+
+    <!-- Proyecto 04: Reparación DualShock 4 -->
+    <h3 class="section-subtitle" style="margin-top: 3rem;">Reparación de Mando DualShock 4</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/04-reparacion-dualshock4-roto.png" alt="DualShock 4 dañado">
+        <p class="gallery-caption">
+          Estado inicial del DualShock 4 con daños visibles en el sistema de vibración.
+        </p>
+      </div>
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/04-reparacion-dualshock4-reparado.png" alt="DualShock 4 reparado">
+        <p class="gallery-caption">
+          Mando completamente reparado con componentes internos renovados.
+        </p>
+      </div>
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/04-reparacion-dualshock4-montado.png" alt="DualShock 4 montado">
+        <p class="gallery-caption">
+          Vista final del mando completamente ensamblado y funcional.
+        </p>
+      </div>
+    </div>
+
+    <!-- Proyecto 05: Reparación Joy-Con -->
+    <h3 class="section-subtitle" style="margin-top: 3rem;">Reparación de Joy-Con</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/05-reparacion-joycon-desmontado.png" alt="Joy-Con desmontado">
+        <p class="gallery-caption">
+          Joy-Con completamente desmontado mostrando los componentes internos.
+        </p>
+      </div>
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/05-reparacion-joycon-montado.png" alt="Joy-Con montado">
+        <p class="gallery-caption">
+          Joy-Con completamente ensamblado después de la reparación.
+        </p>
+      </div>
+    </div>
+
+    <!-- Proyecto 06: Desmontaje Nintendo Switch -->
+    <h3 class="section-subtitle" style="margin-top: 3rem;">Desmontaje Completo de Nintendo Switch</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/06-desmontaje-completo-n-switch-prelimpieza.png" alt="Limpieza de componentes">
+        <p class="gallery-caption">
+          Nintendo Switch preparada para desmontaje y limpieza completa de componentes.
+        </p>
+      </div>
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/06-desmontaje-completo-n-switch.png" alt="Nintendo Switch desmontada">
+        <p class="gallery-caption">
+          Proceso de desmontaje completo de la consola Nintendo Switch.
+        </p>
+      </div>
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/06-desmontaje-completo-n-switch-post-reparación.png" alt="Consola después de la reparación">
+        <p class="gallery-caption">
+          Consola completamente ensamblada después de la reparación y limpieza.
+        </p>
+      </div>
+    </div>
+
+    <!-- ================= MODS AVANZADOS ================= -->
+    <h2 class="section-title">Intervenciones Técnicas</h2>
+
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <h3>Transplante de placa</h3>
+        <p>
+          Sustitución y montaje de placas base, incluyendo procesos previos y posteriores
+          al cambio de CPU y RAM.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Cambio de pila en cartuchos</h3>
+        <p>
+          Sustitución de pilas internas para la conservación de partidas y correcto
+          funcionamiento del cartucho.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Reparación de mandos</h3>
+        <p>
+          Limpieza, restauración y montaje de mandos, mejorando respuesta y durabilidad.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Microsoldadura</h3>
+        <p>
+          Trabajo de precisión en componentes SMD y THT, incluyendo retirada y sustitución
+          de CPU, RAM y componentes discretos en placas originales.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Diagnóstico eléctrico</h3>
+        <p>
+          Identificación de fallos mediante comprobación de continuidad, alimentación
+          y comportamiento del circuito antes de intervenir.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Restauración estética</h3>
+        <p>
+          Sustitución de carcasas, botones y elementos externos respetando el diseño
+          original o aplicando modificaciones personalizadas.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- ================= GALERÍA TÉCNICA ================= -->
+    <div style="margin-top: 4rem;">
+        <h2 class="section-title">Detalles Técnicos</h2>
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/03-transplante-placa-no-chips.png" alt="Placa antes del transplante">
+        <p class="gallery-caption">
+          Placa base antes del cambio de componentes principales.
+        </p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/03-transplante-placa-ram-cpu.png" alt="Placa montada tras el transplante">
+        <p class="gallery-caption">
+          Placa completamente montada tras el transplante de CPU y RAM.
+        </p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/00-cambio-pila-gba.jpg" alt="Cambio de pila en cartucho">
+        <p class="gallery-caption">
+          Proceso de sustitución de pila en cartucho original.
+        </p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="../assets/img/projects/repair/04-reparacion-dualshock4-reparado.png" alt="Mandos desmontados y restaurados">
+        <p class="gallery-caption">
+          Mandos desmontados, limpiados y montados nuevamente.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- ================= CIERRE ================= -->
+    <h2 class="section-title">Resultado</h2>
+    <p>
+      El resultado es hardware plenamente funcional, estéticamente renovado y preparado
+      para seguir utilizándose, manteniendo el espíritu original del dispositivo y
+      mejorando la experiencia de uso.
+    </p>
+
+                <!-- Enlaces -->
+    <section class="project-section reveal">
+        <div class="project-container">
+            <h2 class="section-title">Enlaces</h2>
+
+            <div class="project-links">
+                <a href="../index.html" class="btn btn-primary">
+                    <i class="fas fa-home"></i> Volver al Inicio
+                </a>
+                <a href="../index.html#projects" class="btn btn-secondary">
+                    <i class="fas fa-th-large"></i> Ver todos los proyectos
+                </a>
+            </div>
+        </div>
+    </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" style="background-color: #0a0a0a; padding: 4rem 0 2rem; margin-top: 4rem;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="footer-content" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <div class="footer-links" style="margin-bottom: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;">
+                    <a href="../index.html#home" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Inicio</a>
+                    <a href="../index.html#about" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Sobre Mí</a>
+                    <a href="../index.html#projects" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Proyectos</a>
+                    <a href="../index.html#skills" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Habilidades</a>
+                    <a href="../index.html#contact" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Contacto</a>
+                </div>
+                <div class="footer-social" style="margin-bottom: 2rem; display: flex; gap: 1.5rem;">
+                    <a href="https://www.linkedin.com/in/gonzalo-arribas-montenegro-a963378a/" class="social-icon" aria-label="LinkedIn" style="color: #a0a0a0; font-size: 1.5rem; transition: color 0.3s ease;" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/GAM-Sama" class="social-icon" aria-label="GitHub" style="color: #a0a0a0; font-size: 1.5rem; transition: color 0.3s ease;" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                    <a href="https://x.com/GAM_Ai_Sama" class="social-icon" aria-label="Twitter" style="color: #a0a0a0; font-size: 1.5rem; transition: color 0.3s ease;" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom" style="padding-top: 2rem; border-top: 1px solid #1f1f1f; text-align: center;">
+                <p style="color: #666; margin: 0; font-size: 0.9rem;">&copy; 2025 GAM. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Función para verificar si un elemento está en el viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top < (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.bottom > 0 &&
+                rect.left < (window.innerWidth || document.documentElement.clientWidth) &&
+                rect.right > 0
+            );
+        }
+
+        // Función para manejar el scroll
+        function handleScroll() {
+            const sections = document.querySelectorAll('.project-section');
+            
+            sections.forEach(section => {
+                if (isInViewport(section)) {
+                    section.classList.add('active');
+                }
+            });
+        }
+
+        // Efecto de escritura para el subtítulo
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.textContent = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
+        
+        // Inicializar la visibilidad de las secciones al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Iniciar la animación del subtítulo
+            const subtitleElement = document.querySelector('.typing-text');
+            if (subtitleElement) {
+                const text = subtitleElement.textContent;
+                subtitleElement.textContent = '';
+                setTimeout(() => {
+                    typeWriter(subtitleElement, text, 30);
+                }, 1000);
+            }
+            // Activar la primera sección de inmediato
+            const firstSection = document.querySelector('.project-section');
+            if (firstSection) firstSection.classList.add('active');
+            
+            // Configurar el evento de scroll
+            window.addEventListener('scroll', handleScroll);
+            
+            // Forzar una verificación inicial
+            handleScroll();
+            
+            // Menú móvil
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (navToggle) {
+                navToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                });
+            }
+            
+            // Cerrar menú al hacer clic en un enlace
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
