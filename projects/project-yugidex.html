@@ -15,101 +15,7 @@
     <!-- Estilos específicos de proyectos -->
     <link rel="stylesheet" href="../css/project.css">
     <link rel="stylesheet" href="../css/projects-common.css">
-    <style>
-        /* Mobile Menu Styles */
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 1001;
-        }
-
-        .nav-toggle span {
-            display: block;
-            width: 100%;
-            height: 3px;
-            background: var(--primary-color);
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-toggle.active span:nth-child(1) {
-            transform: translateY(9px) rotate(45deg);
-        }
-
-        .nav-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .nav-toggle.active span:nth-child(3) {
-            transform: translateY(-9px) rotate(-45deg);
-        }
-
-        @media (max-width: 768px) {
-            .nav-toggle {
-                display: flex;
-            }
-
-            .nav-menu {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 70%;
-                height: 100vh;
-                background: var(--bg-primary);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transition: right 0.3s ease-in-out;
-                z-index: 1000;
-                padding: 80px 0;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-            }
-
-            .nav-menu.active {
-                right: 0;
-            }
-
-            .nav-menu li {
-                margin: 15px 0;
-            }
-
-            .nav-link {
-                font-size: 1.2rem;
-                padding: 10px 20px;
-                text-decoration: none;
-                position: relative;
-                transition: color 0.3s ease;
-            }
-            
-            .nav-link:hover {
-                color: var(--primary-color);
-            }
-            
-            .nav-link::after {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 2px;
-                bottom: 0;
-                left: 50%;
-                background: var(--primary-color);
-                transition: all 0.3s ease;
-                transform: translateX(-50%);
-            }
-            
-            .nav-link:hover::after {
-                width: 80%;
-            }
-        }
-    </style>
-</head>
+    </head>
 <body>
     <div class="grid-background"></div>
 
@@ -250,22 +156,22 @@
                     <h3 class="gallery-title">Versión Escritorio</h3>
                     <div class="carousel-container desktop-carousel">
                         <div class="carousel-slide">
-                        <a href="#" class="gallery-image-link">
+                        <a href="../assets/img/projects/yugidex/00-ydex-crm-login.PNG" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/00-ydex-crm-login.PNG" alt="Inicio de sesión">
                         </a>
-                        <a href="#" class="gallery-image-link">
+                        <a href="../assets/img/projects/yugidex/01-ydex-crm-dashboard.PNG" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/01-ydex-crm-dashboard.PNG" alt="Dashboard principal">
                         </a>
-                        <a href="#" class="gallery-image-link">
+                        <a href="../assets/img/projects/yugidex/02-ydex-crm-cartas.PNG" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/02-ydex-crm-cartas.PNG" alt="Gestión de cartas">
                         </a>
-                        <a href="#" class="gallery-image-link">
+                        <a href="../assets/img/projects/yugidex/03-ydex-crm-decks-01.PNG" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/03-ydex-crm-decks-01.PNG" alt="Gestión de mazos 1">
                         </a>
-                        <a href="#" class="gallery-image-link">
+                        <a href="../assets/img/projects/yugidex/04-ydex-crm-decks-02.PNG" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/04-ydex-crm-decks-02.PNG" alt="Gestión de mazos 2">
                         </a>
-                        <a href="#" class="gallery-image-link">
+                        <a href="../assets/img/projects/yugidex/05-ydex-crm-statistics.PNG" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/05-ydex-crm-statistics.PNG" alt="Estadísticas">
                         </a>
                     </div>
@@ -280,16 +186,16 @@
                     <h3 class="gallery-title">Versión Móvil</h3>
                     <div class="carousel-container mobile-carousel">
                         <div class="carousel-slide">
-                        <a href="#" class="gallery-image-link">
+                        <a href="../assets/img/projects/yugidex/00-ydex-main-app.jpeg" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/00-ydex-main-app.jpeg" alt="Pantalla principal">
                         </a>
-                        <a href="#" class="gallery-image-link">
+                        <a href="../assets/img/projects/yugidex/01-ydex-cards-app.jpeg" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/01-ydex-cards-app.jpeg" alt="Lista de cartas">
                         </a>
-                        <a href="#" class="gallery-image-link">
+                        <a href="../assets/img/projects/yugidex/02-ydex-decks-01-app.jpeg" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/02-ydex-decks-01-app.jpeg" alt="Mazos 1">
                         </a>
-                        <a href="#" class="gallery-image-link">
+                        <a href="../assets/img/projects/yugidex/03-ydex-decks-02-app.jpeg" class="gallery-image-link">
                             <img src="../assets/img/projects/yugidex/03-ydex-decks-02-app.jpeg" alt="Mazos 2">
                         </a>
                         <a href="#" class="gallery-image-link">
@@ -305,287 +211,7 @@
         </div>
     </section>
 
-    <style>
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
         
-        .feature-card {
-            background: #0a0a0a;
-            border-radius: 10px;
-            padding: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .feature-icon {
-            font-size: 2rem;
-            color: #4f46e5;
-            margin-bottom: 1rem;
-        }
-        
-        .feature-card h3 {
-            color: #ffffff;
-            margin-top: 0;
-            margin-bottom: 0.75rem;
-            font-size: 1.25rem;
-        }
-        
-        .feature-card p {
-            color: #a1a1aa;
-            margin: 0;
-            line-height: 1.6;
-        }
-        
-        .gallery-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin: 20px 0;
-        }
-        
-        .gallery-column {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .gallery-title {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: #ffffff;
-            text-align: center;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .gallery-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin: 1rem 0;
-            max-width: 1600px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 1rem;
-        }
-        
-        @media (min-width: 1200px) {
-            .gallery-container {
-                grid-template-columns: 1fr 1fr;
-                gap: 3rem;
-            }
-        }
-
-        .gallery-column {
-            width: 100%;
-        }
-
-        .gallery-title {
-            color: #fff;
-            text-align: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            max-width: 100%;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            height: auto;
-            min-height: 300px;
-            aspect-ratio: 16/9;
-        }
-
-        .carousel-slide {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 100%;
-            height: 100%;
-        }
-
-        .gallery-image-link {
-            display: flex;
-            min-width: 100%;
-            width: 100%;
-            height: 100%;
-            flex-shrink: 0;
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            margin-right: 1rem;
-            align-items: center;
-            justify-content: center;
-            background: #0a0a0a;
-        }
-        
-        .gallery-image-link:last-child {
-            margin-right: 0;
-        }
-        
-        .gallery-image-link img {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-            display: block;
-        }
-        
-        .gallery-image-link:hover img {
-            transform: scale(1.02);
-        }
-
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            border: none;
-            padding: 1rem;
-            cursor: pointer;
-            font-size: 1.5rem;
-            z-index: 10;
-            transition: all 0.3s ease;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0.7;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-button:hover {
-            background: var(--primary-color);
-            opacity: 1;
-        }
-
-        .carousel-button.prev {
-            left: 1rem;
-        }
-
-        .carousel-button.next {
-            right: 1rem;
-        }
-
-        .carousel-dots {
-            position: absolute;
-            bottom: 1rem;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            z-index: 10;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active {
-            background: var(--primary-color);
-            transform: scale(1.2);
-        }
-
-        /* Lightbox styles */
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        
-        .lightbox-content {
-            max-width: 90%;
-            max-height: 80vh;
-            margin-top: 5vh;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-        }
-        
-        .close-lightbox {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        
-        .close-lightbox:hover {
-            color: #bbb;
-            text-decoration: none;
-        }
-        
-        #caption {
-            color: #fff;
-            padding: 10px 0;
-            font-size: 1.1em;
-            text-align: center;
-            margin-top: 10px;
-        }
-        
-        /* Efecto de revelación suave */
-        .project-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            will-change: opacity, transform;
-        }
-        
-        .project-section.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Asegurarse de que el hero sea visible de inmediato */
-        .project-hero {
-            opacity: 1 !important;
-            transform: none !important;
-        }
-        
-        /* Añadir un pequeño retraso a las secciones para un efecto escalonado */
-        .project-section:nth-child(2) { transition-delay: 0.1s; }
-        .project-section:nth-child(3) { transition-delay: 0.2s; }
-        .project-section:nth-child(4) { transition-delay: 0.3s; }
-        .project-section:nth-child(5) { transition-delay: 0.4s; }
-        .project-section:nth-child(6) { transition-delay: 0.5s; }
-    </style>
-    
     <script src="../js/project-animations.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -767,6 +393,72 @@
     </footer>
 
     <script>
+        // Inicialización del Lightbox
+        document.addEventListener('DOMContentLoaded', function() {
+            const lightbox = document.getElementById('imageLightbox');
+            const lightboxImg = document.getElementById('lightboxImage');
+            const captionText = document.getElementById('caption');
+            const closeBtn = document.querySelector('.close-lightbox');
+            
+            // Get all gallery links
+            const galleryLinks = document.querySelectorAll('.gallery-image-link');
+            
+            console.log('Found', galleryLinks.length, 'gallery links on the page');
+            
+            // Add click event to all gallery links
+            galleryLinks.forEach(link => {
+                link.style.cursor = 'zoom-in';
+                link.addEventListener('click', function(e) {
+                    console.log('Gallery link clicked', this);
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const img = this.querySelector('img');
+                    
+                    // Set image source and caption from the link's href and image alt
+                    lightboxImg.src = this.href;
+                    lightboxImg.alt = img?.alt || '';
+                    captionText.textContent = img?.alt || '';
+                    
+                    // Show lightbox
+                    console.log('Showing lightbox for image:', this.href);
+                    lightbox.style.display = 'flex';
+                    setTimeout(() => {
+                        lightbox.classList.add('show');
+                    }, 10);
+                    
+                    // Prevent body scroll
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Close lightbox when clicking the close button
+            closeBtn.addEventListener('click', function() {
+                console.log('Close button clicked');
+                lightbox.classList.remove('show');
+                setTimeout(() => {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = '';
+                }, 300);
+            });
+            
+            // Close lightbox when clicking outside the image
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    console.log('Clicked outside image, closing lightbox');
+                    closeBtn.click();
+                }
+            });
+            
+            // Close with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('show')) {
+                    console.log('Escape key pressed, closing lightbox');
+                    closeBtn.click();
+                }
+            });
+        });
+
         // Función para verificar si un elemento está en el viewport
         function isInViewport(element) {
             const rect = element.getBoundingClientRect();

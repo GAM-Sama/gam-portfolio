@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Make it Happen: Gestión Inteligente de Pedidos</title>
+    <title>Make: Gestión Inteligente de Pedidos</title>
 
     <!-- Fuentes e iconos -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,240 +13,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/project.css">
     <link rel="stylesheet" href="../css/projects-common.css">
-    
-  <style>
-        :root {
-            --primary-color: #6c5ce7;
-        }
 
-        /* --------------------------------------------------------- */
-        /* HERO                                                      */
-        /* --------------------------------------------------------- */
-        .project-hero {
-            margin: 2rem 0;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
-
-        .project-hero img {
-            max-width: 80%;
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* --------------------------------------------------------- */
-        /* REVEAL ANIMATION                                          */
-        /* --------------------------------------------------------- */
-        .project-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            margin-bottom: 3rem;
-        }
-        .project-section.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --------------------------------------------------------- */
-        /* FEATURES GRID                                             */
-        /* --------------------------------------------------------- */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        .feature-card {
-            background: #0a0a0a;
-            border-radius: 10px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.3s ease;
-        }
-        .feature-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary-color);
-        }
-        .feature-icon {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        /* --------------------------------------------------------- */
-        /* TECH GRID                                                 */
-        /* --------------------------------------------------------- */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-        .tech-card {
-            background: #0a0a0a;
-            border-radius: 10px;
-            padding: 1.8rem 1.2rem;
-            text-align: center;
-            transition: 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .tech-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--primary-color);
-        }
-        .tech-icon {
-            font-size: 2.3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        /* --------------------------------------------------------- */
-        /* CAROUSEL FIX – ONE WORKING VERSION                        */
-        /* --------------------------------------------------------- */
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            height: 500px; /* Altura fija para el contenedor */
-        }
-
-        .carousel-track {
-            display: flex;
-            height: 100%;
-            position: relative;
-            transition: transform 0.5s ease-in-out;
-            width: 100%;
-        }
-
-        .carousel-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            box-sizing: border-box;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .carousel-slide.active {
-            opacity: 1;
-            z-index: 1;
-        }
-
-        .carousel-slide img {
-            max-width: 100%;
-            max-height: 400px;
-            object-fit: contain;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-        
-        /* Video Demo Styles */
-        .video-demo-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-        
-        .video-wrapper {
-            flex: 1;
-            min-width: 300px;
-            max-width: 600px;
-            background: #0a0a0a;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .video-wrapper h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        
-        .video-wrapper video {
-            width: 100%;
-            border-radius: 8px;
-            display: block;
-        }
-        
-        @media (max-width: 768px) {
-            .video-demo-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .video-wrapper {
-                width: 100%;
-                max-width: 100%;
-            }
-        }
-
-        .carousel-caption {
-            margin-top: 1rem;
-            color: #e2e8f0;
-            font-size: 0.95rem;
-            text-align: center;
-        }
-
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.6);
-            color: #fff;
-            border: none;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: 0.3s ease;
-            z-index: 10;
-        }
-
-        .carousel-button:hover {
-            background: rgba(0, 0, 0, 0.85);
-        }
-
-        .carousel-button.prev { left: 10px; }
-        .carousel-button.next { right: 10px; }
-
-        .carousel-dots {
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            margin: 12px 0;
-        }
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.4);
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
-        .dot.active {
-            background: #fff;
-            transform: scale(1.2);
-        }
     </style>
 </head>
 
@@ -276,7 +43,9 @@
         <div class="project-container">
             <h1 class="project-title">Make: <span class="gradient-text">Gestión Inteligente de Pedidos</span></h1>
             <p class="project-subtitle">Automatización · Análisis de ventas · Comunicación con clientes</p>
-            <img src="../assets/img/projects/make/01-flujo 1-pedido-individual.PNG" alt="Vista detallada del flujo de gestión de pedidos" />
+            <div class="project-hero-image">
+                <img src="../assets/img/projects/make/00-flujo 1-pedido-individual-esquema.PNG" alt="Gestión Inteligente de Pedidos con Make">
+            </div>
         </div>
     </section>
 
@@ -405,33 +174,46 @@
     <section class="project-section reveal">
         <div class="project-container">
             <h2 class="section-title">Galería</h2>
-
-            <div class="carousel-container">
-                <div class="carousel-slide active">
-                    <img src="../assets/img/projects/make/00-flujo 1-pedido-individual-esquema.PNG" alt="Esquema general del flujo de pedidos" />
-                    <p class="carousel-caption">1. Esquema general del flujo de pedidos</p>
-                </div>
+            
+            <div class="gallery-container single-image-carousel">
+                <div class="carousel-container">
                     <div class="carousel-slide">
-                        <img src="../assets/img/projects/make/01-flujo 1-pedido-individual.PNG" alt="Vista detallada del flujo de pedidos" />
+                        <a href="../assets/img/projects/make/00-flujo 1-pedido-individual-esquema.PNG" class="gallery-image-link">
+                            <img src="../assets/img/projects/make/00-flujo 1-pedido-individual-esquema.PNG" alt="Esquema general del flujo de pedidos" />
+                        </a>
+                        <p class="carousel-caption">1. Esquema general del flujo de pedidos</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <a href="../assets/img/projects/make/01-flujo 1-pedido-individual.PNG" class="gallery-image-link">
+                            <img src="../assets/img/projects/make/01-flujo 1-pedido-individual.PNG" alt="Vista detallada del flujo de pedidos" />
+                        </a>
                         <p class="carousel-caption">2. Vista detallada del flujo de pedidos</p>
                     </div>
                     <div class="carousel-slide">
-                        <img src="../assets/img/projects/make/02-flujo 2-informe-semanal-grafico-esquema.PNG" alt="Esquema inicial del informe semanal" />
+                        <a href="../assets/img/projects/make/02-flujo 2-informe-semanal-grafico-esquema.PNG" class="gallery-image-link">
+                            <img src="../assets/img/projects/make/02-flujo 2-informe-semanal-grafico-esquema.PNG" alt="Esquema inicial del informe semanal" />
+                        </a>
                         <p class="carousel-caption">3. Esquema inicial del informe semanal</p>
                     </div>
                     <div class="carousel-slide">
-                        <img src="../assets/img/projects/make/03-flujo 2-informe-semanal-grafico.PNG" alt="Implementación del informe semanal" />
+                        <a href="../assets/img/projects/make/03-flujo 2-informe-semanal-grafico.PNG" class="gallery-image-link">
+                            <img src="../assets/img/projects/make/03-flujo 2-informe-semanal-grafico.PNG" alt="Implementación del informe semanal" />
+                        </a>
                         <p class="carousel-caption">4. Implementación del informe semanal</p>
                     </div>
                     <div class="carousel-slide">
-                        <img src="../assets/img/projects/make/04-flujo 2-informe-semanal-grafico-esquema.PNG" alt="Estructura detallada del informe" />
+                        <a href="../assets/img/projects/make/04-flujo 2-informe-semanal-grafico-esquema.PNG" class="gallery-image-link">
+                            <img src="../assets/img/projects/make/04-flujo 2-informe-semanal-grafico-esquema.PNG" alt="Estructura detallada del informe" />
+                        </a>
                         <p class="carousel-caption">5. Estructura detallada del informe</p>
                     </div>
                     <div class="carousel-slide">
-                        <img src="../assets/img/projects/make/05-flujo 2-informe-semanal-grafico.PNG" alt="Vista previa del informe generado" />
+                        <a href="../assets/img/projects/make/05-flujo 2-informe-semanal-grafico.PNG" class="gallery-image-link">
+                            <img src="../assets/img/projects/make/05-flujo 2-informe-semanal-grafico.PNG" alt="Vista previa del informe generado" />
+                        </a>
                         <p class="carousel-caption">6. Vista previa del informe generado</p>
                     </div>
-                
+                </div>
                 <button class="carousel-button prev">❮</button>
                 <button class="carousel-button next">❯</button>
                 <div class="carousel-dots"></div>
@@ -444,16 +226,70 @@
         <div class="project-container">
             <h2 class="section-title">Tecnologías utilizadas</h2>
 
-            <div class="tech-grid reveal">
-                <div class="tech-card"><div class="tech-icon"><i class="fas fa-project-diagram"></i></div><h3>Make.com</h3><p>Motor de automatización principal</p></div>
-                <div class="tech-card"><div class="tech-icon"><i class="fas fa-shopping-cart"></i></div><h3>PrestaShop API</h3><p>Origen de datos de pedidos</p></div>
-                <div class="tech-card"><div class="tech-icon"><i class="fas fa-table"></i></div><h3>Google Sheets</h3><p>Base de datos y análisis</p></div>
-                <div class="tech-card"><div class="tech-icon"><i class="fab fa-google"></i></div><h3>Gmail API</h3><p>Envío de emails personalizados</p></div>
-                <div class="tech-card"><div class="tech-icon"><i class="fas fa-building"></i></div><h3>Apollo.io</h3><p>Datos de empresas B2B</p></div>
-                <div class="tech-card"><div class="tech-icon"><i class="fas fa-chart-bar"></i></div><h3>QuickChart.io</h3><p>Generación de gráficos</p></div>
-                <div class="tech-card"><div class="tech-icon"><i class="fas fa-robot"></i></div><h3>OpenAI</h3><p>Redacción de emails e informes</p></div>
-                <div class="tech-card"><div class="tech-icon"><i class="fab fa-google-drive"></i></div><h3>Google Drive</h3><p>Almacenamiento de informes</p></div>
-                <div class="tech-card"><div class="tech-icon"><i class="fas fa-code"></i></div><h3>JavaScript</h3><p>Lógica personalizada</p></div>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Make.com</h3>
+                    <p>Motor de automatización principal</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>PrestaShop API</h3>
+                    <p>Origen de datos de pedidos</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-table"></i>
+                    </div>
+                    <h3>Google Sheets</h3>
+                    <p>Base de datos y análisis</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3>Gmail API</h3>
+                    <p>Envío de emails personalizados</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Apollo.io</h3>
+                    <p>Datos de empresas B2B</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>QuickChart.io</h3>
+                    <p>Generación de gráficos</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>OpenAI</h3>
+                    <p>Redacción de emails e informes</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fab fa-google-drive"></i>
+                    </div>
+                    <h3>Google Drive</h3>
+                    <p>Almacenamiento de informes</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>JavaScript</h3>
+                    <p>Lógica personalizada</p>
+                </div>
             </div>
         </div>
     </section>
@@ -474,85 +310,243 @@
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer class="footer" style="background-color: #0a0a0a; padding: 4rem 0 2rem; margin-top: 4rem;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="footer-content" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <div class="footer-links" style="margin-bottom: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;">
+                    <a href="../index.html#home" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Inicio</a>
+                    <a href="../index.html#about" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Sobre Mí</a>
+                    <a href="../index.html#projects" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Proyectos</a>
+                    <a href="../index.html#skills" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Habilidades</a>
+                    <a href="../index.html#contact" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Contacto</a>
+                </div>
+                <div class="footer-social" style="display: flex; gap: 1.5rem; margin-bottom: 2rem;">
+                    <a href="https://www.linkedin.com/in/gonzalo-arribas-montenegro-a963378a/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" style="color: #a1a1aa; font-size: 1.25rem; transition: all 0.3s ease; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.05);">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/GAM-Sama" class="social-icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer" style="color: #a1a1aa; font-size: 1.25rem; transition: all 0.3s ease; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.05);">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://x.com/GAM_Ai_Sama" class="social-icon" aria-label="Twitter" target="_blank" rel="noopener noreferrer" style="color: #a1a1aa; font-size: 1.25rem; transition: all 0.3s ease; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.05);">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom" style="padding-top: 2rem; border-top: 1px solid #2a2a3e; text-align: center;">
+                <p style="color: #71717a; font-size: 0.9rem; margin: 0;">&copy; 2025 GAM. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox HTML -->
+    <div id="imageLightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightboxImage">
+        <div id="caption"></div>
+    </div>
+
     <script src="../js/scroll-animation.js"></script>
     <script src="../js/project-animations.js"></script>
     <script>
-        /* ------------------- CAROUSEL ------------------- */
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector(".carousel-container");
-            if (!container) return;
+        // Lightbox functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Lightbox script loaded');
+            const lightbox = document.getElementById('imageLightbox');
+            const lightboxImg = document.getElementById('lightboxImage');
+            const captionText = document.getElementById('caption');
+            const closeBtn = document.querySelector('.close-lightbox');
+            
+            // Get all gallery links with images
+            const galleryLinks = document.querySelectorAll('.gallery-image-link');
+            
+            console.log('Found', galleryLinks.length, 'gallery links on the page');
+            
+            // Add click event to all gallery links
+            galleryLinks.forEach(link => {
+                link.style.cursor = 'zoom-in';
+                link.addEventListener('click', function(e) {
+                    console.log('Gallery link clicked', this);
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const img = this.querySelector('img');
+                    
+                    // Set image source and caption from the link's href and image alt
+                    lightboxImg.src = this.href;
+                    lightboxImg.alt = img?.alt || '';
+                    captionText.textContent = img?.alt || '';
+                    
+                    // Show lightbox
+                    console.log('Showing lightbox for image:', this.href);
+                    lightbox.style.display = 'flex';
+                    setTimeout(() => {
+                        lightbox.classList.add('show');
+                    }, 10);
+                    
+                    // Prevent body scroll
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Close lightbox when clicking the close button
+            closeBtn.addEventListener('click', function() {
+                console.log('Close button clicked');
+                lightbox.classList.remove('show');
+                setTimeout(() => {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = '';
+                }, 300);
+            });
+            
+            // Close lightbox when clicking outside the image
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    console.log('Clicked outside image, closing lightbox');
+                    closeBtn.click();
+                }
+            });
+            
+            // Close with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('show')) {
+                    console.log('Escape key pressed, closing lightbox');
+                    closeBtn.click();
+                }
+            });
+        });
 
+        // Carrusel functionality
+        document.addEventListener("DOMContentLoaded", function() {
+            const galleryContainer = document.querySelector(".gallery-container");
+            if (!galleryContainer) return;
+
+            const container = galleryContainer.querySelector(".carousel-container");
             const slides = Array.from(container.querySelectorAll(".carousel-slide"));
-            const prev = container.querySelector(".prev");
-            const next = container.querySelector(".next");
-            const dotsContainer = container.querySelector(".carousel-dots");
+            const prev = galleryContainer.querySelector(".prev");
+            const next = galleryContainer.querySelector(".next");
+            const dotsContainer = galleryContainer.querySelector(".carousel-dots");
             let index = 0;
+            let autoplay = null;
 
             // Asegurarse de que al menos un slide esté activo
             if (slides.length > 0 && !slides.some(slide => slide.classList.contains('active'))) {
                 slides[0].classList.add('active');
             }
 
-            // Inicializar puntos de navegación
-            if (dotsContainer) {
-                slides.forEach((_, i) => {
-                    const dot = document.createElement("button");
-                    dot.className = "dot";
-                    if (i === 0) dot.classList.add("active");
-                    dot.onclick = () => moveTo(i);
-                    dotsContainer.appendChild(dot);
+            // Función para actualizar el carrusel
+            const updateCarousel = () => {
+                // Actualizar la clase active en los slides
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
                 });
-
-                const dots = dotsContainer.querySelectorAll(".dot");
-
-                const updateCarousel = () => {
-                    // Actualizar la clase active en los slides
-                    slides.forEach((slide, i) => {
-                        slide.classList.toggle('active', i === index);
-                    });
-                    
-                    // Actualizar los puntos de navegación
+                
+                // Actualizar los puntos de navegación
+                if (dotsContainer) {
+                    const dots = dotsContainer.querySelectorAll(".dot");
                     dots.forEach((dot, i) => {
                         dot.classList.toggle('active', i === index);
                     });
-                };
+                }
+            };
 
-                const moveTo = (i) => {
-                    index = (i + slides.length) % slides.length; // Asegurar que el índice esté dentro de los límites
-                    updateCarousel();
-                };
-
-                // Event listeners para los botones
-                if (next) next.onclick = () => moveTo(index + 1);
-                if (prev) prev.onclick = () => moveTo(index - 1);
-
-                // Inicializar el carrusel
+            // Función para moverse a un slide específico
+            const moveTo = (i) => {
+                index = (i + slides.length) % slides.length;
                 updateCarousel();
+            };
+
+            // Función para avanzar al siguiente slide
+            const nextSlide = () => moveTo(index + 1);
+            
+            // Crear puntos de navegación si no existen
+            if (dotsContainer && dotsContainer.children.length !== slides.length) {
+                // Limpiar puntos existentes
+                dotsContainer.innerHTML = '';
+                
+                // Crear nuevos puntos
+                slides.forEach((_, i) => {
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot');
+                    if (i === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => {
+                        pauseAutoplay();
+                        moveTo(i);
+                    });
+                    dotsContainer.appendChild(dot);
+                });
+            };
+
+            // Función para pausar el autoplay
+            const pauseAutoplay = () => {
+                if (autoplay) {
+                    clearInterval(autoplay);
+                    autoplay = null;
+                }
+            };
+            
+            // Función para reanudar el autoplay
+            const resumeAutoplay = () => {
+                if (!autoplay) {
+                    autoplay = setInterval(nextSlide, 5000);
+                }
+            };
+
+            // Iniciar autoplay
+            resumeAutoplay();
+            
+            // Pausar autoplay al hacer hover sobre el carrusel
+            galleryContainer.addEventListener('mouseenter', pauseAutoplay);
+            galleryContainer.addEventListener('mouseleave', resumeAutoplay);
+
+            // Event listeners para los botones de navegación
+            if (prev) prev.onclick = () => {
+                pauseAutoplay();
+                moveTo(index - 1);
+            };
+            
+            if (next) next.onclick = () => {
+                pauseAutoplay();
+                nextSlide();
+            };
+
+            // Inicializar el carrusel
+            updateCarousel();
+        });
+
+        // Inicializar la animación de revelación al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.reveal');
+            
+            // Mostrar la primera sección de inmediato
+            if (sections.length > 0) {
+                sections[0].classList.add('active');
             }
+            
+            // Función para verificar si un elemento está en el viewport
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight * 0.75) &&
+                    rect.bottom >= (window.innerHeight * 0.25)
+                );
+            }
+            
+            // Función para manejar el scroll
+            function handleScroll() {
+                sections.forEach(section => {
+                    if (isInViewport(section)) {
+                        section.classList.add('active');
+                    }
+                });
+            }
+            
+            // Escuchar el evento de scroll
+            window.addEventListener('scroll', handleScroll);
+            
+            // Verificar las secciones visibles al cargar la página
+            handleScroll();
         });
     </script>
-    
-    <!-- Footer -->
-    <footer class="footer" style="background-color: #0a0a0a; padding: 4rem 0 2rem; margin-top: 4rem;">
-        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div class="footer-content" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                <div class="footer-links" style="margin-bottom: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;">
-                    <a href="../index.html#home" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Inicio</a>
-                    <a href="../index.html#about" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Sobre Mí</a>
-                    <a href="../index.html#projects" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Proyectos</a>
-                    <a href="../index.html#skills" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Habilidades</a>
-                    <a href="../index.html#contact" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Contacto</a>
-                </div>
-                <div class="footer-social" style="margin-bottom: 2rem; display: flex; gap: 1.5rem;">
-                    <a href="https://www.linkedin.com/in/gonzalo-arribas-montenegro-a963378a/" class="social-icon" aria-label="LinkedIn" style="color: #a0a0a0; font-size: 1.5rem; transition: color 0.3s ease;" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/GAM-Sama" class="social-icon" aria-label="GitHub" style="color: #a0a0a0; font-size: 1.5rem; transition: color 0.3s ease;" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                    <a href="https://x.com/GAM_Ai_Sama" class="social-icon" aria-label="Twitter" style="color: #a0a0a0; font-size: 1.5rem; transition: color 0.3s ease;" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-            <div class="footer-bottom" style="padding-top: 2rem; border-top: 1px solid #1f1f1f; text-align: center;">
-                <p style="color: #666; margin: 0; font-size: 0.9rem;">&copy; 2025 GAM. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>

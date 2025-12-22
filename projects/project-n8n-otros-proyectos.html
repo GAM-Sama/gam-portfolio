@@ -10,197 +10,7 @@
     
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/project.css" />
-
-    <style>
-        :root {
-            --primary-color: #6c5ce7;
-        }
-
-        /* --------------------------------------------------------- */
-        /* HERO                                                      */
-        /* --------------------------------------------------------- */
-        .project-hero {
-            margin: 2rem 0;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
-
-        .project-hero img {
-            max-width: 80%;
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* --------------------------------------------------------- */
-        /* REVEAL ANIMATION                                          */
-        /* --------------------------------------------------------- */
-        .project-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            margin-bottom: 3rem;
-        }
-        .project-section.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --------------------------------------------------------- */
-        /* FEATURES GRID                                             */
-        /* --------------------------------------------------------- */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        .feature-card {
-            background: #0a0a0a;
-            border-radius: 10px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.3s ease;
-        }
-        .feature-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary-color);
-        }
-        .feature-icon {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        /* --------------------------------------------------------- */
-        /* TECH GRID                                                 */
-        /* --------------------------------------------------------- */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-        .tech-card {
-            background: #0a0a0a;
-            border-radius: 10px;
-            padding: 1.8rem 1.2rem;
-            text-align: center;
-            transition: 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .tech-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--primary-color);
-        }
-        .tech-icon {
-            font-size: 2.3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        /* --------------------------------------------------------- */
-        /* CAROUSEL FIX – ONE WORKING VERSION                        */
-        /* --------------------------------------------------------- */
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            height: 500px; /* Altura fija para el contenedor */
-        }
-
-        .carousel-track {
-            display: flex;
-            height: 100%;
-            position: relative;
-            transition: transform 0.5s ease-in-out;
-            width: 100%;
-        }
-
-        .carousel-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            box-sizing: border-box;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .carousel-slide.active {
-            opacity: 1;
-            z-index: 1;
-        }
-
-        .carousel-slide img {
-            max-width: 100%;
-            max-height: 400px;
-            object-fit: contain;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-
-        .carousel-caption {
-            margin-top: 1rem;
-            color: #e2e8f0;
-            font-size: 0.95rem;
-            text-align: center;
-        }
-
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.6);
-            color: #fff;
-            border: none;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: 0.3s ease;
-            z-index: 10;
-        }
-
-        .carousel-button:hover {
-            background: rgba(0, 0, 0, 0.85);
-        }
-
-        .carousel-button.prev { left: 10px; }
-        .carousel-button.next { right: 10px; }
-
-        .carousel-dots {
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            margin: 12px 0;
-        }
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.4);
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
-        .dot.active {
-            background: #fff;
-            transform: scale(1.2);
-        }
-    </style>
+    <link rel="stylesheet" href="../css/projects-common.css" />
 </head>
 
 <body>
@@ -214,12 +24,17 @@
                     <a href="../index.html" class="logo-text">GAM</a>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="../index.html#home" class="nav-link">Inicio</a></li>
                     <li><a href="../index.html#about" class="nav-link">Sobre mí</a></li>
                     <li><a href="../index.html#projects" class="nav-link">Proyectos</a></li>
                     <li><a href="../index.html#skills" class="nav-link">Habilidades</a></li>
                     <li><a href="../index.html#contact" class="nav-link">Contacto</a></li>
                 </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
         </nav>
     </header>
@@ -229,7 +44,9 @@
         <div class="project-container">
             <h1 class="project-title">Automatizaciones con n8n</h1>
             <p class="project-subtitle">Flujos de trabajo · Procesos automatizados</p>
-            <img src="../assets/img/projects/n8n_projects/01-backup-workflows.png" alt="Automatizaciones con n8n" />
+            <div class="project-hero-image">
+                <img src="../assets/img/projects/n8n_projects/01-backup-workflows.png" alt="Automatizaciones con n8n">
+            </div>
         </div>
     </section>
 
@@ -318,26 +135,28 @@
         <div class="project-container">
             <h2 class="section-title">Galería</h2>
 
-            <div class="carousel-container">
-                <div class="carousel-slide active">
-                    <img src="../assets/img/projects/n8n_projects/01-backup-workflows.png" alt="Sistema de copias de seguridad" />
-                    <p class="carousel-caption">1. Sistema de copias de seguridad</p>
-                </div>
-                <div class="carousel-slide">
-                    <img src="../assets/img/projects/n8n_projects/02-borrar-importar-flujos.png" alt="Restauración de flujos" />
-                    <p class="carousel-caption">2. Restauración de flujos</p>
-                </div>
-                <div class="carousel-slide">
-                    <img src="../assets/img/projects/n8n_projects/00-formulario_contacto.png" alt="Formulario de contacto" />
-                    <p class="carousel-caption">3. Formulario de contacto</p>
-                </div>
-                <div class="carousel-slide">
-                    <img src="../assets/img/projects/n8n_projects/03-agente-interactivo_IA.png" alt="Agente interactivo con IA" />
-                    <p class="carousel-caption">4. Agente interactivo con IA</p>
-                </div>
-                <div class="carousel-slide">
-                    <img src="../assets/img/projects/n8n_projects/04-RAG-gestoria.png" alt="Sistema RAG para gestoría" />
-                    <p class="carousel-caption">5. Sistema RAG para gestoría</p>
+            <div class="gallery-container single-image-carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide active">
+                        <img src="../assets/img/projects/n8n_projects/01-backup-workflows.png" alt="Sistema de copias de seguridad" />
+                        <p class="carousel-caption">1. Sistema de copias de seguridad</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/img/projects/n8n_projects/02-borrar-importar-flujos.png" alt="Restauración de flujos" />
+                        <p class="carousel-caption">2. Restauración de flujos</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/img/projects/n8n_projects/00-formulario_contacto.png" alt="Formulario de contacto" />
+                        <p class="carousel-caption">3. Formulario de contacto</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/img/projects/n8n_projects/03-agente-interactivo_IA.png" alt="Agente interactivo con IA" />
+                        <p class="carousel-caption">4. Agente interactivo con IA</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/img/projects/n8n_projects/04-RAG-gestoria.png" alt="Sistema RAG para gestoría" />
+                        <p class="carousel-caption">5. Sistema RAG para gestoría</p>
+                    </div>
                 </div>
 
                 <button class="carousel-button prev">❮</button>
@@ -352,16 +171,52 @@
         <div class="project-container">
             <h2 class="section-title">Tecnologías utilizadas</h2>
 
-            <div class="tech-grid reveal">
-                <div class="tech-card"><div class="tech-icon"><i class="fas fa-project-diagram"></i></div><h3>n8n</h3><p>Motor principal de automatización</p></div>
-                <div class="tech-card"><div class="tech-icon"><i class="fab fa-google-drive"></i></div><h3>Google Drive</h3><p>Backups automáticos</p></div>
-                <div class="tech-card"><div class="tech-icon"><i class="fas fa-table"></i></div><h3>Google Sheets</h3><p>Logging y almacenamiento ligero</p></div>
-                <div class="tech-card"><div class="tech-icon"><i class="fab fa-google"></i></div><h3>Gmail API</h3><p>Notificaciones y correos</p></div>
-                <div class="tech-card"><div class="tech-icon"><i class="fab fa-telegram"></i></div><h3>Telegram Bot</h3><p>Interfaz de chat</p></div>
-                <div class="tech-card"><div class="tech-icon"><i class="fas fa-robot"></i></div><h3>OpenAI</h3><p>Procesamiento inteligente</p></div>
-                <div class="tech-card"><div class="tech-icon"><i class="far fa-calendar"></i></div><h3>Google Calendar MCP</h3><p>Automatización de agenda</p></div>
-                <div class="tech-card"><div class="tech-icon"><i class="fas fa-database"></i></div><h3>Airtable</h3><p>Base de datos</p></div>
-                <div class="tech-card"><div class="tech-icon"><i class="fab fa-js"></i></div><h3>JavaScript</h3><p>Lógica personalizada</p></div>
+            <div class="tech-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-project-diagram"></i></div>
+                    <h3>n8n</h3>
+                    <p>Motor principal de automatización</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fab fa-google-drive"></i></div>
+                    <h3>Google Drive</h3>
+                    <p>Backups automáticos</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-table"></i></div>
+                    <h3>Google Sheets</h3>
+                    <p>Logging y almacenamiento ligero</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fab fa-google"></i></div>
+                    <h3>Gmail API</h3>
+                    <p>Notificaciones y correos</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fab fa-telegram"></i></div>
+                    <h3>Telegram Bot</h3>
+                    <p>Interfaz de chat</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-robot"></i></div>
+                    <h3>OpenAI</h3>
+                    <p>Procesamiento inteligente</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="far fa-calendar"></i></div>
+                    <h3>Google Calendar</h3>
+                    <p>Automatización de agenda</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-database"></i></div>
+                    <h3>Airtable</h3>
+                    <p>Base de datos</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fab fa-js"></i></div>
+                    <h3>JavaScript</h3>
+                    <p>Lógica personalizada</p>
+                </div>
             </div>
         </div>
     </section>
@@ -382,85 +237,189 @@
         </div>
     </section>
 
-    <script src="../js/scroll-animation.js"></script>
-    <script src="../js/project-animations.js"></script>
-    <script>
-        /* ------------------- CAROUSEL ------------------- */
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector(".carousel-container");
-            if (!container) return;
-
-            const slides = Array.from(container.querySelectorAll(".carousel-slide"));
-            const prev = container.querySelector(".prev");
-            const next = container.querySelector(".next");
-            const dotsContainer = container.querySelector(".carousel-dots");
-            let index = 0;
-
-            // Asegurarse de que al menos un slide esté activo
-            if (slides.length > 0 && !slides.some(slide => slide.classList.contains('active'))) {
-                slides[0].classList.add('active');
-            }
-
-            // Inicializar puntos de navegación
-            if (dotsContainer) {
-                slides.forEach((_, i) => {
-                    const dot = document.createElement("button");
-                    dot.className = "dot";
-                    if (i === 0) dot.classList.add("active");
-                    dot.onclick = () => moveTo(i);
-                    dotsContainer.appendChild(dot);
-                });
-
-                const dots = dotsContainer.querySelectorAll(".dot");
-
-                const updateCarousel = () => {
-                    // Actualizar la clase active en los slides
-                    slides.forEach((slide, i) => {
-                        slide.classList.toggle('active', i === index);
-                    });
-                    
-                    // Actualizar los puntos de navegación
-                    dots.forEach((dot, i) => {
-                        dot.classList.toggle('active', i === index);
-                    });
-                };
-
-                const moveTo = (i) => {
-                    index = (i + slides.length) % slides.length; // Asegurar que el índice esté dentro de los límites
-                    updateCarousel();
-                };
-
-                // Event listeners para los botones
-                if (next) next.onclick = () => moveTo(index + 1);
-                if (prev) prev.onclick = () => moveTo(index - 1);
-
-                // Inicializar el carrusel
-                updateCarousel();
-            }
-        });
-    </script>
-    
-    <!-- Footer -->
     <footer class="footer" style="background-color: #0a0a0a; padding: 4rem 0 2rem; margin-top: 4rem;">
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
             <div class="footer-content" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
                 <div class="footer-links" style="margin-bottom: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;">
-                    <a href="../index.html#home" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Inicio</a>
-                    <a href="../index.html#about" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Sobre Mí</a>
-                    <a href="../index.html#projects" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Proyectos</a>
-                    <a href="../index.html#skills" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Habilidades</a>
-                    <a href="../index.html#contact" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Contacto</a>
+                    <a href="../index.html#home" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Inicio</a>
+                    <a href="../index.html#about" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Sobre Mí</a>
+                    <a href="../index.html#projects" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Proyectos</a>
+                    <a href="../index.html#skills" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Habilidades</a>
+                    <a href="../index.html#contact" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Contacto</a>
                 </div>
-                <div class="footer-social" style="margin-bottom: 2rem; display: flex; gap: 1.5rem;">
-                    <a href="https://www.linkedin.com/in/gonzalo-arribas-montenegro-a963378a/" class="social-icon" aria-label="LinkedIn" style="color: #a0a0a0; font-size: 1.5rem; transition: color 0.3s ease;" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/GAM-Sama" class="social-icon" aria-label="GitHub" style="color: #a0a0a0; font-size: 1.5rem; transition: color 0.3s ease;" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                    <a href="https://x.com/GAM_Ai_Sama" class="social-icon" aria-label="Twitter" style="color: #a0a0a0; font-size: 1.5rem; transition: color 0.3s ease;" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                <div class="footer-social" style="display: flex; gap: 1.5rem; margin-bottom: 2rem;">
+                    <a href="https://www.linkedin.com/in/gonzalo-arribas-montenegro-a963378a/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" style="color: #a1a1aa; font-size: 1.25rem; transition: all 0.3s ease; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.05);">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/GAM-Sama" class="social-icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer" style="color: #a1a1aa; font-size: 1.25rem; transition: all 0.3s ease; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.05);">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://x.com/GAM_Ai_Sama" class="social-icon" aria-label="Twitter" target="_blank" rel="noopener noreferrer" style="color: #a1a1aa; font-size: 1.25rem; transition: all 0.3s ease; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.05);">
+                        <i class="fab fa-twitter"></i>
+                    </a>
                 </div>
             </div>
-            <div class="footer-bottom" style="padding-top: 2rem; border-top: 1px solid #1f1f1f; text-align: center;">
-                <p style="color: #666; margin: 0; font-size: 0.9rem;">&copy; 2025 GAM. Todos los derechos reservados.</p>
+            <div class="footer-bottom" style="padding-top: 2rem; border-top: 1px solid #2a2a3e; text-align: center;">
+                <p style="color: #71717a; font-size: 0.9rem; margin: 0;">&copy; 2025 GAM. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Lightbox HTML -->
+    <div id="imageLightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightboxImage">
+        <div id="caption"></div>
+    </div>
+
+    <script src="../js/scroll-animation.js"></script>
+    <script src="../js/project-animations.js"></script>
+    <script>
+        // Lightbox functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const lightbox = document.getElementById('imageLightbox');
+            const lightboxImg = document.getElementById('lightboxImage');
+            const captionText = document.getElementById('caption');
+            const closeBtn = document.querySelector('.close-lightbox');
+            
+            // Get all images with specific extensions
+            const images = document.querySelectorAll('img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"], img[src*=".gif"]');
+            
+            // Add click event to all images
+            images.forEach(img => {
+                // Skip if image is inside a link that already has a target="_blank"
+                const parentLink = img.closest('a');
+                if (parentLink && (parentLink.target === '_blank' || parentLink.getAttribute('data-lightbox') === 'false')) {
+                    return;
+                }
+                
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Set image source and caption
+                    lightboxImg.src = this.src;
+                    lightboxImg.alt = this.alt;
+                    captionText.textContent = this.alt || '';
+                    
+                    // Show lightbox
+                    lightbox.style.display = 'flex';
+                    setTimeout(() => {
+                        lightbox.classList.add('show');
+                    }, 10);
+                    
+                    // Prevent body scroll
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Close lightbox when clicking the close button
+            closeBtn.addEventListener('click', function() {
+                lightbox.classList.remove('show');
+                setTimeout(() => {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = '';
+                }, 300);
+            });
+            
+            // Close lightbox when clicking outside the image
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeBtn.click();
+                }
+            });
+            
+            // Close with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('show')) {
+                    closeBtn.click();
+                }
+            });
+        });
+
+        // Carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousels = document.querySelectorAll('.gallery-container');
+            
+            carousels.forEach(carousel => {
+                const track = carousel.querySelector('.carousel-track');
+                const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+                const prevBtn = carousel.querySelector('.carousel-button.prev');
+                const nextBtn = carousel.querySelector('.carousel-button.next');
+                const dotsContainer = carousel.querySelector('.carousel-dots');
+                
+                let currentIndex = 0;
+                
+                // Create dots
+                if (dotsContainer) {
+                    slides.forEach((_, index) => {
+                        const dot = document.createElement('div');
+                        dot.classList.add('dot');
+                        if (index === 0) dot.classList.add('active');
+                        dot.addEventListener('click', () => goToSlide(index));
+                        dotsContainer.appendChild(dot);
+                    });
+                }
+                
+                const dots = dotsContainer ? dotsContainer.querySelectorAll('.dot') : [];
+                
+                // Update carousel
+                function updateCarousel() {
+                    // Update slides
+                    slides.forEach((slide, index) => {
+                        if (index === currentIndex) {
+                            slide.classList.add('active');
+                        } else {
+                            slide.classList.remove('active');
+                        }
+                    });
+                    
+                    // Update dots
+                    dots.forEach((dot, index) => {
+                        if (index === currentIndex) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
+                }
+                
+                // Go to specific slide
+                function goToSlide(index) {
+                    currentIndex = (index + slides.length) % slides.length;
+                    updateCarousel();
+                }
+                
+                // Event listeners
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+                }
+                
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+                }
+                
+                // Initialize carousel
+                updateCarousel();
+                
+                // Auto-advance carousel
+                let autoplay = setInterval(() => {
+                    goToSlide(currentIndex + 1);
+                }, 5000);
+                
+                // Pause autoplay on hover
+                carousel.addEventListener('mouseenter', () => {
+                    clearInterval(autoplay);
+                });
+                
+                carousel.addEventListener('mouseleave', () => {
+                    autoplay = setInterval(() => {
+                        goToSlide(currentIndex + 1);
+                    }, 5000);
+                });
+            });
+        });
+    </script>
 </body>
 </html>

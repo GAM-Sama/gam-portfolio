@@ -14,200 +14,8 @@
     <link rel="stylesheet" href="../css/project.css">
     <link rel="stylesheet" href="../css/projects-common.css">
     
-    <style>
-.grid-background {
-    z-index: -1;
-}
-        .typing-text {
-            position: relative;
-            display: inline-block;
-        }
-        
-        /* Efecto de revelación suave */
-        .project-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            will-change: opacity, transform;
-            margin-bottom: 3rem;
-        }
-        
-        .project-section:last-child {
-            margin-bottom: 2rem;
-        }
-        
-        .project-section.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .project-hero {
-            opacity: 1 !important;
-            transform: none !important;
-            margin: 2rem 0;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
-        
-        .project-hero img {
-            max-width: 80%;
-            height: auto;
-            margin: 0 auto;
-            display: block;
-        }
-        
-        .project-section:nth-child(2) { transition-delay: 0.1s; }
-        .project-section:nth-child(3) { transition-delay: 0.2s; }
-        .project-section:nth-child(4) { transition-delay: 0.3s; }
-        .project-section:nth-child(5) { transition-delay: 0.4s; }
-
-        /* Estilos para la galería */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .gallery-item {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background: #1e1e2d;
-        }
-        
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .gallery-caption {
-            padding: 1.2rem;
-            color: #e0e0e0;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin: 0;
-        }
-        
-        .gallery-wide {
-            grid-column: 1 / -1;
-        }
-        
-        .gallery-wide img {
-            height: 400px;
-        }
-        
-        /* Estilos para las tarjetas de características */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-            align-items: start;
-        }
-        
-        .feature-card {
-            background: #1e1e2d;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 180px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        .feature-card h3 {
-            color: var(--primary-color);
-            margin-top: 0;
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-        }
-        
-        .feature-card p {
-            color: #e0e0e0;
-            margin: 0;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        
-        /* Estilos para los títulos de sección */
-        .section-title {
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
-            clear: both;
-            position: relative;
-        }
-        
-        /* Estilos para los pasos del proceso */
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .process-step {
-            background: #1e1e2d;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .process-step:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        .process-step h4 {
-            color: var(--primary-color);
-            margin-top: 0;
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-        }
-        
-        .process-step p {
-            color: #e0e0e0;
-            margin: 0;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        
-        /* Estilos responsivos */
-        @media (max-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .gallery-wide img {
-                height: 250px;
-            }
-            
-            .features-grid,
-            .process-steps {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
+    </head>
+<body class="project-repairs">
     <div class="grid-background"></div>
 
     <!-- Header -->
@@ -215,22 +23,15 @@
         <nav class="nav">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <a href="../index.html" class="logo-link">
-                        <span class="logo-text">GAM</span>
-                    </a>
+                    <a href="../index.html" class="logo-text">GAM</a>
                 </div>
                 <ul class="nav-menu">
-                    <li class="nav-item"><a href="../index.html#home" class="nav-link">Inicio</a></li>
-                    <li class="nav-item"><a href="../index.html#about" class="nav-link">Sobre Mí</a></li>
-                    <li class="nav-item"><a href="../index.html#projects" class="nav-link">Proyectos</a></li>
-                    <li class="nav-item"><a href="../index.html#skills" class="nav-link">Habilidades</a></li>
-                    <li class="nav-item"><a href="../index.html#contact" class="nav-link">Contacto</a></li>
+                    <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="../index.html#about" class="nav-link">Sobre mí</a></li>
+                    <li><a href="../index.html#projects" class="nav-link">Proyectos</a></li>
+                    <li><a href="../index.html#skills" class="nav-link">Habilidades</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contacto</a></li>
                 </ul>
-                <div class="nav-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
             </div>
         </nav>
     </header>
@@ -247,8 +48,8 @@
                     <p class="project-subtitle" id="animated-subtitle">
                         <span class="typing-text">Diagnóstico, reparación y mejora funcional y estética de consolas y periféricos</span>
                     </p>
-                    <div class="project-hero-image" style="margin-top: 2rem;">
-                        <img src="../assets/img/projects/repair/06-desmontaje-completo-n-switch-post-reparación.png" alt="Nintendo Switch completamente restaurada" style="width: 100%; max-width: 800px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); margin: 0 auto; display: block;">
+                    <div class="project-hero-image">
+                        <img src="../assets/img/projects/repair/06-desmontaje-completo-n-switch-post-reparación.png" alt="Nintendo Switch completamente restaurada" class="no-popup">
                     </div>
                 </div>
             </div>
@@ -514,43 +315,7 @@
 
     </div>
 
-    <!-- ================= GALERÍA TÉCNICA ================= -->
-    <div style="margin-top: 4rem;">
-        <h2 class="section-title">Detalles Técnicos</h2>
-    </div>
-
-    <div class="gallery-grid">
-
-      <div class="gallery-item">
-        <img src="../assets/img/projects/repair/03-transplante-placa-no-chips.png" alt="Placa antes del transplante">
-        <p class="gallery-caption">
-          Placa base antes del cambio de componentes principales.
-        </p>
-      </div>
-
-      <div class="gallery-item">
-        <img src="../assets/img/projects/repair/03-transplante-placa-ram-cpu.png" alt="Placa montada tras el transplante">
-        <p class="gallery-caption">
-          Placa completamente montada tras el transplante de CPU y RAM.
-        </p>
-      </div>
-
-      <div class="gallery-item">
-        <img src="../assets/img/projects/repair/00-cambio-pila-gba.jpg" alt="Cambio de pila en cartucho">
-        <p class="gallery-caption">
-          Proceso de sustitución de pila en cartucho original.
-        </p>
-      </div>
-
-      <div class="gallery-item">
-        <img src="../assets/img/projects/repair/04-reparacion-dualshock4-reparado.png" alt="Mandos desmontados y restaurados">
-        <p class="gallery-caption">
-          Mandos desmontados, limpiados y montados nuevamente.
-        </p>
-      </div>
-
-    </div>
-
+    
     <!-- ================= CIERRE ================= -->
     <h2 class="section-title">Resultado</h2>
     <p>
@@ -679,6 +444,43 @@
                     navMenu.classList.remove('active');
                     navToggle.classList.remove('active');
                 });
+            });
+        });
+    </script>
+
+    <!-- Modal for image popup -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // Image popup functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const closeBtn = document.querySelector('.close-modal');
+            
+            // Get all images in the document except modal image and no-popup images
+            const images = document.querySelectorAll('img:not(.modal-content):not(.no-popup)');
+            
+            images.forEach(img => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() {
+                    modal.style.display = 'block';
+                    modalImg.src = this.src;
+                    modalImg.alt = this.alt;
+                });
+            });
+            
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            window.addEventListener('click', function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
             });
         });
     </script>
