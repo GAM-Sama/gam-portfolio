@@ -13,263 +13,6 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/project.css">
     <link rel="stylesheet" href="../css/projects-common.css">
-    
-    <style>
-        /* Efecto de revelación suave */
-        .project-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            will-change: opacity, transform;
-            margin-bottom: 3rem;
-        }
-        
-        .project-section:last-child {
-            margin-bottom: 2rem;
-        }
-        
-        .project-section.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .project-hero {
-            opacity: 1 !important;
-            transform: none !important;
-            margin: 2rem 0;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
-        
-        .project-hero img {
-            max-width: 80%;
-            height: auto;
-            margin: 0 auto;
-            display: block;
-        }
-        
-        .project-section:nth-child(2) { transition-delay: 0.1s; }
-        .project-section:nth-child(3) { transition-delay: 0.2s; }
-        .project-section:nth-child(4) { transition-delay: 0.3s; }
-        .project-section:nth-child(5) { transition-delay: 0.4s; }
-
-        /* Estilos para la galería */
-        .gallery-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin: 1rem 0;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .gallery-column {
-            width: 100%;
-        }
-
-        .gallery-title {
-            color: #fff;
-            text-align: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .carousel-slide {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 100%;
-        }
-
-        .carousel-slide {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 100%;
-            height: 400px; /* Altura fija para el contenedor del carrusel */
-        }
-
-        .gallery-image-link {
-            display: block;
-            min-width: 100%;
-            height: 100%;
-            flex-shrink: 0;
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            margin-right: 1rem;
-        }
-        
-        .gallery-image-link:last-child {
-            margin-right: 0;
-        }
-        
-        .gallery-image-link img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-        
-        .gallery-image-link:hover img {
-            transform: scale(1.02);
-        }
-
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            border: none;
-            padding: 1rem;
-            cursor: pointer;
-            font-size: 1.5rem;
-            z-index: 10;
-            transition: all 0.3s ease;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .carousel-button:hover {
-            background: var(--primary-color);
-        }
-
-        .carousel-button.prev {
-            left: 1rem;
-        }
-
-        .carousel-button.next {
-            right: 1rem;
-        }
-
-        .carousel-dots {
-            position: absolute;
-            bottom: 1rem;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            z-index: 10;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active {
-            background: var(--primary-color);
-            transform: scale(1.2);
-        }
-        
-        /* Estilos para las tarjetas de características */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .feature-card {
-            background: #0a0a0a;
-            border-radius: 10px;
-            padding: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            border-color: var(--primary-color);
-        }
-        
-        .feature-icon {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-        
-        .feature-card h3 {
-            color: #fff;
-            margin: 0 0 0.8rem 0;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-        
-        .feature-card p {
-            color: #a1a1aa;
-            margin: 0;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        
-        /* Estilos para las tarjetas de tecnologías */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .tech-card {
-            background: #0a0a0a;
-            border-radius: 10px;
-            padding: 1.8rem 1.2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .tech-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-            border-color: var(--primary-color);
-        }
-        
-        .tech-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-        
-        .tech-card h3 {
-            color: #fff;
-            margin: 0 0 0.8rem 0;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-        
-        .tech-card p {
-            color: #a1a1aa;
-            margin: 0;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-    </style>
 </head>
 <body>
     <div class="grid-background"></div>
@@ -296,9 +39,9 @@
     <section class="project-hero">
         <div class="project-container">
             <h1 class="project-title">YugiDex - Automatización con n8n</h1>
-            <p class="project-subtitle">Automatización · n8n · 2024</p>
-            <div class="project-hero">
-                <img src="../assets/img/projects/yugidex_n8n/00_yugidex_n8n-portada.PNG" alt="YugiDex N8N - Automatización de gestión de cartas" class="project-cover">
+            <p class="project-subtitle">Automatización · n8n</p>
+            <div class="project-hero-image">
+                <img src="../assets/img/projects/yugidex_n8n/00_yugidex_n8n-portada.PNG" alt="YugiDex N8N - Automatización de gestión de cartas">
             </div>
         </div>
     </section>
@@ -316,22 +59,22 @@ Decidí rediseñarla desde cero, aplicando principios de modularización, reutil
 El resultado es una versión más clara, rápida y escalable, que sigo mejorando activamente para que crezca al ritmo del proyecto.
             </p>
             
-            <div style="margin: 2rem 0;">
-                <h3 style="text-align: center; margin-bottom: 1.5rem;">Comparativa de Flujos</h3>
-                <div style="display: flex; gap: 2rem; margin: 2rem 0; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 300px; text-align: center;">
+            <div class="comparison-section">
+                <h3 class="comparison-title">Comparativa de Flujos</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
                         <h4>Flujo Antiguo</h4>
-                        <a href="../assets/img/projects/yugidex_n8n/02_yugidex_n8n-flujo-viejo.png" target="_blank" style="display: block; margin-bottom: 1rem;">
-                            <img src="../assets/img/projects/yugidex_n8n/02_yugidex_n8n-flujo-viejo.png" alt="Flujo antiguo de automatización" style="width: 100%; max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                        </a>
-                        <p style="color: #a1a1aa; margin-top: 0.5rem;">Versión inicial del flujo de trabajo</p>
+                        <div class="comparison-link">
+                            <img src="../assets/img/projects/yugidex_n8n/02_yugidex_n8n-flujo-viejo.png" alt="Flujo antiguo de automatización - Versión inicial del flujo de trabajo" class="comparison-image">
+                        </div>
+                        <p class="comparison-caption">Versión inicial del flujo de trabajo</p>
                     </div>
-                    <div style="flex: 1; min-width: 300px; text-align: center;">
+                    <div class="comparison-item">
                         <h4>Flujo Nuevo</h4>
-                        <a href="../assets/img/projects/yugidex_n8n/01_yugidex_n8n-flujo-nuevo.png" target="_blank" style="display: block; margin-bottom: 1rem;">
-                            <img src="../assets/img/projects/yugidex_n8n/01_yugidex_n8n-flujo-nuevo.png" alt="Flujo nuevo optimizado" style="width: 100%; max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                        </a>
-                        <p style="color: #a1a1aa; margin-top: 0.5rem;">Flujo optimizado y mejorado</p>
+                        <div class="comparison-link">
+                            <img src="../assets/img/projects/yugidex_n8n/01_yugidex_n8n-flujo-nuevo.png" alt="Flujo nuevo optimizado - Flujo optimizado y mejorado" class="comparison-image">
+                        </div>
+                        <p class="comparison-caption">Flujo optimizado y mejorado</p>
                     </div>
                 </div>
             </div>
@@ -425,41 +168,44 @@ El resultado es una versión más clara, rápida y escalable, que sigo mejorando
     <section class="project-section reveal">
         <div class="project-container">
             <h2 class="section-title">Galería</h2>
-            <div class="carousel-container" style="max-width: 800px; margin: 0 auto;">
-                <div class="carousel-slide active">
-                    <a href="../assets/img/projects/yugidex_n8n/01_yugidex_n8n-flujo-nuevo.png" target="_blank" class="gallery-image-link">
-                        <img src="../assets/img/projects/yugidex_n8n/01_yugidex_n8n-flujo-nuevo.png" alt="Flujo nuevo optimizado">
-                    </a>
-                    <p class="carousel-caption">1. Flujo optimizado en n8n</p>
+            
+            <div class="gallery-container single-image-carousel">
+                <h3 class="gallery-title">Flujos de Automatización</h3>
+                <div class="carousel-container">
+                    <div class="carousel-slide">
+                        <a href="../assets/img/projects/yugidex_n8n/01_yugidex_n8n-flujo-nuevo.png" class="gallery-image-link">
+                            <img src="../assets/img/projects/yugidex_n8n/01_yugidex_n8n-flujo-nuevo.png" alt="Flujo optimizado en n8n">
+                        </a>
+                        <p class="carousel-caption">1. Flujo optimizado en n8n</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <a href="../assets/img/projects/yugidex_n8n/03_yugidex_n8n-api.png" class="gallery-image-link">
+                            <img src="../assets/img/projects/yugidex_n8n/03_yugidex_n8n-api.png" alt="Integración con API">
+                        </a>
+                        <p class="carousel-caption">2. Integración con API de cartas</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <a href="../assets/img/projects/yugidex_n8n/04_yugidex_n8n-code.png" class="gallery-image-link">
+                            <img src="../assets/img/projects/yugidex_n8n/04_yugidex_n8n-code.png" alt="Código personalizado">
+                        </a>
+                        <p class="carousel-caption">3. Código personalizado en nodos Function</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <a href="../assets/img/projects/yugidex_n8n/05_yugidex_n8n-postgresql.png" class="gallery-image-link">
+                            <img src="../assets/img/projects/yugidex_n8n/05_yugidex_n8n-postgresql.png" alt="Conexión a PostgreSQL">
+                        </a>
+                        <p class="carousel-caption">4. Conexión a base de datos PostgreSQL</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <a href="../assets/img/projects/yugidex_n8n/06_yugidex_n8n-supabase.png" class="gallery-image-link">
+                            <img src="../assets/img/projects/yugidex_n8n/06_yugidex_n8n-supabase.png" alt="Integración con Supabase">
+                        </a>
+                        <p class="carousel-caption">5. Integración con Supabase</p>
+                    </div>
+                    <button class="carousel-button prev">❮</button>
+                    <button class="carousel-button next">❯</button>
+                    <div class="carousel-dots"></div>
                 </div>
-                <div class="carousel-slide">
-                    <a href="../assets/img/projects/yugidex_n8n/03_yugidex_n8n-api.png" target="_blank" class="gallery-image-link">
-                        <img src="../assets/img/projects/yugidex_n8n/03_yugidex_n8n-api.png" alt="Integración con API">
-                    </a>
-                    <p class="carousel-caption">2. Integración con API de cartas</p>
-                </div>
-                <div class="carousel-slide">
-                    <a href="../assets/img/projects/yugidex_n8n/04_yugidex_n8n-code.png" target="_blank" class="gallery-image-link">
-                        <img src="../assets/img/projects/yugidex_n8n/04_yugidex_n8n-code.png" alt="Código personalizado">
-                    </a>
-                    <p class="carousel-caption">3. Código personalizado en nodos Function</p>
-                </div>
-                <div class="carousel-slide">
-                    <a href="../assets/img/projects/yugidex_n8n/05_yugidex_n8n-postgresql.png" target="_blank" class="gallery-image-link">
-                        <img src="../assets/img/projects/yugidex_n8n/05_yugidex_n8n-postgresql.png" alt="Conexión a PostgreSQL">
-                    </a>
-                    <p class="carousel-caption">4. Conexión a base de datos PostgreSQL</p>
-                </div>
-                <div class="carousel-slide">
-                    <a href="../assets/img/projects/yugidex_n8n/06_yugidex_n8n-supabase.png" target="_blank" class="gallery-image-link">
-                        <img src="../assets/img/projects/yugidex_n8n/06_yugidex_n8n-supabase.png" alt="Integración con Supabase">
-                    </a>
-                    <p class="carousel-caption">5. Integración con Supabase</p>
-                </div>
-
-                <button class="carousel-button prev">❮</button>
-                <button class="carousel-button next">❯</button>
-                <div class="carousel-dots"></div>
             </div>
         </div>
     </section>
@@ -469,65 +215,65 @@ El resultado es una versión más clara, rápida y escalable, que sigo mejorando
         <div class="project-container">
             <h2 class="section-title">Tecnologías Utilizadas</h2>
             
-            <div class="tech-grid reveal">
-                <div class="tech-card">
-                    <div class="tech-icon">
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
                         <i class="fas fa-project-diagram"></i>
                     </div>
                     <h3>n8n</h3>
                     <p>Flujos principales, sub-flujos, manejo de webhooks.</p>
                 </div>
                 
-                <div class="tech-card">
-                    <div class="tech-icon">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
                         <i class="fas fa-database"></i>
                     </div>
                     <h3>Supabase / PostgreSQL</h3>
                     <p>Almacenamiento estructurado de datos.</p>
                 </div>
                 
-                <div class="tech-card">
-                    <div class="tech-icon">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
                         <i class="fas fa-atlas"></i>
                     </div>
                     <h3>API Yugipedia</h3>
                     <p>Consulta de datos oficiales de las cartas.</p>
                 </div>
                 
-                <div class="tech-card">
-                    <div class="tech-icon">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
                         <i class="fab fa-android"></i>
                     </div>
                     <h3>Flutter</h3>
                     <p>App móvil que envía el código OCR.</p>
                 </div>
                 
-                <div class="tech-card">
-                    <div class="tech-icon">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
                         <i class="fab fa-react"></i>
                     </div>
                     <h3>Next.js + React</h3>
                     <p>CRM / panel web de administración.</p>
                 </div>
                 
-                <div class="tech-card">
-                    <div class="tech-icon">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
                         <i class="fas fa-server"></i>
                     </div>
                     <h3>Google Cloud VM</h3>
                     <p>Servidor donde se ejecuta n8n.</p>
                 </div>
                 
-                <div class="tech-card">
-                    <div class="tech-icon">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
                         <i class="fas fa-cloud"></i>
                     </div>
                     <h3>Vercel</h3>
                     <p>Hosting de la aplicación web.</p>
                 </div>
                 
-                <div class="tech-card">
-                    <div class="tech-icon">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
                         <i class="fab fa-github"></i>
                     </div>
                     <h3>GitHub</h3>
@@ -558,25 +304,102 @@ El resultado es una versión más clara, rápida y escalable, que sigo mejorando
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
             <div class="footer-content" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
                 <div class="footer-links" style="margin-bottom: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;">
-                    <a href="../index.html#home" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Inicio</a>
-                    <a href="../index.html#about" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Sobre Mí</a>
-                    <a href="../index.html#projects" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Proyectos</a>
-                    <a href="../index.html#skills" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Habilidades</a>
-                    <a href="../index.html#contact" class="footer-link" style="color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;">Contacto</a>
+                    <a href="../index.html#home" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Inicio</a>
+                    <a href="../index.html#about" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Sobre Mí</a>
+                    <a href="../index.html#projects" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Proyectos</a>
+                    <a href="../index.html#skills" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Habilidades</a>
+                    <a href="../index.html#contact" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Contacto</a>
                 </div>
-                <div class="footer-social" style="margin-bottom: 2rem; display: flex; gap: 1.5rem;">
-                    <a href="https://www.linkedin.com/in/gonzalo-arribas-montenegro-a963378a/" class="social-icon" aria-label="LinkedIn" style="color: #a0a0a0; font-size: 1.5rem; transition: color 0.3s ease;" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/GAM-Sama" class="social-icon" aria-label="GitHub" style="color: #a0a0a0; font-size: 1.5rem; transition: color 0.3s ease;" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                    <a href="https://x.com/GAM_Ai_Sama" class="social-icon" aria-label="Twitter" style="color: #a0a0a0; font-size: 1.5rem; transition: color 0.3s ease;" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                <div class="footer-social" style="display: flex; gap: 1.5rem; margin-bottom: 2rem;">
+                    <a href="https://www.linkedin.com/in/gonzalo-arribas-montenegro-a963378a/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" style="color: #a1a1aa; font-size: 1.25rem; transition: all 0.3s ease; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.05);">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/GAM-Sama" class="social-icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer" style="color: #a1a1aa; font-size: 1.25rem; transition: all 0.3s ease; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.05);">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://x.com/GAM_Ai_Sama" class="social-icon" aria-label="Twitter" target="_blank" rel="noopener noreferrer" style="color: #a1a1aa; font-size: 1.25rem; transition: all 0.3s ease; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.05);">
+                        <i class="fab fa-twitter"></i>
+                    </a>
                 </div>
             </div>
-            <div class="footer-bottom" style="padding-top: 2rem; border-top: 1px solid #1f1f1f; text-align: center;">
-                <p style="color: #666; margin: 0; font-size: 0.9rem;">&copy; 2025 GAM. Todos los derechos reservados.</p>
+            <div class="footer-bottom" style="padding-top: 2rem; border-top: 1px solid #2a2a3e; text-align: center;">
+                <p style="color: #71717a; font-size: 0.9rem; margin: 0;">&copy; 2025 GAM. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Lightbox HTML -->
+    <div id="imageLightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightboxImage">
+        <div id="caption"></div>
+    </div>
+
     <script src="../js/project-animations.js"></script>
+    <script>
+        // Lightbox functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const lightbox = document.getElementById('imageLightbox');
+            const lightboxImg = document.getElementById('lightboxImage');
+            const captionText = document.getElementById('caption');
+            const closeBtn = document.querySelector('.close-lightbox');
+            
+            // Get all images with specific extensions
+            const images = document.querySelectorAll('img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"], img[src*=".gif"]');
+            
+            // Add click event to all images
+            images.forEach(img => {
+                // Skip if image is inside a link that already has a target="_blank"
+                const parentLink = img.closest('a');
+                if (parentLink && (parentLink.target === '_blank' || parentLink.getAttribute('data-lightbox') === 'false')) {
+                    return;
+                }
+                
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Set image source and caption
+                    lightboxImg.src = this.src;
+                    lightboxImg.alt = this.alt;
+                    captionText.textContent = this.alt || '';
+                    
+                    // Show lightbox
+                    lightbox.style.display = 'flex';
+                    setTimeout(() => {
+                        lightbox.classList.add('show');
+                    }, 10);
+                    
+                    // Prevent body scroll
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Close lightbox when clicking the close button
+            closeBtn.addEventListener('click', function() {
+                lightbox.classList.remove('show');
+                setTimeout(() => {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = '';
+                }, 300);
+            });
+            
+            // Close lightbox when clicking outside the image
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeBtn.click();
+                }
+            });
+            
+            // Close with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('show')) {
+                    closeBtn.click();
+                }
+            });
+        });
+    </script>
     <script>
         // Función para verificar si un elemento está en el viewport
         function isInViewport(element) {
@@ -619,52 +442,68 @@ El resultado es una versión más clara, rápida y escalable, que sigo mejorando
         
         // Función para inicializar el carrusel
         function initCarousel() {
-            const container = document.querySelector('.carousel-container');
-            if (!container) return;
+            const carousels = document.querySelectorAll('.gallery-container.single-image-carousel .carousel-container');
+            
+            carousels.forEach(carousel => {
+                const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+                const prev = carousel.querySelector('.prev');
+                const next = carousel.querySelector('.next');
+                const dotsContainer = carousel.querySelector('.carousel-dots');
+                let index = 0;
+                let autoplayInterval;
 
-            const slides = Array.from(container.querySelectorAll('.carousel-slide'));
-            const prev = container.querySelector('.prev');
-            const next = container.querySelector('.next');
-            const dotsContainer = container.querySelector('.carousel-dots');
-            let index = 0;
+                // Asegurarse de que al menos un slide esté activo
+                if (slides.length > 0) {
+                    // Ocultar todos los slides primero
+                    slides.forEach(slide => {
+                        slide.style.display = 'none';
+                    });
+                    // Mostrar el primer slide
+                    slides[0].style.display = 'block';
+                    slides[0].classList.add('active');
+                }
 
-            // Asegurarse de que al menos un slide esté activo
-            if (slides.length > 0 && !slides.some(slide => slide.classList.contains('active'))) {
-                slides[0].classList.add('active');
-            }
-
-            // Inicializar puntos de navegación
-            if (dotsContainer) {
-                // Limpiar puntos existentes
-                dotsContainer.innerHTML = '';
-                
-                // Crear nuevos puntos
-                slides.forEach((_, i) => {
-                    const dot = document.createElement('button');
-                    dot.className = 'dot';
-                    if (i === 0) dot.classList.add('active');
-                    dot.onclick = () => moveTo(i);
-                    dotsContainer.appendChild(dot);
-                });
-
-                const dots = dotsContainer.querySelectorAll('.dot');
-
+                // Función para actualizar el carrusel
                 const updateCarousel = () => {
-                    // Actualizar la clase active en los slides
-                    slides.forEach((slide, i) => {
-                        slide.classList.toggle('active', i === index);
+                    // Ocultar todos los slides
+                    slides.forEach(slide => {
+                        slide.style.display = 'none';
+                        slide.classList.remove('active');
                     });
                     
+                    // Mostrar el slide actual
+                    slides[index].style.display = 'block';
+                    slides[index].classList.add('active');
+                    
                     // Actualizar los puntos de navegación
-                    dots.forEach((dot, i) => {
-                        dot.classList.toggle('active', i === index);
-                    });
+                    if (dotsContainer) {
+                        const dots = dotsContainer.querySelectorAll('.dot');
+                        dots.forEach((dot, i) => {
+                            dot.classList.toggle('active', i === index);
+                        });
+                    }
                 };
 
+                // Función para mover al slide específico
                 const moveTo = (i) => {
                     index = (i + slides.length) % slides.length; // Asegurar que el índice esté dentro de los límites
                     updateCarousel();
                 };
+
+                // Inicializar puntos de navegación
+                if (dotsContainer) {
+                    // Limpiar puntos existentes
+                    dotsContainer.innerHTML = '';
+                    
+                    // Crear nuevos puntos
+                    slides.forEach((_, i) => {
+                        const dot = document.createElement('button');
+                        dot.className = 'dot';
+                        if (i === 0) dot.classList.add('active');
+                        dot.onclick = () => moveTo(i);
+                        dotsContainer.appendChild(dot);
+                    });
+                }
 
                 // Event listeners para los botones
                 if (next) next.onclick = () => moveTo(index + 1);
@@ -672,7 +511,25 @@ El resultado es una versión más clara, rápida y escalable, que sigo mejorando
 
                 // Inicializar el carrusel
                 updateCarousel();
-            }
+
+                // Autoplay
+                const startAutoplay = () => {
+                    autoplayInterval = setInterval(() => {
+                        moveTo((index + 1) % slides.length);
+                    }, 5000);
+                };
+
+                // Pausar autoplay al hacer hover
+                carousel.addEventListener('mouseenter', () => {
+                    if (autoplayInterval) clearInterval(autoplayInterval);
+                });
+
+                // Reanudar autoplay al salir del hover
+                carousel.addEventListener('mouseleave', startAutoplay);
+
+                // Iniciar autoplay
+                startAutoplay();
+            });
         }
     </script>
 </body>

@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación Técnica y Automatización</title>
+    
+    <!-- Fuentes e iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Estilos generales del portfolio -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/project.css">
+    <link rel="stylesheet" href="../css/projects-common.css">
+</head>
+
+<body class="project-documentacion">
+    <div class="grid-background"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="../index.html" class="logo-text">GAM</a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#home" class="nav-link">Inicio</a></li>
+                    <li><a href="../index.html#about" class="nav-link">Sobre mí</a></li>
+                    <li><a href="../index.html#projects" class="nav-link">Proyectos</a></li>
+                    <li><a href="../index.html#skills" class="nav-link">Habilidades</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contacto</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-header">
+                <h1 class="project-title">Documentación Técnica y Automatización</h1>
+                <p class="project-subtitle" id="animated-subtitle">
+                    <span class="typing-text">Diseño, análisis y documentación de soluciones reales basadas en automatización</span>
+                </p>
+                <div class="project-hero-image">
+                    <img src="../assets/img/projects/documentacion/00-portada.png" alt="Documentación Técnica y Automatización" class="no-popup">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <section class="project-section active">
+        <div class="project-container">
+
+    <!-- ================= RESUMEN ================= -->
+    <p class="project-summary">
+        Este proyecto reúne la documentación técnica de distintas soluciones reales de automatización
+        desarrolladas en contextos diferentes, aplicando una metodología común de análisis, diseño
+        e implementación.
+    </p>
+
+    <p>
+        El objetivo no es solo mostrar el resultado final, sino explicar el proceso completo:
+        desde la detección del problema hasta la solución técnica, facilitando la comprensión,
+        el mantenimiento y la escalabilidad de cada sistema.
+    </p>
+
+    <p>
+        La documentación está pensada tanto para perfiles técnicos como no técnicos, priorizando
+        la claridad, la estructura y la trazabilidad de cada flujo.
+    </p>
+
+    </div>
+</section>
+
+<!-- METODOLOGÍA -->
+<section class="project-section reveal">
+    <div class="project-container">
+        <h2 class="section-title">Metodología de Trabajo</h2>
+
+        <ul class="project-list">
+            <li>Análisis del problema y contexto del proyecto</li>
+            <li>Definición de objetivos y alcance (MVP)</li>
+            <li>Diseño del flujo de automatización</li>
+            <li>Implementación técnica y validación</li>
+            <li>Gestión de errores y casos límite</li>
+            <li>Documentación final para mantenimiento y escalado</li>
+        </ul>
+
+        <p>
+            Esta metodología se aplica de forma consistente independientemente de la herramienta utilizada
+            (n8n, Make, integraciones con IA, APIs externas, etc.).
+        </p>
+    </div>
+</section>
+
+<!-- CASO PRINCIPAL -->
+<section class="project-section reveal">
+    <div class="project-container">
+        <h2 class="section-title">Caso Principal · Yugidex</h2>
+
+        <div class="accordion-container">
+            <!-- Bloque 1: Explicación y Origen -->
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h3 class="accordion-title">
+                        <i class="fas fa-chevron-right accordion-icon"></i>
+                        Bloque 1: Explicación y Origen
+                    </h3>
+                </div>
+                <div class="accordion-content">
+                    <div class="case-content">
+                        <h4>Origen del proyecto</h4>
+                        <div class="content-with-image">
+                            <div class="text-content">
+                                <p>
+                                    Yugidex nace a partir de una necesidad real dentro del mundo del coleccionismo de cartas.
+                                    Tras una conversación con un amigo, se detectó un problema común: la mayoría de aplicaciones existentes ofrecen catálogos completos de cartas, pero no están enfocadas en responder a una pregunta clave para coleccionistas y tiendas:
+                                </p>
+                                <blockquote>
+                                    "¿Qué cartas tengo exactamente en mi colección?"
+                                </blockquote>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="../assets/img/projects/documentacion/02-yugioh-cards.webp" alt="Colección de cartas">
+                                <p class="image-caption">Problema del coleccionista</p>
+                            </div>
+                        </div>
+                        <p>
+                            Las soluciones actuales obligan al usuario a crear decks manualmente o a consultar bases de datos oficiales, lo que resulta poco práctico cuando se trabaja con grandes volúmenes de cartas.
+                            La introducción manual de datos es viable para unas pocas cartas, pero se vuelve inviable cuando se trata de cientos o miles, llegando incluso a colecciones de decenas de miles de unidades.
+                        </p>
+                        <p>
+                            Yugidex surge como respuesta a esa necesidad: catalogar cartas de forma rápida, eficiente y sin fricción, eliminando la carga del trabajo manual.
+                        </p>
+
+                        <h4>Usuario objetivo</h4>
+                        <p>
+                            Yugidex está orientado principalmente a:
+                        </p>
+                        <div class="target-users">
+                            <div class="user-type">
+                                <h5>Coleccionistas</h5>
+                                <p>Que necesitan tener un control claro y real de su colección.</p>
+                            </div>
+                            <div class="user-type">
+                                <h5>Tenderos</h5>
+                                <p>Que requieren gestionar inventarios de cartas de forma rápida y fiable.</p>
+                            </div>
+                        </div>
+                        <p>
+                            La aplicación está diseñada como una solución escalable, pensada para crecer y evolucionar con nuevas funcionalidades.
+                            Actualmente se encuentra en fase MVP completamente funcional, con múltiples mejoras planificadas a corto y medio plazo.
+                        </p>
+
+                        <h4>Estado actual del proyecto</h4>
+                        <p>
+                            En su estado actual, Yugidex permite:
+                        </p>
+                        <ul class="features-list">
+                            <li>Escanear cartas físicas mediante la cámara del dispositivo.</li>
+                            <li>Identificar automáticamente cada carta.</li>
+                            <li>Almacenar las cartas en una base de datos propia del usuario.</li>
+                            <li>Consultar y gestionar la colección (visualización y eliminación).</li>
+                            <li>Crear y editar decks personalizados.</li>
+                        </ul>
+                        <p>
+                            Todo el flujo está optimizado para reducir al mínimo la intervención manual del usuario.
+                        </p>
+
+                        <h4>Propuesta de valor</h4>
+                        <p>
+                            El principal valor de Yugidex es el ahorro masivo de tiempo.
+                        </p>
+                        <div class="value-points">
+                            <div class="value-point">
+                                <h5>Datos automáticos</h5>
+                                <p>Los datos de las cartas se obtienen automáticamente desde una API externa.</p>
+                            </div>
+                            <div class="value-point">
+                                <h5>Sin intervención manual</h5>
+                                <p>El usuario no introduce información manualmente.</p>
+                            </div>
+                            <div class="value-point">
+                                <h5>Sistema retroalimentado</h5>
+                                <p>La base de datos no parte de un catálogo cerrado, sino que crece en función de las cartas reales de los usuarios.</p>
+                            </div>
+                        </div>
+                        
+                        <p>
+                            Este enfoque evita:
+                        </p>
+                        <ul class="avoidance-list">
+                            <li>Mantener bases de datos gigantescas desde el inicio.</li>
+                            <li>Duplicar información innecesaria.</li>
+                            <li>Invertir tiempo en tareas repetitivas.</li>
+                        </ul>
+                        
+                        <p>
+                            En la práctica, el tiempo necesario para introducir una carta manualmente equivale al tiempo que Yugidex necesita para catalogar decenas o cientos mediante escaneo, lo que marca una diferencia crítica en proyectos de gran escala.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bloque 2: Arquitectura del Sistema -->
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h3 class="accordion-title">
+                        <i class="fas fa-chevron-right accordion-icon"></i>
+                        Bloque 2: Arquitectura del Sistema
+                    </h3>
+                </div>
+                <div class="accordion-content">
+                    <div class="case-content">
+                        <h4>Visión general</h4>
+                        <div class="content-with-image">
+                            <div class="text-content">
+                                <p>
+                                    Yugidex está construido sobre una arquitectura distribuida, donde cada componente cumple una función clara y especializada, permitiendo escalar el sistema y mantenerlo fácilmente a largo plazo.
+                                </p>
+                                
+                                <p>
+                                    El sistema se compone de cuatro piezas principales:
+                                </p>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="../assets/img/projects/documentacion/03_Esquema Interfaz Gráfica_MVP_png.png" alt="Arquitectura del sistema">
+                                <p class="image-caption">Diagrama de arquitectura</p>
+                            </div>
+                        </div>
+
+                        <h4>Aplicación móvil</h4>
+                        <p>
+                            La app móvil es el punto de entrada principal del usuario. Desde ella se gestiona todo el flujo relacionado con el escaneo y la interacción directa con la colección:
+                        </p>
+                        <ul class="features-list">
+                            <li>Escaneo de cartas mediante OCR.</li>
+                            <li>Extracción y envío de los códigos identificados.</li>
+                            <li>Consulta de los datos almacenados.</li>
+                            <li>Gestión de la colección personal (visualización, eliminación).</li>
+                            <li>Creación y edición de decks.</li>
+                        </ul>
+                        <p>
+                            La aplicación no almacena datos complejos ni lógica pesada, sino que actúa como interfaz y orquestador de acciones, delegando los procesos intensivos al backend.
+                        </p>
+
+                        <h4>Aplicación web (CRM)</h4>
+                        <p>
+                            La versión web funciona como un CRM de gestión, compartiendo la misma base de datos que la app móvil pero sin funcionalidades de escaneo.
+                        </p>
+                        <p>
+                            Desde el CRM se permite:
+                        </p>
+                        <ul class="features-list">
+                            <li>Gestión completa de cartas y decks.</li>
+                            <li>Visualización y edición de datos almacenados en Supabase.</li>
+                            <li>Análisis de la colección (cantidad de cartas, distribución, etc.).</li>
+                        </ul>
+                        <p>
+                            Esto permite separar claramente el uso móvil (captura y consulta rápida) del uso web (gestión y análisis).
+                        </p>
+
+                        <h4>Automatizaciones con n8n</h4>
+                        <div class="content-with-image">
+                            <div class="text-content">
+                                <p>
+                                    n8n actúa como el núcleo lógico del sistema. Es el encargado de:
+                                </p>
+                                <ul class="features-list">
+                                    <li>Recibir los códigos de cartas escaneadas desde la app.</li>
+                                    <li>Comprobar si la carta ya existe en la base de datos.</li>
+                                    <li>Consultar la API de Yugipedia cuando es necesario.</li>
+                                    <li>Normalizar, validar y almacenar los datos.</li>
+                                    <li>Garantizar la coherencia y actualización progresiva de la base de datos.</li>
+                                </ul>
+                                <p>
+                                    Toda la lógica de validación, enriquecimiento de datos y control de duplicados reside aquí, manteniendo las aplicaciones ligeras y desacopladas.
+                                </p>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="../assets/img/projects/yugidex_n8n/01_yugidex_n8n-flujo-nuevo.png" alt="Workflow n8n">
+                                <p class="image-caption">Flujo de automatización n8n</p>
+                            </div>
+                        </div>
+
+                        <h4>Base de datos y servicios externos</h4>
+                        <div class="value-points">
+                            <div class="value-point">
+                                <h5>Supabase</h5>
+                                <p>Se utiliza como base de datos central, almacenando cartas, usuarios, colecciones y decks.</p>
+                            </div>
+                            <div class="value-point">
+                                <h5>API de Yugipedia</h5>
+                                <p>Se emplea como fuente externa de información para obtener los datos oficiales de cada carta cuando aún no existen en el sistema.</p>
+                            </div>
+                        </div>
+                        <p>
+                            Este enfoque permite que la base de datos crezca de forma orgánica, alimentada por el uso real de los usuarios, evitando mantener catálogos completos innecesariamente grandes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bloque 3: Flujo de Funcionamiento del Sistema -->
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h3 class="accordion-title">
+                        <i class="fas fa-chevron-right accordion-icon"></i>
+                        Bloque 3: Flujo de Funcionamiento (End-to-End)
+                    </h3>
+                </div>
+                <div class="accordion-content">
+                    <div class="case-content">
+                        <h4>Visión general del flujo</h4>
+                        <p>
+                            El flujo completo de Yugidex está diseñado para que el usuario pueda catalogar grandes volúmenes de cartas de forma rápida y sin intervención manual.
+                        </p>
+
+                        <h4>1. Escaneo desde la app móvil</h4>
+                        <div class="content-with-image">
+                            <div class="text-content">
+                                <p>
+                                    El usuario inicia el proceso desde la aplicación móvil escaneando una o varias cartas.
+                                    Durante este proceso:
+                                </p>
+                                <ul class="features-list">
+                                    <li>Se detecta el código único de cada carta mediante OCR.</li>
+                                    <li>Se valida el formato del código.</li>
+                                    <li>Se agrupan los códigos escaneados.</li>
+                                </ul>
+                                <p>
+                                    Una vez finalizado el escaneo, la app muestra una pantalla de progreso mientras se envían los datos.
+                                </p>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="../assets/img/projects/documentacion/04_pantalla-escaner_png.PNG" alt="Escaneo de cartas">
+                                <p class="image-caption">Proceso de escaneo OCR</p>
+                            </div>
+                        </div>
+
+                        <h4>2. Envío de datos a n8n</h4>
+                        <p>
+                            Los códigos detectados se envían a un workflow de n8n mediante un webhook.
+                        </p>
+                        <p>
+                            A partir de aquí:
+                        </p>
+                        <ul class="features-list">
+                            <li>La app queda a la espera.</li>
+                            <li>Todo el procesamiento se traslada al backend.</li>
+                        </ul>
+
+                        <h4>3. Procesamiento y validación en n8n</h4>
+                        <div class="content-with-image">
+                            <div class="text-content">
+                                <p>
+                                    n8n recibe los códigos y ejecuta una serie de pasos automatizados:
+                                </p>
+                                <ul class="features-list">
+                                    <li>Comprobación de existencia de la carta en Supabase.</li>
+                                    <li>Si no existe, consulta a la API de Yugipedia.</li>
+                                    <li>Normalización de datos (nombre, atributos, imagen, estadísticas).</li>
+                                    <li>Inserción o actualización en la base de datos.</li>
+                                    <li>Asociación de la carta al usuario correspondiente.</li>
+                                </ul>
+                                <p>
+                                    Este sistema evita duplicados y mantiene los datos coherentes.
+                                </p>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="../assets/img/projects/yugidex_n8n/05_yugidex_n8n-postgresql.png" alt="Procesamiento de datos">
+                                <p class="image-caption">Validación y normalización de datos</p>
+                            </div>
+                        </div>
+
+                        <h4>4. Respuesta y sincronización</h4>
+                        <p>
+                            Una vez terminado el proceso:
+                        </p>
+                        <ul class="features-list">
+                            <li>n8n devuelve la confirmación.</li>
+                            <li>La app consulta Supabase.</li>
+                            <li>Se muestran inmediatamente las cartas añadidas al usuario.</li>
+                        </ul>
+                        <p>
+                            Todo el proceso ocurre sin que el usuario tenga que introducir ningún dato manualmente.
+                        </p>
+
+                        <h4>5. Gestión posterior</h4>
+                        <p>
+                            A partir de ese momento, el usuario puede:
+                        </p>
+                        <ul class="features-list">
+                            <li>Consultar su colección.</li>
+                            <li>Eliminar cartas.</li>
+                            <li>Crear y editar decks.</li>
+                            <li>Analizar su inventario.</li>
+                        </ul>
+                        <p>
+                            La aplicación web ofrece las mismas capacidades de gestión, enfocadas a uso administrativo y análisis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bloque 4: Referencias y Anexos -->
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h3 class="accordion-title">
+                        <i class="fas fa-chevron-right accordion-icon"></i>
+                        Bloque 4: Referencias y Anexos
+                    </h3>
+                </div>
+                <div class="accordion-content">
+                    <div class="case-content">
+                        <h4>Documentación del proyecto</h4>
+                        <p>
+                            Accede a la documentación técnica completa del proyecto Yugidex, donde encontrarás todos los detalles sobre la implementación, arquitectura y flujos de automatización.
+                        </p>
+                        <div class="download-section">
+                            <a href="../assets/docus/Documentacion-Yugidex-GAM.pdf" target="_blank" class="btn btn-primary download-btn">
+                                <i class="fas fa-file-pdf"></i>
+                                Descargar Documentación Completa
+                            </a>
+                        </div>
+
+                        <h4>Tecnologías y Frameworks</h4>
+                        <div class="references-grid">
+                            <div class="reference-category">
+                                <h5>Frontend y Desarrollo Móvil</h5>
+                                <ul class="references-list">
+                                    <li><a href="https://docs.flutter.dev" target="_blank" rel="noopener">Flutter Documentation</a></li>
+                                    <li><a href="https://nextjs.org/docs" target="_blank" rel="noopener">Next.js Documentation</a></li>
+                                    <li><a href="https://react.dev" target="_blank" rel="noopener">React Documentation</a></li>
+                                    <li><a href="https://tailwindcss.com/docs" target="_blank" rel="noopener">Tailwind CSS Documentation</a></li>
+                                    <li><a href="https://www.radix-ui.com/docs" target="_blank" rel="noopener">Radix UI Components</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="reference-category">
+                                <h5>Backend y Base de Datos</h5>
+                                <ul class="references-list">
+                                    <li><a href="https://supabase.com/docs" target="_blank" rel="noopener">Supabase Documentation</a></li>
+                                    <li><a href="https://docs.n8n.io" target="_blank" rel="noopener">n8n Workflow Automation</a></li>
+                                    <li><a href="https://yugipedia.com/api.php" target="_blank" rel="noopener">Yugipedia API</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="reference-category">
+                                <h5>APIs y Servicios</h5>
+                                <ul class="references-list">
+                                    <li><a href="https://developers.google.com/ml-kit/vision/text-recognition" target="_blank" rel="noopener">Google ML Kit - Text Recognition</a></li>
+                                    <li><a href="https://fonts.google.com/specimen/Poppins" target="_blank" rel="noopener">Google Fonts - Poppins</a></li>
+                                    <li><a href="https://fonts.google.com/icons" target="_blank" rel="noopener">Google Fonts - Material Icons</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="reference-category">
+                                <h5>Repositorios y Despliegues</h5>
+                                <ul class="references-list">
+                                    <li><a href="https://github.com/GAM-Sama/Yugidex_Flutter.git" target="_blank" rel="noopener">Yugidex Móvil (GitHub)</a></li>
+                                    <li><a href="https://github.com/GAM-Sama/Yugidex-CRM.git" target="_blank" rel="noopener">Yugidex CRM Web (GitHub)</a></li>
+                                    <li><a href="https://yugidex-crm.vercel.app" target="_blank" rel="noopener">Yugidex CRM Web (Vercel)</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GALERÍA / DOCUMENTOS -->
+        <div class="gallery-grid">
+            <!-- Imagen o PDF -->
+            <div class="gallery-item">
+                <img src="../assets/img/projects/documentacion/yugidex_diagrama.png" alt="Diagrama Yugidex">
+                <p class="gallery-caption">Diagrama general del flujo de automatización</p>
+            </div>
+
+            <div class="gallery-item">
+                <img src="../assets/img/projects/documentacion/yugidex_detalle.png" alt="Detalle Yugidex">
+                <p class="gallery-caption">Detalle de nodos y validaciones</p>
+            </div>
+
+            <!-- PDF -->
+            <div class="gallery-item">
+                <a href="../assets/docs/Proyecto_Final_n8n_Gonzalo_AM.pdf" target="_blank" class="btn btn-secondary">
+                    Ver documentación completa (PDF)
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CASOS ADICIONALES -->
+<section class="project-section reveal">
+    <div class="project-container">
+        <h2 class="section-title">Casos Adicionales Documentados</h2>
+
+        <!-- MAKE -->
+        <div class="case-block">
+            <h3>Gestión de Pedidos · Make</h3>
+            <p>
+                Automatización orientada a la gestión de pedidos, sincronización de datos
+                y notificaciones automáticas entre distintas plataformas.
+            </p>
+            <p>
+                Documentación centrada en el flujo, la lógica de control y la prevención
+                de errores en producción.
+            </p>
+
+            <a href="../assets/docs/Proyecto_Final_Make_Gonzalo_AM.pdf" target="_blank" class="btn btn-secondary">
+                Ver documentación (PDF)
+            </a>
+        </div>
+
+        <!-- SPOT PUBLICITARIO -->
+        <div class="case-block">
+            <h3>Spot Publicitario · IA Generativa</h3>
+            <p>
+                Proyecto de creación de contenido publicitario utilizando inteligencia artificial generativa,
+                enfocado en la producción automatizada de spots y material audiovisual.
+            </p>
+            <p>
+                Documentación completa del flujo creativo, prompts de IA y optimización de resultados
+                para producción masiva de contenido publicitario.
+            </p>
+
+            <a href="../assets/docus/Spot Publicitario_Master IA Generativa_Gonzalo.pdf" target="_blank" class="btn btn-secondary">
+                Ver documentación (PDF)
+            </a>
+        </div>
+
+        
+        
+        <!-- YUGIDEX V1 -->
+        <div class="case-block">
+            <h3>Yugidex · Primera Versión</h3>
+            <p>
+                Documentación completa de la primera versión del sistema Yugidex,
+                incluyendo arquitectura inicial, flujos de automatización y
+                estrategias de implementación.
+            </p>
+            <p>
+                La documentación detalla el diseño del sistema, configuración de n8n,
+                integración con PostgreSQL y los fundamentos del escaneo de cartas.
+            </p>
+
+            <a href="../assets/docus/Proyecto Final n8n_Gonzalo A.M..pdf" target="_blank" class="btn btn-secondary">
+                Ver documentación (PDF)
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CONCLUSIÓN -->
+<section class="project-section reveal">
+    <div class="project-container">
+        <h2 class="section-title">Conclusión</h2>
+
+        <p>
+            Este proyecto refleja una forma de trabajar orientada a la claridad técnica,
+            la reutilización de soluciones y la creación de sistemas mantenibles en el tiempo.
+        </p>
+
+        <p>
+            La documentación no se entiende como un añadido, sino como una parte esencial
+            del desarrollo de cualquier automatización real.
+        </p>
+
+        <p>
+            Gracias a esta metodología, es posible abordar proyectos de distinta complejidad
+            manteniendo siempre una base sólida y escalable.
+        </p>
+    </div>
+</section>
+
+                <!-- Enlaces -->
+    <section class="project-section reveal">
+        <div class="project-container">
+            <div class="project-links">
+                <a href="../index.html#projects" class="btn btn-primary">
+                    <i class="fas fa-arrow-left"></i> Volver a Proyectos
+                </a>
+                <a href="../index.html#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Contactar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" style="background-color: #0a0a0a; padding: 4rem 0 2rem; margin-top: 4rem;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="footer-content" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <div class="footer-links" style="margin-bottom: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;">
+                    <a href="../index.html#home" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Inicio</a>
+                    <a href="../index.html#about" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Sobre Mí</a>
+                    <a href="../index.html#projects" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Proyectos</a>
+                    <a href="../index.html#skills" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Habilidades</a>
+                    <a href="../index.html#contact" class="footer-link" style="color: #a1a1aa; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; position: relative;">Contacto</a>
+                </div>
+                <div class="footer-social" style="display: flex; gap: 1.5rem; margin-bottom: 2rem;">
+                    <a href="https://www.linkedin.com/in/gonzalo-arribas-montenegro-a963378a/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" style="color: #a1a1aa; font-size: 1.25rem; transition: all 0.3s ease; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.05);">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/GAM-Sama" class="social-icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer" style="color: #a1a1aa; font-size: 1.25rem; transition: all 0.3s ease; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.05);">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://x.com/GAM_Ai_Sama" class="social-icon" aria-label="Twitter" target="_blank" rel="noopener noreferrer" style="color: #a1a1aa; font-size: 1.25rem; transition: all 0.3s ease; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.05);">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom" style="padding-top: 2rem; border-top: 1px solid #2a2a3e; text-align: center;">
+                <p style="color: #71717a; font-size: 0.9rem; margin: 0;">&copy; 2025 GAM. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (navToggle) {
+                navToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                });
+            }
+            
+            // Cerrar menú al hacer clic en un enlace
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                });
+            });
+        });
+
+        // Accordion toggle function
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            const content = item.querySelector('.accordion-content');
+            const icon = header.querySelector('.accordion-icon');
+            const allItems = document.querySelectorAll('.accordion-item');
+            
+            // Close all other items
+            allItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                    const otherContent = otherItem.querySelector('.accordion-content');
+                    const otherIcon = otherItem.querySelector('.accordion-icon');
+                    otherContent.style.maxHeight = null;
+                    otherIcon.style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle current item
+            if (item.classList.contains('active')) {
+                item.classList.remove('active');
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                item.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.style.transform = 'rotate(90deg)';
+            }
+        }
+
+        // Image Modal functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const closeBtn = document.getElementsByClassName('image-modal-close')[0];
+            
+            // Add click event to all placeholder images
+            const placeholderImages = document.querySelectorAll('.image-placeholder img');
+            placeholderImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    modal.style.display = 'block';
+                    modalImg.src = this.src;
+                    modalImg.alt = this.alt;
+                });
+            });
+            
+            // Close modal when clicking the X
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            // Close modal when clicking outside the image
+            modal.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            // Close modal with ESC key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && modal.style.display === 'block') {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+
+        // Efecto de escritura para el subtítulo
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.textContent = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
+
+        // Inicializar el efecto de escritura
+        const subtitleElement = document.querySelector('.typing-text');
+        if (subtitleElement) {
+            const text = subtitleElement.textContent;
+            subtitleElement.textContent = '';
+            setTimeout(() => {
+                typeWriter(subtitleElement, text, 30);
+            }, 1000);
+        }
+    </script>
+<!-- Image Modal -->
+<div id="imageModal" class="image-modal">
+    <span class="image-modal-close">&times;</span>
+    <img class="image-modal-content" id="modalImage">
+</div>
+
+</body>
+</html>
